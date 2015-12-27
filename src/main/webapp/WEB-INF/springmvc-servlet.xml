@@ -1,0 +1,54 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/mvc
+http://www.springframework.org/schema/mvc/spring-mvc.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/jdbc
+http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
+
+
+	<context:component-scan base-package="se.brightstep.demowebapp" />
+
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix">
+			<value>/WEB-INF/views/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+	</bean>
+	
+	<!-- Service Layer -->
+	<bean name="exampleService" class="se.brightstep.demowebapp.service.impl.DefaultExampleService">
+		<property name="exampleDAO" ref="exampleDAO"/>
+	</bean>
+	
+	<bean name="productService" class="se.brightstep.demowebapp.service.impl.DefaultProductService">
+		<property name="productDAO" ref="productDAO"/>
+	</bean>
+	
+	<!-- DAO / Persistence Layer -->
+	<bean name="exampleDAO" class="se.brightstep.demowebapp.dao.impl.DefaultExampleDAO">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+		
+	<bean name="productDAO" class="se.brightstep.demowebapp.dao.impl.DefaultProductDAO">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	
+	
+	
+	
+	
+	<!-- Embedded Database Configuration -->
+	<jdbc:embedded-database id="dataSource" type="HSQL">
+	    <jdbc:script location="classpath:/schema.sql" />
+	</jdbc:embedded-database>    
+</beans>
