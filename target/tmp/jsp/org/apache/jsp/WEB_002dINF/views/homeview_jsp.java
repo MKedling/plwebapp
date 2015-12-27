@@ -11,10 +11,20 @@ public final class homeview_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   private static java.util.List<String> _jspx_dependants;
 
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_url_value_nobody;
+
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
   public java.util.List<String> getDependants() {
     return _jspx_dependants;
+  }
+
+  public void _jspInit() {
+    _jspx_tagPool_c_url_value_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+  }
+
+  public void _jspDestroy() {
+    _jspx_tagPool_c_url_value_nobody.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -41,6 +51,34 @@ public final class homeview_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write("<!DOCTYPE html>\r\n");
+      out.write("\r\n");
+      out.write("<head>\r\n");
+      out.write("<link href=\"");
+      if (_jspx_meth_c_url_0(_jspx_page_context))
+        return;
+      out.write("\" rel=\"stylesheet\">\r\n");
+      out.write("\r\n");
+      out.write("</head>\r\n");
+      out.write("<body>\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\t\r\n");
+      out.write("<div class=\"login\">\r\n");
+      out.write("\t<h2>Login</h2>\r\n");
+      out.write("\t<label for=\"username\">Användarnamn</label>\r\n");
+      out.write("\t<input id=\"username\" type=\"text\"/>\r\n");
+      out.write("\t\r\n");
+      out.write("\t<label>Lösenord</label>\r\n");
+      out.write("\t<input id=\"password\" type=\"password\">\r\n");
+      out.write("\t\r\n");
+      out.write("</div>\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\t\r\n");
+      out.write("</body>\r\n");
+      out.write("</html>");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
@@ -52,5 +90,23 @@ public final class homeview_jsp extends org.apache.jasper.runtime.HttpJspBase
     } finally {
       _jspxFactory.releasePageContext(_jspx_page_context);
     }
+  }
+
+  private boolean _jspx_meth_c_url_0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:url
+    org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_url_0 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _jspx_tagPool_c_url_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
+    _jspx_th_c_url_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_url_0.setParent(null);
+    _jspx_th_c_url_0.setValue("/resources/css/main.css");
+    int _jspx_eval_c_url_0 = _jspx_th_c_url_0.doStartTag();
+    if (_jspx_th_c_url_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_url_value_nobody.reuse(_jspx_th_c_url_0);
+      return true;
+    }
+    _jspx_tagPool_c_url_value_nobody.reuse(_jspx_th_c_url_0);
+    return false;
   }
 }

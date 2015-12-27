@@ -19,8 +19,7 @@ public class HomepageController {
 	public ModelAndView handleRequest()
 	{
 		final ModelAndView mav = new ModelAndView("homeview");//return example.jsp view
-		
-		mav.addObject("products", "sdadad");
+	
 		
 		return mav;
 	}
