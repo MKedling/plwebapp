@@ -1,3 +1,8 @@
+CREATE TABLE users (id INTEGER PRIMARY KEY, username VARCHAR(255), password VARCHAR(255));
+
+INSERT INTO users (id,username,password) VALUES(1,'kalle', 'psw');
+
+
 CREATE TABLE sampledata (id INTEGER PRIMARY KEY, sampledata VARCHAR(255));
 
 INSERT INTO sampledata (id,sampledata) VALUES(1,'world');
