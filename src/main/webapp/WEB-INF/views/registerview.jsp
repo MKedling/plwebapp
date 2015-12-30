@@ -6,29 +6,20 @@
 </head>
 <body>
 
-
-	
-<div class="login">
-	<h2>Login</h2>
-	<form method="post" action="/demowebapp/plapp/login/">
+<div>
+	<form method="post" action="/demowebapp/plapp/register">
 		<label for="username">Användarnamn</label>
 		<input id="username" name="username" type="text"/>
 		
 		<label>Lösenord</label>
 		<input id="password" name="password" type="password">
 		
+		<label>Email</label>
+		<input id="email" name="email" type="email">
+		
 		<input type="submit" value="logga in">
 	</form>
-	
-	<form method="get" action="/demowebapp/plapp/register">
-		<input type="submit" value="skapa konto">
-	</form>
-	
 </div>
-
-
-
-
 	
 </body>
 </html>

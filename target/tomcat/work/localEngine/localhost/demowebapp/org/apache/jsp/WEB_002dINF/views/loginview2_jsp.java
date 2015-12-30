@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class loginview_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class loginview2_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -69,7 +69,7 @@ public final class loginview_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\r\n");
       out.write("<div class=\"login\">\r\n");
       out.write("\t<h2>Login</h2>\r\n");
-      out.write("\t<form method=\"post\" action=\"/demowebapp/plapp/login/\">\r\n");
+      out.write("\t<form method=\"post\" action=\"/demowebapp/plapp/login\">\r\n");
       out.write("\t\t<label for=\"username\">Användarnamn</label>\r\n");
       out.write("\t\t<input id=\"username\" name=\"username\" type=\"text\"/>\r\n");
       out.write("\t\t\r\n");
@@ -79,12 +79,14 @@ public final class loginview_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t<input type=\"submit\" value=\"logga in\">\r\n");
       out.write("\t</form>\r\n");
       out.write("\t\r\n");
-      out.write("\t<form method=\"get\" action=\"/demowebapp/plapp/register\">\r\n");
-      out.write("\t\t<input type=\"submit\" value=\"skapa konto\">\r\n");
+      out.write("\t\r\n");
+      out.write("\t<form method=\"GET\" action=\"/demowebapp/plapp/register\">\r\n");
+      out.write("\t\t<button type=\"submit\" id=\"register\">skapa konto</button>\r\n");
       out.write("\t</form>\r\n");
       out.write("\t\r\n");
+      out.write("\t\r\n");
+      out.write("\t\r\n");
       out.write("</div>\r\n");
-      out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
@@ -111,7 +113,7 @@ public final class loginview_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_005furl_005f0 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
     _jspx_th_c_005furl_005f0.setPageContext(_jspx_page_context);
     _jspx_th_c_005furl_005f0.setParent(null);
-    // /WEB-INF/views/loginview.jsp(4,12) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/views/loginview2.jsp(4,12) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005furl_005f0.setValue("/resources/css/main.css");
     int _jspx_eval_c_005furl_005f0 = _jspx_th_c_005furl_005f0.doStartTag();
     if (_jspx_th_c_005furl_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {

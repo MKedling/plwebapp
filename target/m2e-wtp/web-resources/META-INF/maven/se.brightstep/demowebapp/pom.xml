@@ -41,6 +41,12 @@
 			<version>1.2</version>
 		</dependency>
 		
+		<dependency>
+			<groupId>org.nd4j</groupId>
+			<artifactId>nd4j-jdbc-mysql</artifactId>
+			<version>0.4-rc3.7</version>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<plugins>

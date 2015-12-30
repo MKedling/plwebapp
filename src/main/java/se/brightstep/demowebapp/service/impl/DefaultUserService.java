@@ -20,4 +20,9 @@ public class DefaultUserService implements UserService{
 		this.userDAO = userDAO;
 	}
 
+	public boolean createUser(String username, String password, String email) {
+		
+		return userDAO.createUser(username, password, email);
+	}
+
 }

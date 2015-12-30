@@ -1,6 +1,6 @@
-CREATE TABLE users (id INTEGER PRIMARY KEY, username VARCHAR(255), password VARCHAR(255));
+CREATE TABLE users (id INTEGER GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1) PRIMARY KEY, username VARCHAR(255), password VARCHAR(255), email VARCHAR(255));
 
-INSERT INTO users (id,username,password) VALUES(1,'kalle', 'psw');
+INSERT INTO users (id,username,password,email) VALUES(1,'kalle', 'psw', 'kalle@hej');
 
 
 CREATE TABLE sampledata (id INTEGER PRIMARY KEY, sampledata VARCHAR(255));

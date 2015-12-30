@@ -20,28 +20,55 @@ public class LoginController {
 	private UserService userService;
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public ModelAndView handleRequest()
+	public ModelAndView login()
 	{
-		final ModelAndView mav = new ModelAndView("loginview");//return example.jsp view
-	
-		
-		return mav;
+		return new ModelAndView("loginview");
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public ModelAndView handleRequest(@RequestParam String username, 
+	public ModelAndView login(@RequestParam String username, 
 										@RequestParam String password)
 	{
 		
-		System.out.println(userService.login(username, password));
-		
-		if(!(username.equals("") || password.equals(""))){
-			return new ModelAndView("startview");
+	
+		if((username.equals("") || password.equals(""))){
+			return new ModelAndView("loginview");
 		}
 		
+		if(userService.login(username, password)){
+			return new ModelAndView("homeview");
+		}
 		
 		return new ModelAndView("loginview");
 	}
+	
+	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	public ModelAndView regiter()
+	{
+		return new ModelAndView("registerview");
+	}
+	
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	public ModelAndView register(@RequestParam String username, 
+										@RequestParam String password,
+										@RequestParam String email)
+	{
+		
+		if((username.equals("") || password.equals("") || email.equals("")) || userService.login(username, password)){
+			return new ModelAndView("loginview");
+			//Kanske skicka med nån parameter som viasr att registreringen inte blev av
+		}
+		
+		createUser(username, password, email);
+		
+		return new ModelAndView("startview");
+	}
+	
+	private boolean createUser(String username, String password, String email){
+		
+		return userService.createUser(username, password, email);
+	}
+	
 	
 	
 }
