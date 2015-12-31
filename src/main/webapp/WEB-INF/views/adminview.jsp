@@ -6,20 +6,15 @@
 </head>
 <body>
 
+ADMINVIEW
+
 <div>
+
+
 	${userSession.user.username}
+	
+	
 </div>
-
-<div>
-	<p> Match - Match </p>
-</div>
-
-<div>
-	<form method="post" action="/demowebapp/plapp/admin">
-		<input type="submit" value="Admin">
-	</form>
-</div>
-
 
 
 	

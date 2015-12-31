@@ -2,6 +2,7 @@ package se.brightstep.demowebapp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -10,11 +11,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import se.brightstep.demowebapp.service.ExampleService;
 import se.brightstep.demowebapp.service.UserService;
+import se.brightstep.demowebapp.session.UserSession;
 
 
 @Controller
 @RequestMapping(value = "/")
-public class LoginController {
+public class LoginController extends SuperclassController{
 	
 	@Autowired
 	private UserService userService;
@@ -26,20 +28,19 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public ModelAndView login(@RequestParam String username, 
-										@RequestParam String password)
+	public ModelAndView login(@RequestParam("username") String username,
+								@RequestParam("password") String password)
 	{
-		
-	
-		if((username.equals("") || password.equals(""))){
-			return new ModelAndView("loginview");
-		}
-		
+
 		if(userService.login(username, password)){
 			return new ModelAndView("homeview");
 		}
 		
-		return new ModelAndView("loginview");
+		ModelAndView modelAndView = new ModelAndView("loginview");
+		modelAndView.addObject("message", "Användaren med angivet lösenord fanns inte");
+		
+		
+		return modelAndView;
 	}
 	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
@@ -54,14 +55,15 @@ public class LoginController {
 										@RequestParam String email)
 	{
 		
-		if((username.equals("") || password.equals("") || email.equals("")) || userService.login(username, password)){
-			return new ModelAndView("loginview");
-			//Kanske skicka med nån parameter som viasr att registreringen inte blev av
+		if(createUser(username, password, email)){
+			return new ModelAndView("homeview");
 		}
 		
-		createUser(username, password, email);
+		ModelAndView modelAndView = new ModelAndView("registerview");
+		modelAndView.addObject("message", "Användaren kunde inte skapas");
 		
-		return new ModelAndView("startview");
+		return modelAndView;
+		
 	}
 	
 	private boolean createUser(String username, String password, String email){

@@ -6,6 +6,10 @@
 </head>
 <body>
 
+<div class="message">
+	${message}
+</div>
+
 <div>
 	<form method="post" action="/demowebapp/plapp/register">
 		<label for="username">Användarnamn</label>
@@ -17,7 +21,7 @@
 		<label>Email</label>
 		<input id="email" name="email" type="email">
 		
-		<input type="submit" value="logga in">
+		<input type="submit" value="skapa konto">
 	</form>
 </div>
 	

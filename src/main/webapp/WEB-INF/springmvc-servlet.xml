@@ -23,6 +23,7 @@ http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
 		<property name="suffix">
 			<value>.jsp</value>
 		</property>
+		<property name="exposeContextBeansAsAttributes" value="true"/>
 	</bean>
 	
 	<!-- Service Layer -->
@@ -66,6 +67,7 @@ http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
       <property name="username" value="root"/>
       <property name="password" value="password"/>
    </bean>
+   
 	
 	
 </beans>

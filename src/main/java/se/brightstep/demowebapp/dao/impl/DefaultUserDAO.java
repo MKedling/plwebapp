@@ -6,12 +6,17 @@ import java.util.Map;
 
 import javax.sql.DataSource;
 
+import org.hsqldb.jdbc.JDBCConnection;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import se.brightstep.demowebapp.dao.UserDAO;
+import se.brightstep.demowebapp.session.UserSession;
 
 public class DefaultUserDAO implements UserDAO{
 	
+	@Autowired
+	protected UserSession userSession;
 	
 	private JdbcTemplate jdbcTemplate;
 	
@@ -23,28 +28,52 @@ public class DefaultUserDAO implements UserDAO{
 
 	public boolean login(String username, String password) {
 		
-		String query = "select * from users where username ='"+username+"'" +" AND password='"+ password +"'";
-		System.out.println("Login q: " + query);
-		List<Map<String, Object>> users = jdbcTemplate.queryForList(query);
-		return !users.isEmpty();
+		User user = getUserFromDB(username, password);
+		
+		if(user != null && user.password.equals(password)){
+			userSession.setUser(user);
+			return true;
+		}
+		
+		return false;
+		
 	}
 
 
 	public boolean createUser(String username, String password, String email) {
 		
-		String selectQuery = "select * from users where username ='"+username+"'" +" AND password='"+ password +"'";
-		
-		if(jdbcTemplate.queryForList(selectQuery).size() < 0){
-			System.out.println("Användare finns redan!");
+		if(getUserFromDB(username, password) != null){
 			return false;
 		}
 		
-		String insertQuery = "INSERT INTO users (username, password, email) VALUES ('" + username + "', '" + password +"', '" + email + "')";
+	
+		String insertQuery = "INSERT INTO users (username, password, email) VALUES (?, ?, ?)";
+	
+		jdbcTemplate.update(insertQuery, new Object[] {username, password, email});
 		
-		jdbcTemplate.execute(insertQuery);
+		User user = getUserFromDB(username, password);
 		
+		userSession.setUser(user);
 		
-		return false;
+		return true;
 	}
+	
+	private User getUserFromDB(String username, String password){
+		
+		String query = "select * from users WHERE username = ?";
+		
+		User user;
+		
+		try{
+		user = (User) jdbcTemplate.queryForObject(
+							query, new Object[] { username } , new UserRowMapper());
+		}catch(org.springframework.dao.EmptyResultDataAccessException e){
+			System.out.println("User did not exist");
+			return null;
+		}
+		
+		return user;
+	}
+
 
 }

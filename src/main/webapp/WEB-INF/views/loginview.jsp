@@ -6,16 +6,19 @@
 </head>
 <body>
 
+<div class="message">
+	${message}
+</div>
 
 	
 <div class="login">
 	<h2>Login</h2>
 	<form method="post" action="/demowebapp/plapp/login/">
 		<label for="username">Användarnamn</label>
-		<input id="username" name="username" type="text"/>
+		<input id="username" name="username" type="text" value="kalle"/>
 		
 		<label>Lösenord</label>
-		<input id="password" name="password" type="password">
+		<input id="password" name="password" type="password" value="pw">
 		
 		<input type="submit" value="logga in">
 	</form>
