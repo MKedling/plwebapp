@@ -11,8 +11,26 @@
 </div>
 
 <div>
-	<p> Match - Match </p>
+	<form method="post" action="/demowebapp/plapp/bet">
+	
+		
+	
+		<input type="submit" value="betta">
+		
+		
+	</form>
 </div>
+
+<div>
+
+	<c:forEach items="${matches}" var="item">
+	    
+	   <p>${item.homeTeam}</p>
+	      
+	</c:forEach>
+</div>
+
+
 
 <div>
 	<form method="post" action="/demowebapp/plapp/admin">

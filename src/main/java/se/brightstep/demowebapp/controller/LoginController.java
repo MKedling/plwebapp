@@ -1,5 +1,7 @@
 package se.brightstep.demowebapp.controller;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -10,6 +12,7 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import se.brightstep.demowebapp.service.ExampleService;
+import se.brightstep.demowebapp.service.MatchService;
 import se.brightstep.demowebapp.service.UserService;
 import se.brightstep.demowebapp.session.UserSession;
 
@@ -21,6 +24,9 @@ public class LoginController extends SuperclassController{
 	@Autowired
 	private UserService userService;
 	
+	@Autowired
+	private MatchService matchService;
+	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView login()
 	{
@@ -31,12 +37,21 @@ public class LoginController extends SuperclassController{
 	public ModelAndView login(@RequestParam("username") String username,
 								@RequestParam("password") String password)
 	{
-
+		ModelAndView modelAndView;
 		if(userService.login(username, password)){
-			return new ModelAndView("homeview");
+			/*
+			ArrayList<String> tempList = new ArrayList<String>();
+			tempList.add("Hej");
+			tempList.add("Svej");
+			tempList.add("Gej");
+			*/
+			
+			modelAndView = new ModelAndView("homeview");
+			modelAndView.addObject("matches" , matchService.getAllMatches());
+			return modelAndView;
 		}
 		
-		ModelAndView modelAndView = new ModelAndView("loginview");
+		modelAndView = new ModelAndView("loginview");
 		modelAndView.addObject("message", "Användaren med angivet lösenord fanns inte");
 		
 		
