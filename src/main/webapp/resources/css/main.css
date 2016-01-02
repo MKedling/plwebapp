@@ -3,3 +3,48 @@
 	align: center;
 }
 
+
+span.input-group{
+	width: 80px;
+}
+
+span.plus_minus{
+	display: inline-block;
+}
+
+span.plus_minus .btn{
+	display: inline-block;
+	font-size: 10px;
+	padding: 3px 6px;
+}
+
+.team_name{
+	font-size: 2em;
+}
+
+.form-control.input-number{
+	display: inline-block;
+	height: 22px;
+	padding: 4px 0px;
+	text-align: center;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.list-group{
+	max-width: 750px;
+	margin: auto;
+    width: 100%;
+    padding: 25px;
+	
+}
+
+.pagination{
+	display: inline-block;
+	font-size: 10px;
+	padding: 3px 6px;
+	width: 80px;
+}
+
+
+
