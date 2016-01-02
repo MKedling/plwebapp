@@ -43,6 +43,10 @@ http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
 		<property name="matchDAO" ref="matchDAO"/>
 	</bean>
 	
+	<bean name="bettingService" class="se.brightstep.demowebapp.service.impl.DefaultBettingService">
+		<property name="bettingDAO" ref="bettingDAO"/>
+	</bean>
+	
 	<!-- DAO / Persistence Layer -->
 	<bean name="exampleDAO" class="se.brightstep.demowebapp.dao.impl.DefaultExampleDAO">
 		<property name="dataSource" ref="dataSource"/>
@@ -60,9 +64,11 @@ http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
 		<property name="dataSource" ref="dataSource"/>
 	</bean>
 	
+	<bean name="bettingDAO" class="se.brightstep.demowebapp.dao.impl.DefaultBettingDAO">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
 	
 	
-	 
 	<!-- Embedded Database Configuration 
 	<jdbc:embedded-database id="dataSource" type="HSQL">
 	    <jdbc:script location="classpath:/schema.sql" />
