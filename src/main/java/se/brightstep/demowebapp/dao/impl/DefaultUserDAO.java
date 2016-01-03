@@ -88,6 +88,7 @@ public class DefaultUserDAO implements UserDAO{
 	}
 
 
+	/*
 	public int getScore() {
 		
 		List<Match> allMatches =matchDAO.getAllMatches();
@@ -115,6 +116,7 @@ public class DefaultUserDAO implements UserDAO{
 		return score;
 	}
 	
+	
 	private Result getResult(Match match){
 		return getResult(match.getHomeScore(), match.getAwayScore());
 			
@@ -134,6 +136,8 @@ public class DefaultUserDAO implements UserDAO{
 			return Result.AWAYWIN;
 		}
 	}
+	
+	*/
 	
 
 

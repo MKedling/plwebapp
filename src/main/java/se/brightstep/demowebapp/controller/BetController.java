@@ -37,19 +37,20 @@ public class BetController extends SuperclassController{
 		System.out.println(matchID + " : " + homeScore + " - " + awayScore + " Userid: " + userID);
 		
 		Bet bet = new Bet();
-		bet.setHomeScore(homeScore);
-		bet.setAwayScore(awayScore);
-		bet.setMatchId(matchID);
-		bet.setUserId(userID);
+		bet.setBetHomeScore(homeScore);
+		bet.setBetAwayScore(awayScore);
+		bet.setMatchID(matchID);
+		bet.setUserID(userID);
 		
 		bettingService.placeBet(bet);
 		
 		List<Bet> allBets = bettingService.getAllBets();
 		
+		/*
 		for(Bet tmpbet : allBets){
 			System.out.println("BetId: " + tmpbet.getID() + " Home: " + tmpbet.getHomeScore() + "  Away: " + tmpbet.getAwayScore());
 		}
-		
+		*/
 		/*
 		ModelAndView modelAndView;
 		

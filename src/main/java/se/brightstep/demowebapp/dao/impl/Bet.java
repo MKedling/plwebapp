@@ -4,42 +4,79 @@ import java.sql.Timestamp;
 
 public class Bet {
 	
-	private int ID;
-	public int getID() {
-		return ID;
-	}
-	public void setID(int iD) {
-		ID = iD;
-	}
-	private int userId;
-	private int matchId;
-	private int homeScore;
-	private int awayScore;
-	private Timestamp timeOfBet;
+	private int matchID;
+	private int betID;
+	private int userID;
 	
-	public int getUserId() {
-		return userId;
+	private String homeTeam;
+	private String awayTeam;
+	
+	private int matchHomeScore;
+	private int matchAwayScore;
+	private int betHomeScore;
+	private int betAwayScore;
+	
+	private Timestamp starttime;
+	private Timestamp timeOfBet;
+	public int getMatchID() {
+		return matchID;
 	}
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setMatchID(int matchID) {
+		this.matchID = matchID;
 	}
-	public int getMatchId() {
-		return matchId;
+	public int getBetID() {
+		return betID;
 	}
-	public void setMatchId(int matchId) {
-		this.matchId = matchId;
+	public void setBetID(int betID) {
+		this.betID = betID;
 	}
-	public int getHomeScore() {
-		return homeScore;
+	public int getUserID() {
+		return userID;
 	}
-	public void setHomeScore(int homeScore) {
-		this.homeScore = homeScore;
+	public void setUserID(int userID) {
+		this.userID = userID;
 	}
-	public int getAwayScore() {
-		return awayScore;
+	public String getHomeTeam() {
+		return homeTeam;
 	}
-	public void setAwayScore(int awayScore) {
-		this.awayScore = awayScore;
+	public void setHomeTeam(String homeTeam) {
+		this.homeTeam = homeTeam;
+	}
+	public String getAwayTeam() {
+		return awayTeam;
+	}
+	public void setAwayTeam(String awayTeam) {
+		this.awayTeam = awayTeam;
+	}
+	public int getMatchHomeScore() {
+		return matchHomeScore;
+	}
+	public void setMatchHomeScore(int matchHomeScore) {
+		this.matchHomeScore = matchHomeScore;
+	}
+	public int getMatchAwayScore() {
+		return matchAwayScore;
+	}
+	public void setMatchAwayScore(int matchAwayScore) {
+		this.matchAwayScore = matchAwayScore;
+	}
+	public int getBetHomeScore() {
+		return betHomeScore;
+	}
+	public void setBetHomeScore(int betHomeScore) {
+		this.betHomeScore = betHomeScore;
+	}
+	public int getBetAwayScore() {
+		return betAwayScore;
+	}
+	public void setBetAwayScore(int betAwayScore) {
+		this.betAwayScore = betAwayScore;
+	}
+	public Timestamp getStarttime() {
+		return starttime;
+	}
+	public void setStarttime(Timestamp starttime) {
+		this.starttime = starttime;
 	}
 	public Timestamp getTimeOfBet() {
 		return timeOfBet;
@@ -47,6 +84,8 @@ public class Bet {
 	public void setTimeOfBet(Timestamp timeOfBet) {
 		this.timeOfBet = timeOfBet;
 	}
+	
+	
 	
 	
 

@@ -30,14 +30,14 @@ public class DefaultBettingDAO implements BettingDAO{
 		}
 		
 		jdbcTemplate.update("INSERT INTO bet(match_ID, user_ID, home_score, away_score) VALUES (?, ?, ?, ?)",
-			     new Object[] { bet.getMatchId(), bet.getUserId(), bet.getHomeScore(), bet.getAwayScore()  });
+			     new Object[] { bet.getMatchID(), bet.getUserID(), bet.getBetHomeScore(), bet.getBetAwayScore()  });
 		
 		return false;
 	}
 	
 	public List<Bet> getAllBets() {
 		
-		String query = "select * from bet where user_id = ?";
+		String query = "SELECT Matches.id as match_id, Matches.home_team as home_team, Matches.away_team as away_team,Matches.home_score as match_home_score,Matches.away_score as match_away_score,Matches.start_time as start_time,Bet.id as bet_id,Bet.home_score as bet_home_score,Bet.away_score as bet_away_score, Bet.user_ID as user_id, Bet.creation_time as creation_time FROM Matches INNER JOIN Bet ON Matches.ID=Bet.match_ID WHERE user_id = ?;";
 		
 		List<Bet> allBets;
 		
@@ -53,7 +53,7 @@ public class DefaultBettingDAO implements BettingDAO{
 	
 	public boolean betExist(Bet bet){
 		Integer cnt = jdbcTemplate.queryForObject(
-			    "SELECT count(*) FROM bet WHERE match_id = ? AND user_id = ?", Integer.class, bet.getMatchId(), userSession.getUser().getID());
+			    "SELECT count(*) FROM bet WHERE match_id = ? AND user_id = ?", Integer.class, bet.getMatchID(), userSession.getUser().getID());
 			return cnt != null && cnt > 0;
 	}
 

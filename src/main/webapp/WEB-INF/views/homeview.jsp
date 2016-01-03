@@ -57,22 +57,21 @@
 	   	</div>	
 	   	 
 	</c:forEach>
-	<c:forEach items="${alreadyBetted}" var="match">
+	<c:forEach items="${bets}" var="bet">
 		
 		<div class="list-group-item">
 			
-			${match.starttime}
+			${bet.starttime}
 			
 			<div>
-		   		<span class="team_name"> ${match.homeTeam}</span>
-		   		<span class="score"> ${match.homeScore}</span>
+		   		<span class="team_name"> ${bet.homeTeam}</span>
+		   		<span class="score"> ${bet.betHomeScore}</span>
 		   	</div>
 		   	<div>
-		   		<span class="team_name">${match.awayTeam}</span>
-		   		<span class="score"> ${match.awayScore}</span>
+		   		<span class="team_name">${bet.awayTeam}</span>
+		   		<span class="score"> ${bet.betAwayScore}</span>
 		   	</div>
 		   	
-		   		<input type="hidden" name="match_id" value="${match.ID}" /> 	
 	   	</div>	
 	   		
 	</c:forEach>

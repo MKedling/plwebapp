@@ -37,4 +37,19 @@ public class DefaultMatchDAO implements MatchDAO{
 		return allMatches;
 	}
 
+	public List<Match> getAllMatchesToBet() {
+		
+		String query = "SELECT * FROM Matches WHERE id NOT IN (SELECT match_id FROM bet where user_ID = ?)";
+		List<Match> allMatchesToBet;
+		
+		try{
+			allMatchesToBet = jdbcTemplate.query(query, new MatchRowMapper(), userSession.getUser().getID());
+		}catch(org.springframework.dao.EmptyResultDataAccessException e){
+			System.out.println("User did not exist");
+			return null;
+		}
+		
+		return allMatchesToBet;
+	}
+
 }

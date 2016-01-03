@@ -6,7 +6,7 @@ public interface UserService {
 
 	public boolean createUser(String username, String password, String email);
 	
-	public int getScore();
+	//public int getScore();
 
 	
 }

@@ -25,10 +25,11 @@ public class DefaultUserService implements UserService{
 		return userDAO.createUser(username, password, email);
 	}
 
+	/*
 	public int getScore() {
 		
 		return userDAO.getScore();
 	}
-
+	*/
 
 }

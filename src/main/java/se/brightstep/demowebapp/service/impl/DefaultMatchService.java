@@ -8,6 +8,8 @@ import se.brightstep.demowebapp.service.MatchService;
 
 public class DefaultMatchService implements MatchService{
 
+	private MatchDAO matchDAO;
+	
 	public MatchDAO getMatchDAO() {
 		return matchDAO;
 	}
@@ -15,12 +17,15 @@ public class DefaultMatchService implements MatchService{
 	public void setMatchDAO(MatchDAO matchDAO) {
 		this.matchDAO = matchDAO;
 	}
-
-	private MatchDAO matchDAO;
 	
 	public List<Match> getAllMatches() {
-		
 		return matchDAO.getAllMatches();
 	}
+
+	public List<Match> getAllMatchesToBet() {
+		return matchDAO.getAllMatchesToBet();
+	}
+	
+	
 
 }

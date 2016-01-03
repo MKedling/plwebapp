@@ -284,9 +284,9 @@ public final class homeview_jsp extends org.apache.jasper.runtime.HttpJspBase
     _jspx_th_c_005fforEach_005f1.setPageContext(_jspx_page_context);
     _jspx_th_c_005fforEach_005f1.setParent(null);
     // /WEB-INF/views/homeview.jsp(60,1) name = items type = javax.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
-    _jspx_th_c_005fforEach_005f1.setItems(new org.apache.jasper.el.JspValueExpression("/WEB-INF/views/homeview.jsp(60,1) '${alreadyBetted}'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${alreadyBetted}",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
+    _jspx_th_c_005fforEach_005f1.setItems(new org.apache.jasper.el.JspValueExpression("/WEB-INF/views/homeview.jsp(60,1) '${bets}'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${bets}",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
     // /WEB-INF/views/homeview.jsp(60,1) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_c_005fforEach_005f1.setVar("match");
+    _jspx_th_c_005fforEach_005f1.setVar("bet");
     int[] _jspx_push_body_count_c_005fforEach_005f1 = new int[] { 0 };
     try {
       int _jspx_eval_c_005fforEach_005f1 = _jspx_th_c_005fforEach_005f1.doStartTag();
@@ -297,29 +297,26 @@ public final class homeview_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write("\t\t<div class=\"list-group-item\">\r\n");
           out.write("\t\t\t\r\n");
           out.write("\t\t\t");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${match.starttime}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${bet.starttime}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
           out.write("\r\n");
           out.write("\t\t\t\r\n");
           out.write("\t\t\t<div>\r\n");
           out.write("\t\t   \t\t<span class=\"team_name\"> ");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${match.homeTeam}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${bet.homeTeam}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
           out.write("</span>\r\n");
           out.write("\t\t   \t\t<span class=\"score\"> ");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${match.homeScore}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${bet.betHomeScore}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
           out.write("</span>\r\n");
           out.write("\t\t   \t</div>\r\n");
           out.write("\t\t   \t<div>\r\n");
           out.write("\t\t   \t\t<span class=\"team_name\">");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${match.awayTeam}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${bet.awayTeam}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
           out.write("</span>\r\n");
           out.write("\t\t   \t\t<span class=\"score\"> ");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${match.awayScore}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${bet.betAwayScore}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
           out.write("</span>\r\n");
           out.write("\t\t   \t</div>\r\n");
           out.write("\t\t   \t\r\n");
-          out.write("\t\t   \t\t<input type=\"hidden\" name=\"match_id\" value=\"");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${match.ID}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-          out.write("\" /> \t\r\n");
           out.write("\t   \t</div>\t\r\n");
           out.write("\t   \t\t\r\n");
           out.write("\t");

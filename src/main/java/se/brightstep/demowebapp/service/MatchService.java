@@ -7,5 +7,6 @@ import se.brightstep.demowebapp.dao.impl.Match;
 public interface MatchService {
 	
 	public List<Match> getAllMatches();
+	public List<Match> getAllMatchesToBet();
 
 }

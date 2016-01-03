@@ -94,28 +94,13 @@ public class LoginController extends SuperclassController{
 	
 	private void addBetsAndMatchesToModel(ModelAndView modelAndView){
 		
-		List<Match> allMatches = matchService.getAllMatches();
 		List<Bet> allBets = bettingService.getAllBets();
+		List<Match> matchesToBet = matchService.getAllMatchesToBet();
 		
-		modelAndView.addObject("matches" , allMatches);
 		modelAndView.addObject("bets" , allBets);
-		
-		ArrayList<Match> matchesToBet = new ArrayList<Match>(allMatches);
-		ArrayList<Match> alreadyBetted = new ArrayList<Match>();
-		
-		for(Match match : matchesToBet){
-			for(Bet bet : allBets){
-				if(match.getID() == bet.getMatchId()){
-					alreadyBetted.add(match);
-				}
-			}
-		}
-		matchesToBet.removeAll(alreadyBetted);
-		
 		modelAndView.addObject("matchesToBet" , matchesToBet);
-		modelAndView.addObject("alreadyBetted" , alreadyBetted);
 		
-		modelAndView.addObject("score" , userService.getScore());
+		//modelAndView.addObject("score" , userService.getScore());
 	}
 	
 	
