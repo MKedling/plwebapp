@@ -16,8 +16,10 @@ public class Bet {
 	private int betHomeScore;
 	private int betAwayScore;
 	
+	private int round;
 	private Timestamp starttime;
 	private Timestamp timeOfBet;
+	
 	public int getMatchID() {
 		return matchID;
 	}
@@ -85,6 +87,12 @@ public class Bet {
 		this.timeOfBet = timeOfBet;
 	}
 	
+	public int getRound() {
+		return round;
+	}
+	public void setRound(int round) {
+		this.round = round;
+	}
 	
 	
 	

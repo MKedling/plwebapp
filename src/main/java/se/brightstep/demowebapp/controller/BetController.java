@@ -29,8 +29,8 @@ public class BetController extends SuperclassController{
 
 	@RequestMapping(value = "login/bet", method = RequestMethod.POST)
 	public ModelAndView bet(@RequestParam("match_id") int matchID,
-							@RequestParam("home_team_score") int homeScore,
-							@RequestParam("away_team_score") int awayScore)
+							@RequestParam("score_home[1]") int homeScore,
+							@RequestParam("score_away[1]") int awayScore)
 	{
 		int userID = userSession.getUser().getID();
 		
@@ -43,23 +43,10 @@ public class BetController extends SuperclassController{
 		bet.setUserID(userID);
 		
 		bettingService.placeBet(bet);
+		ModelAndView modelAndView = new ModelAndView("homeview");
+		addBetsAndMatchesToModel(modelAndView);
 		
-		List<Bet> allBets = bettingService.getAllBets();
-		
-		/*
-		for(Bet tmpbet : allBets){
-			System.out.println("BetId: " + tmpbet.getID() + " Home: " + tmpbet.getHomeScore() + "  Away: " + tmpbet.getAwayScore());
-		}
-		*/
-		/*
-		ModelAndView modelAndView;
-		
-		modelAndView = new ModelAndView("homeview");
-		modelAndView.addObject("matches" , matchService.getAllMatches());
-		modelAndView.addObject("bets" , bettingService.getAllBets());
-		*/
-		
-		return new ModelAndView("homeview");
+		return modelAndView;
 	}
 	
 	

@@ -17,6 +17,7 @@ import se.brightstep.demowebapp.dao.impl.Match;
 import se.brightstep.demowebapp.service.BettingService;
 import se.brightstep.demowebapp.service.ExampleService;
 import se.brightstep.demowebapp.service.MatchService;
+import se.brightstep.demowebapp.service.ScoreService;
 import se.brightstep.demowebapp.service.UserService;
 import se.brightstep.demowebapp.session.UserSession;
 
@@ -24,15 +25,6 @@ import se.brightstep.demowebapp.session.UserSession;
 @Controller
 @RequestMapping(value = "/")
 public class LoginController extends SuperclassController{
-	
-	@Autowired
-	private UserService userService;
-	
-	@Autowired
-	private BettingService bettingService;
-	
-	@Autowired
-	private MatchService matchService;
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView login()
@@ -87,21 +79,25 @@ public class LoginController extends SuperclassController{
 		
 	}
 	
+	@RequestMapping(value = "/login/update", method = RequestMethod.POST)
+	public ModelAndView updateRound(@RequestParam("quantity[101]") int q)
+	{
+		userSession.setRound(q);
+	
+		ModelAndView modelAndView;
+		modelAndView = new ModelAndView("homeview");
+		addBetsAndMatchesToModel(modelAndView);
+		
+		return modelAndView;
+		
+	}
+	
 	private boolean createUser(String username, String password, String email){
 		
 		return userService.createUser(username, password, email);
 	}
 	
-	private void addBetsAndMatchesToModel(ModelAndView modelAndView){
-		
-		List<Bet> allBets = bettingService.getAllBets();
-		List<Match> matchesToBet = matchService.getAllMatchesToBet();
-		
-		modelAndView.addObject("bets" , allBets);
-		modelAndView.addObject("matchesToBet" , matchesToBet);
-		
-		//modelAndView.addObject("score" , userService.getScore());
-	}
+	
 	
 	
 	

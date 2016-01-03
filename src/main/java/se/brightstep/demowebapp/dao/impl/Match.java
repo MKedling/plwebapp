@@ -10,6 +10,14 @@ public class Match {
 	private int homeScore;
 	private int awayScore;
 	private Timestamp starttime; // typen skall ändras
+	private int round;
+	
+	public int getRound() {
+		return round;
+	}
+	public void setRound(int round) {
+		this.round = round;
+	}
 	public int getID() {
 		return ID;
 	}

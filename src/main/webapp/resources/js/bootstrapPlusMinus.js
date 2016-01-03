@@ -8,7 +8,7 @@ jQuery(document).ready(function($) {
 	    
 	    $(spinners).each(function (key,spinner) {
 	        spinner.settings = $.extend({
-		    	width:"120px",
+		    	width:"150px",
 	      		value:0,
 	            id:key,
 	      		min_value:0,
@@ -122,7 +122,7 @@ jQuery(document).ready(function($) {
 	        }
 	        	
 	      
-			content += '<span class="input-group">';
+			content += '<div class="input-group">';
 			content += '<span class="input-group-btn">';
 			content += '<button type="button" class="btn btn-danger btn-number" data-type="minus" data-field="'+spinner.settings.name+'['+spinner.settings.id+']">';
 			content += '<span class="'+spinner.settings.minus_icon+'"></span>';
@@ -134,7 +134,7 @@ jQuery(document).ready(function($) {
 			content += '<span class="'+spinner.settings.plus_icon+'"></span>';
 			content += '</button>';
 			content += '</span>';
-			content += '</span>';
+			content += '</div>';
 	   
 		    return 	content;
 	    }
@@ -145,15 +145,15 @@ jQuery(document).ready(function($) {
 
 	$('.plus_minus').bootnumberspiner({
 	                            onChange:function(valueCurrent,spinner){
-	                              console.log(valueCurrent);
-	                              console.log($.find("#home_team_match_1_score"));
-	                              console.log($.find(("\"#" + spinner.id + "_score\"")));
-	                              
+	                              //console.log(valueCurrent);
+	                              //console.log(spinner);
 	                            },
 	  							onCreate:function(spinner){
 	                              //console.log(spinner.settings.value);
 	                            }	
 							  });
+	
+	
  
 });
 

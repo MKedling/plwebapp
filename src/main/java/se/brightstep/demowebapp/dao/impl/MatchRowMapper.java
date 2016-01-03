@@ -15,6 +15,7 @@ public class MatchRowMapper implements RowMapper
 		match.setHomeScore(rs.getInt("home_score"));
 		match.setAwayScore(rs.getInt("away_score"));
 		match.setStarttime(rs.getTimestamp("start_time"));
+		match.setRound(rs.getInt("round"));
 		return match;
 	}
 

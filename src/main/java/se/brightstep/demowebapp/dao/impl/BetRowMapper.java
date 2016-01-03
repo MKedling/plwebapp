@@ -22,6 +22,7 @@ public class BetRowMapper implements RowMapper{
 		
 		bet.setStarttime(rs.getTimestamp("start_time"));
 		bet.setTimeOfBet(rs.getTimestamp("creation_time"));
+		bet.setRound(rs.getInt("round"));
 		
 		return bet;
 	}

@@ -11,6 +11,16 @@ import se.brightstep.demowebapp.dao.impl.User;
 public class UserSession {
 	
 	private User user;
+	
+	private int round = 1;
+
+	public int getRound() {
+		return round;
+	}
+
+	public void setRound(int round) {
+		this.round = round;
+	}
 
 	public User getUser() {
 		return user;

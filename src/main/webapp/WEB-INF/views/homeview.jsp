@@ -33,35 +33,45 @@
 
 
 <div class="list-group">
-	<div class="pagination">
-		<span class="plus_minus" data-name="quantity" data-value="0" data-id="10"></span>
+	
+	<div class="pagination round">
+		<form id="pagination_form" method="POST" action="/demowebapp/plapp/login/update">
+			<span class="plus_minus" data-name="quantity" data-value="${round}" data-id="101"></span>
+		</form>
 	</div>
 	<c:forEach items="${matchesToBet}" var="match">
 		
 		<div class="list-group-item">
 			
 			${match.starttime}
-			
-			<div>
-		   		<span class="team_name"> ${match.homeTeam}</span>
-		   		<span id="home_team_match_${match.ID}" class="plus_minus home_team" data-name="score_home" data-value="0" data-id="${match.ID}"></span>
-		   	</div>
-		   	<div>
-		   		<span class="team_name">${match.awayTeam}</span>
-		   		<span id="away_team_match_${match.ID}" class="plus_minus away_team" data-name="score_away" data-value="0" data-id="${match.ID}"></span>
-		   	</div>
+			<br>
+			Round: ${match.round}
+			<form method="POST" action="/demowebapp/plapp/login/bet">
+				<div>
+			   		<span class="team_name"> ${match.homeTeam}</span>
+			   		<span class="plus_minus home_team" data-name="score_home" data-value="0" data-id="1"></span>
+			   	</div>
+			   	<div>
+			   		<span class="team_name">${match.awayTeam}</span>
+			   		<span class="plus_minus away_team" data-name="score_away" data-value="0" data-id="1"></span>
+			   	</div>
+			   	
+			   	<input type="hidden" name="match_id" value="${match.ID}" /> 
+		   	</form>
 		   	
-		   		<input type="hidden" name="match_id" value="${match.ID}" /> 
-		   		<button type="button" class="btn btn-primary bet" value="">Primary</button> 	
+		   	<button type="button" class="btn btn-primary bet" value="">Primary</button> 	
 		   		
 	   	</div>	
 	   	 
 	</c:forEach>
+	
 	<c:forEach items="${bets}" var="bet">
 		
 		<div class="list-group-item">
 			
 			${bet.starttime}
+			<br>
+			Round: ${bet.round}
 			
 			<div>
 		   		<span class="team_name"> ${bet.homeTeam}</span>
@@ -75,15 +85,6 @@
 	   	</div>	
 	   		
 	</c:forEach>
-	
-	
-</div>
-
-
-<div>
-	<form method="post" action="/demowebapp/plapp/admin">
-		<input type="submit" value="Admin">
-	</form>
 </div>
 
 
