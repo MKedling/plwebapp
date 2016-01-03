@@ -96,7 +96,12 @@ public final class homeview_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<div>\r\n");
       out.write("\t");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${userSession.user.username}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-      out.write("\r\n");
+      out.write(' ');
+      out.write(':');
+      out.write(' ');
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${score}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+      out.write(" \r\n");
+      out.write("\t\r\n");
       out.write("</div>\r\n");
       out.write("\r\n");
       out.write("\r\n");
@@ -108,7 +113,14 @@ public final class homeview_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t");
       if (_jspx_meth_c_005fforEach_005f0(_jspx_page_context))
         return;
+      out.write('\r');
+      out.write('\n');
+      out.write('	');
+      if (_jspx_meth_c_005fforEach_005f1(_jspx_page_context))
+        return;
       out.write("\r\n");
+      out.write("\t\r\n");
+      out.write("\t\r\n");
       out.write("</div>\r\n");
       out.write("\r\n");
       out.write("\r\n");
@@ -119,8 +131,6 @@ public final class homeview_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("</div>\r\n");
       out.write("\r\n");
       out.write("\r\n");
-      out.write("\r\n");
-      out.write("\t\r\n");
       out.write("</body>\r\n");
       out.write("</html>");
     } catch (Throwable t) {
@@ -200,9 +210,9 @@ public final class homeview_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_005fforEach_005f0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
     _jspx_th_c_005fforEach_005f0.setPageContext(_jspx_page_context);
     _jspx_th_c_005fforEach_005f0.setParent(null);
-    // /WEB-INF/views/homeview.jsp(38,1) name = items type = javax.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
-    _jspx_th_c_005fforEach_005f0.setItems(new org.apache.jasper.el.JspValueExpression("/WEB-INF/views/homeview.jsp(38,1) '${matches}'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${matches}",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
-    // /WEB-INF/views/homeview.jsp(38,1) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/views/homeview.jsp(39,1) name = items type = javax.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
+    _jspx_th_c_005fforEach_005f0.setItems(new org.apache.jasper.el.JspValueExpression("/WEB-INF/views/homeview.jsp(39,1) '${matchesToBet}'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${matchesToBet}",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
+    // /WEB-INF/views/homeview.jsp(39,1) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fforEach_005f0.setVar("match");
     int[] _jspx_push_body_count_c_005fforEach_005f0 = new int[] { 0 };
     try {
@@ -244,11 +254,6 @@ public final class homeview_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write("\t\t   \t\t<button type=\"button\" class=\"btn btn-primary bet\" value=\"\">Primary</button> \t\r\n");
           out.write("\t\t   \t\t\r\n");
           out.write("\t   \t</div>\t\r\n");
-          out.write("\t   \t\t\r\n");
-          out.write("\t   \t<input type=\"hidden\" value=\"");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${match.ID}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-          out.write("\">\r\n");
-          out.write("\t   \t\r\n");
           out.write("\t   \t \r\n");
           out.write("\t");
           int evalDoAfterBody = _jspx_th_c_005fforEach_005f0.doAfterBody();
@@ -266,6 +271,73 @@ public final class homeview_jsp extends org.apache.jasper.runtime.HttpJspBase
     } finally {
       _jspx_th_c_005fforEach_005f0.doFinally();
       _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems.reuse(_jspx_th_c_005fforEach_005f0);
+    }
+    return false;
+  }
+
+  private boolean _jspx_meth_c_005fforEach_005f1(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:forEach
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_005fforEach_005f1 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_005fforEach_005f1.setPageContext(_jspx_page_context);
+    _jspx_th_c_005fforEach_005f1.setParent(null);
+    // /WEB-INF/views/homeview.jsp(60,1) name = items type = javax.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
+    _jspx_th_c_005fforEach_005f1.setItems(new org.apache.jasper.el.JspValueExpression("/WEB-INF/views/homeview.jsp(60,1) '${alreadyBetted}'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${alreadyBetted}",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
+    // /WEB-INF/views/homeview.jsp(60,1) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_c_005fforEach_005f1.setVar("match");
+    int[] _jspx_push_body_count_c_005fforEach_005f1 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_005fforEach_005f1 = _jspx_th_c_005fforEach_005f1.doStartTag();
+      if (_jspx_eval_c_005fforEach_005f1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\r\n");
+          out.write("\t\t\r\n");
+          out.write("\t\t<div class=\"list-group-item\">\r\n");
+          out.write("\t\t\t\r\n");
+          out.write("\t\t\t");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${match.starttime}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+          out.write("\r\n");
+          out.write("\t\t\t\r\n");
+          out.write("\t\t\t<div>\r\n");
+          out.write("\t\t   \t\t<span class=\"team_name\"> ");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${match.homeTeam}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+          out.write("</span>\r\n");
+          out.write("\t\t   \t\t<span class=\"score\"> ");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${match.homeScore}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+          out.write("</span>\r\n");
+          out.write("\t\t   \t</div>\r\n");
+          out.write("\t\t   \t<div>\r\n");
+          out.write("\t\t   \t\t<span class=\"team_name\">");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${match.awayTeam}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+          out.write("</span>\r\n");
+          out.write("\t\t   \t\t<span class=\"score\"> ");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${match.awayScore}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+          out.write("</span>\r\n");
+          out.write("\t\t   \t</div>\r\n");
+          out.write("\t\t   \t\r\n");
+          out.write("\t\t   \t\t<input type=\"hidden\" name=\"match_id\" value=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${match.ID}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+          out.write("\" /> \t\r\n");
+          out.write("\t   \t</div>\t\r\n");
+          out.write("\t   \t\t\r\n");
+          out.write("\t");
+          int evalDoAfterBody = _jspx_th_c_005fforEach_005f1.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_005fforEach_005f1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_005fforEach_005f1[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_005fforEach_005f1.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_005fforEach_005f1.doFinally();
+      _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems.reuse(_jspx_th_c_005fforEach_005f1);
     }
     return false;
   }

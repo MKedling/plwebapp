@@ -10,8 +10,11 @@ jQuery(document).ready(function($) {
 		var score_away = target.parent(".list-group-item").find('input[name^=score_away]').val();
 		
 		
-		$.post( "bet", { match_id: match_id, home_team_score : score_home, away_team_score : score_away } , function() {
-			    
+		$.post( "bet", { match_id: match_id, home_team_score : score_home, away_team_score : score_away } , function(data) {
+		
+			var html = $(data).find("body");
+			console.log(data);
+			location.reload();
 			  
 		})
 	});

@@ -10,6 +10,7 @@ span.input-group{
 
 span.plus_minus{
 	display: inline-block;
+	margin: 0px 30px;
 }
 
 span.plus_minus .btn{
@@ -20,6 +21,11 @@ span.plus_minus .btn{
 
 .team_name{
 	font-size: 2em;
+}
+
+.score{
+	font-size: 2em;
+	margin: 30px;
 }
 
 .form-control.input-number{

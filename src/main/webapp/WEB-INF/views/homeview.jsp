@@ -26,7 +26,8 @@
 <body>
 
 <div>
-	${userSession.user.username}
+	${userSession.user.username} : ${score} 
+	
 </div>
 
 
@@ -35,7 +36,7 @@
 	<div class="pagination">
 		<span class="plus_minus" data-name="quantity" data-value="0" data-id="10"></span>
 	</div>
-	<c:forEach items="${matches}" var="match">
+	<c:forEach items="${matchesToBet}" var="match">
 		
 		<div class="list-group-item">
 			
@@ -54,11 +55,29 @@
 		   		<button type="button" class="btn btn-primary bet" value="">Primary</button> 	
 		   		
 	   	</div>	
-	   		
-	   	<input type="hidden" value="${match.ID}">
-	   	
 	   	 
 	</c:forEach>
+	<c:forEach items="${alreadyBetted}" var="match">
+		
+		<div class="list-group-item">
+			
+			${match.starttime}
+			
+			<div>
+		   		<span class="team_name"> ${match.homeTeam}</span>
+		   		<span class="score"> ${match.homeScore}</span>
+		   	</div>
+		   	<div>
+		   		<span class="team_name">${match.awayTeam}</span>
+		   		<span class="score"> ${match.awayScore}</span>
+		   	</div>
+		   	
+		   		<input type="hidden" name="match_id" value="${match.ID}" /> 	
+	   	</div>	
+	   		
+	</c:forEach>
+	
+	
 </div>
 
 
@@ -69,7 +88,5 @@
 </div>
 
 
-
-	
 </body>
 </html>

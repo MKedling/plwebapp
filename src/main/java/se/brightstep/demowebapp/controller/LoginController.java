@@ -1,6 +1,7 @@
 package se.brightstep.demowebapp.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import se.brightstep.demowebapp.dao.impl.Bet;
+import se.brightstep.demowebapp.dao.impl.Match;
+import se.brightstep.demowebapp.service.BettingService;
 import se.brightstep.demowebapp.service.ExampleService;
 import se.brightstep.demowebapp.service.MatchService;
 import se.brightstep.demowebapp.service.UserService;
@@ -23,6 +27,9 @@ public class LoginController extends SuperclassController{
 	
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private BettingService bettingService;
 	
 	@Autowired
 	private MatchService matchService;
@@ -39,15 +46,9 @@ public class LoginController extends SuperclassController{
 	{
 		ModelAndView modelAndView;
 		if(userService.login(username, password)){
-			/*
-			ArrayList<String> tempList = new ArrayList<String>();
-			tempList.add("Hej");
-			tempList.add("Svej");
-			tempList.add("Gej");
-			*/
 			
 			modelAndView = new ModelAndView("homeview");
-			modelAndView.addObject("matches" , matchService.getAllMatches());
+			addBetsAndMatchesToModel(modelAndView);
 			return modelAndView;
 		}
 		
@@ -70,11 +71,16 @@ public class LoginController extends SuperclassController{
 										@RequestParam String email)
 	{
 		
+		ModelAndView modelAndView;
+		
 		if(createUser(username, password, email)){
-			return new ModelAndView("homeview");
+			modelAndView = new ModelAndView("homeview");
+			addBetsAndMatchesToModel(modelAndView);
+			return modelAndView;
+			
 		}
 		
-		ModelAndView modelAndView = new ModelAndView("registerview");
+		modelAndView = new ModelAndView("registerview");
 		modelAndView.addObject("message", "Användaren kunde inte skapas");
 		
 		return modelAndView;
@@ -84,6 +90,32 @@ public class LoginController extends SuperclassController{
 	private boolean createUser(String username, String password, String email){
 		
 		return userService.createUser(username, password, email);
+	}
+	
+	private void addBetsAndMatchesToModel(ModelAndView modelAndView){
+		
+		List<Match> allMatches = matchService.getAllMatches();
+		List<Bet> allBets = bettingService.getAllBets();
+		
+		modelAndView.addObject("matches" , allMatches);
+		modelAndView.addObject("bets" , allBets);
+		
+		ArrayList<Match> matchesToBet = new ArrayList<Match>(allMatches);
+		ArrayList<Match> alreadyBetted = new ArrayList<Match>();
+		
+		for(Match match : matchesToBet){
+			for(Bet bet : allBets){
+				if(match.getID() == bet.getMatchId()){
+					alreadyBetted.add(match);
+				}
+			}
+		}
+		matchesToBet.removeAll(alreadyBetted);
+		
+		modelAndView.addObject("matchesToBet" , matchesToBet);
+		modelAndView.addObject("alreadyBetted" , alreadyBetted);
+		
+		modelAndView.addObject("score" , userService.getScore());
 	}
 	
 	

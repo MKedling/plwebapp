@@ -10,6 +10,8 @@ import org.hsqldb.jdbc.JDBCConnection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import se.brightstep.demowebapp.dao.BettingDAO;
+import se.brightstep.demowebapp.dao.MatchDAO;
 import se.brightstep.demowebapp.dao.UserDAO;
 import se.brightstep.demowebapp.session.UserSession;
 
@@ -18,7 +20,17 @@ public class DefaultUserDAO implements UserDAO{
 	@Autowired
 	protected UserSession userSession;
 	
+	@Autowired
+	protected BettingDAO betDAO;
+	
+	@Autowired
+	protected MatchDAO matchDAO;
+	
 	private JdbcTemplate jdbcTemplate;
+	
+	public enum Result{
+		HOMEWIN, DRAW, AWAYWIN
+	}
 	
 	public void setDataSource(final DataSource dataSource)
 	{
@@ -74,6 +86,55 @@ public class DefaultUserDAO implements UserDAO{
 		
 		return user;
 	}
+
+
+	public int getScore() {
+		
+		List<Match> allMatches =matchDAO.getAllMatches();
+		List<Bet> allBets = betDAO.getAllBets();
+		
+		int score= 0;
+		
+		for(Bet bet : allBets){
+			for(Match match: allMatches){
+				if(bet.getMatchId() == match.getID()){
+					
+					if(bet.getHomeScore() == match.getHomeScore() && bet.getAwayScore() == match.getAwayScore()){
+						score = score + 2;
+					}else{
+						if(getResult(match) == getResult(bet)){
+							score++;
+						}
+							
+					}
+					
+				}
+			}
+		}
+		
+		return score;
+	}
+	
+	private Result getResult(Match match){
+		return getResult(match.getHomeScore(), match.getAwayScore());
+			
+	}
+	
+	private Result getResult(Bet bet){
+		return getResult(bet.getHomeScore(), bet.getAwayScore());
+		
+	}
+	
+	private Result getResult(int home, int away){
+		if(home == away){
+			return Result.DRAW;
+		}else if(home > away){
+			return Result.HOMEWIN;
+		}else{
+			return Result.AWAYWIN;
+		}
+	}
+	
 
 
 }

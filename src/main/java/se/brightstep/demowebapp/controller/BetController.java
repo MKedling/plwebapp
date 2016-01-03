@@ -50,14 +50,16 @@ public class BetController extends SuperclassController{
 			System.out.println("BetId: " + tmpbet.getID() + " Home: " + tmpbet.getHomeScore() + "  Away: " + tmpbet.getAwayScore());
 		}
 		
+		/*
 		ModelAndView modelAndView;
 		
 		modelAndView = new ModelAndView("homeview");
 		modelAndView.addObject("matches" , matchService.getAllMatches());
+		modelAndView.addObject("bets" , bettingService.getAllBets());
+		*/
 		
-		return modelAndView;
+		return new ModelAndView("homeview");
 	}
-	
 	
 	
 

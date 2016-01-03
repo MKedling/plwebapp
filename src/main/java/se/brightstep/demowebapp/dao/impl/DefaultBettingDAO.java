@@ -12,6 +12,9 @@ import se.brightstep.demowebapp.session.UserSession;
 
 public class DefaultBettingDAO implements BettingDAO{
 
+	@Autowired
+	protected UserSession userSession;
+	
 	private JdbcTemplate jdbcTemplate;
 	
 	public void setDataSource(final DataSource dataSource)
@@ -21,6 +24,11 @@ public class DefaultBettingDAO implements BettingDAO{
 
 	public boolean placeBet(Bet bet) {
 		
+		if(betExist(bet)){
+			System.out.println("Bet exist: with match id already exists");
+			return false;
+		}
+		
 		jdbcTemplate.update("INSERT INTO bet(match_ID, user_ID, home_score, away_score) VALUES (?, ?, ?, ?)",
 			     new Object[] { bet.getMatchId(), bet.getUserId(), bet.getHomeScore(), bet.getAwayScore()  });
 		
@@ -29,18 +37,24 @@ public class DefaultBettingDAO implements BettingDAO{
 	
 	public List<Bet> getAllBets() {
 		
-		String query = "select * from bet";
+		String query = "select * from bet where user_id = ?";
 		
 		List<Bet> allBets;
 		
 		try{
-			allBets = jdbcTemplate.query(query, new BetRowMapper());
+			allBets = jdbcTemplate.query(query, new BetRowMapper(), userSession.getUser().getID());
 		}catch(org.springframework.dao.EmptyResultDataAccessException e){
 			System.out.println("Bet did not exist");
 			return null;
 		}
 		
 		return allBets;
+	}
+	
+	public boolean betExist(Bet bet){
+		Integer cnt = jdbcTemplate.queryForObject(
+			    "SELECT count(*) FROM bet WHERE match_id = ? AND user_id = ?", Integer.class, bet.getMatchId(), userSession.getUser().getID());
+			return cnt != null && cnt > 0;
 	}
 
 	
