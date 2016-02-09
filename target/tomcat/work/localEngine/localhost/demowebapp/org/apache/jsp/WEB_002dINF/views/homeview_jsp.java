@@ -94,16 +94,28 @@ public final class homeview_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<body>\r\n");
       out.write("\r\n");
       out.write("<div>\r\n");
-      out.write("\t");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${userSession.user.username}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-      out.write(' ');
-      out.write(':');
-      out.write(' ');
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${score}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-      out.write(" \r\n");
-      out.write("\t\r\n");
+      out.write("\t<a href=\"admin\">Admin</a>\r\n");
       out.write("</div>\r\n");
       out.write("\r\n");
+      out.write("<div class=\"list-group\">\r\n");
+      out.write("\t<div class=\"list-group-item\">\r\n");
+      out.write("\t\t<p class=\"username\">\r\n");
+      out.write("\t\t\t");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${userSession.user.username}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+      out.write("\r\n");
+      out.write("\t\t</p>\r\n");
+      out.write("\t\t<p>\r\n");
+      out.write("\t\t\tRound Score: ");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${scoreRound}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+      out.write("\r\n");
+      out.write("\t\t</p> \r\n");
+      out.write("\t\t<p>\r\n");
+      out.write("\t\t\tTotal Score: ");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${scoreTotal}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+      out.write("\r\n");
+      out.write("\t\t</p>\r\n");
+      out.write("\t</div>\r\n");
+      out.write("</div>\r\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("<div class=\"list-group\">\r\n");
@@ -206,9 +218,9 @@ public final class homeview_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_005fforEach_005f0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
     _jspx_th_c_005fforEach_005f0.setPageContext(_jspx_page_context);
     _jspx_th_c_005fforEach_005f0.setParent(null);
-    // /WEB-INF/views/homeview.jsp(42,1) name = items type = javax.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
-    _jspx_th_c_005fforEach_005f0.setItems(new org.apache.jasper.el.JspValueExpression("/WEB-INF/views/homeview.jsp(42,1) '${matchesToBet}'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${matchesToBet}",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
-    // /WEB-INF/views/homeview.jsp(42,1) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/views/homeview.jsp(54,1) name = items type = javax.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
+    _jspx_th_c_005fforEach_005f0.setItems(new org.apache.jasper.el.JspValueExpression("/WEB-INF/views/homeview.jsp(54,1) '${matchesToBet}'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${matchesToBet}",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
+    // /WEB-INF/views/homeview.jsp(54,1) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fforEach_005f0.setVar("match");
     int[] _jspx_push_body_count_c_005fforEach_005f0 = new int[] { 0 };
     try {
@@ -245,7 +257,7 @@ public final class homeview_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write("\" /> \r\n");
           out.write("\t\t   \t</form>\r\n");
           out.write("\t\t   \t\r\n");
-          out.write("\t\t   \t<button type=\"button\" class=\"btn btn-primary bet\" value=\"\">Primary</button> \t\r\n");
+          out.write("\t\t   \t<button type=\"button\" class=\"btn btn-primary bet\" value=\"\">PLACERA BET</button> \t\r\n");
           out.write("\t\t   \t\t\r\n");
           out.write("\t   \t</div>\t\r\n");
           out.write("\t   \t \r\n");
@@ -277,9 +289,9 @@ public final class homeview_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_005fforEach_005f1 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
     _jspx_th_c_005fforEach_005f1.setPageContext(_jspx_page_context);
     _jspx_th_c_005fforEach_005f1.setParent(null);
-    // /WEB-INF/views/homeview.jsp(68,1) name = items type = javax.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
-    _jspx_th_c_005fforEach_005f1.setItems(new org.apache.jasper.el.JspValueExpression("/WEB-INF/views/homeview.jsp(68,1) '${bets}'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${bets}",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
-    // /WEB-INF/views/homeview.jsp(68,1) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/views/homeview.jsp(80,1) name = items type = javax.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
+    _jspx_th_c_005fforEach_005f1.setItems(new org.apache.jasper.el.JspValueExpression("/WEB-INF/views/homeview.jsp(80,1) '${bets}'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${bets}",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
+    // /WEB-INF/views/homeview.jsp(80,1) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fforEach_005f1.setVar("bet");
     int[] _jspx_push_body_count_c_005fforEach_005f1 = new int[] { 0 };
     try {

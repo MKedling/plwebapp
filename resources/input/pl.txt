@@ -1,0 +1,148 @@
+Omgång 25
+2016-02-07 13:45	TestA	-	TestB
+2016-02-07 16:00	TestC	-	TestD
+2016-02-10 16:00	TestE	-	TestF
+2016-02-10 16:00	TestG	-	TestH
+Omgång 26 
+2016-02-13 13:45	Sunderland	-	Manchester United
+2016-02-13 16:00	Swansea	-	Southampton
+2016-02-13 16:00	Norwich	-	West Ham
+2016-02-13 16:00	Everton	-	West Bromwich
+2016-02-13 16:00	Crystal Palace	-	Watford
+2016-02-13 16:00	Bournemouth	-	Stoke
+2016-02-13 18:30	Chelsea	-	Newcastle
+2016-02-14 13:00	Arsenal	-	Leicester
+2016-02-14 15:05	Aston Villa	-	Liverpool
+2016-02-14 17:15	Manchester City	-	Tottenham
+Omgång 27
+2016-02-27 13:45	West Ham	-	Sunderland
+2016-02-27 16:00	Southampton	-	Chelsea
+2016-02-27 16:00	Watford	-	Bournemouth
+2016-02-27 16:00	Leicester	-	Norwich
+2016-02-27 16:00	Stoke	-	Aston Villa
+2016-02-27 18:30	West Bromwich	-	Crystal Palace
+2016-02-28 13:00	Newcastle	-	Manchester City
+2016-02-28 13:00	Liverpool	-	Everton
+2016-02-28 15:05	Tottenham	-	Swansea
+2016-02-28 15:05	Manchester United	-	Arsenal
+Omgång 28
+2016-03-01 20:45	Sunderland	-	Crystal Palace
+2016-03-01 20:45	Norwich	-	Chelsea
+2016-03-01 20:45	Leicester	-	West Bromwich
+2016-03-01 20:45	Aston Villa	-	Everton
+2016-03-01 20:45	Bournemouth	-	Southampton
+2016-03-02 20:45	Arsenal	-	Swansea
+2016-03-02 20:45	West Ham	-	Tottenham
+2016-03-02 20:45	Stoke	-	Newcastle
+2016-03-02 21:00	Liverpool	-	Manchester City
+2016-03-02 21:00	Manchester United	-	Watford
+Omgång 29
+2016-03-05 13:45	Tottenham	-	Arsenal
+2016-03-05 16:00	Chelsea	-	Stoke
+2016-03-05 16:00	Everton	-	West Ham
+2016-03-05 16:00	Manchester City	-	Aston Villa
+2016-03-05 16:00	Newcastle	-	Bournemouth
+2016-03-05 16:00	Southampton	-	Sunderland
+2016-03-05 16:00	Swansea	-	Norwich
+2016-03-05 18:30	Watford	-	Leicester
+2016-03-06 14:30	Crystal Palace	-	Liverpool
+2016-03-06 17:00	West Bromwich	-	Manchester United
+Omgång 30
+2016-03-12 13:45	Norwich	-	Manchester City
+2016-03-12 16:00	Stoke	-	Southampton
+2016-03-12 16:00	Manchester United	-	Crystal Palace
+2016-03-12 16:00	West Ham	-	Watford
+2016-03-12 16:00	Aston Villa	-	Tottenham
+2016-03-12 16:00	Bournemouth	-	Swansea
+2016-03-12 16:00	Sunderland	-	Everton
+2016-03-12 18:30	Arsenal	-	West Bromwich
+2016-03-13 17:00	Liverpool	-	Chelsea
+2016-03-14 21:00	Leicester	-	Newcastle
+Omgång 31
+2016-03-19 13:45	Everton	-	Arsenal
+2016-03-19 16:00	West Bromwich	-	Norwich
+2016-03-19 16:00	Watford	-	Stoke
+2016-03-19 16:00	Tottenham	-	Bournemouth
+2016-03-19 16:00	Southampton	-	Liverpool
+2016-03-19 16:00	Crystal Palace	-	Leicester
+2016-03-19 16:00	Chelsea	-	West Ham
+2016-03-19 18:30	Swansea	-	Aston Villa
+2016-03-20 14:30	Newcastle	-	Sunderland
+2016-03-20 17:00	Manchester City	-	Manchester United
+Omgång 32
+2016-04-02 16:00	Norwich	-	Newcastle
+2016-04-02 16:00	Stoke	-	Swansea
+2016-04-02 16:00	Sunderland	-	West Bromwich
+2016-04-02 16:00	West Ham	-	Crystal Palace
+2016-04-02 16:00	Manchester United	-	Everton
+2016-04-02 16:00	Liverpool	-	Tottenham
+2016-04-02 16:00	Leicester	-	Southampton
+2016-04-02 16:00	Aston Villa	-	Chelsea
+2016-04-02 16:00	Arsenal	-	Watford
+2016-04-02 16:00	Bournemouth	-	Manchester City
+Omgång 33
+2016-04-09 16:00	Swansea	-	Chelsea
+2016-04-09 16:00	Tottenham	-	Manchester United
+2016-04-09 16:00	Watford	-	Everton
+2016-04-09 16:00	West Ham	-	Arsenal
+2016-04-09 16:00	Sunderland	-	Leicester
+2016-04-09 16:00	Southampton	-	Newcastle
+2016-04-09 16:00	Manchester City	-	West Bromwich
+2016-04-09 16:00	Liverpool	-	Stoke
+2016-04-09 16:00	Crystal Palace	-	Norwich
+2016-04-09 16:00	Aston Villa	-	Bournemouth
+Omgång 34
+2016-04-16 16:00	Newcastle	-	Swansea
+2016-04-16 16:00	Norwich	-	Sunderland
+2016-04-16 16:00	Stoke	-	Tottenham
+2016-04-16 16:00	West Bromwich	-	Watford
+2016-04-16 16:00	Manchester United	-	Aston Villa
+2016-04-16 16:00	Leicester	-	West Ham
+2016-04-16 16:00	Everton	-	Southampton
+2016-04-16 16:00	Chelsea	-	Manchester City
+2016-04-16 16:00	Arsenal	-	Crystal Palace
+2016-04-16 16:00	Bournemouth	-	Liverpool
+Omgång 35
+2016-04-23 16:00	Norwich	-	Watford
+2016-04-23 16:00	Sunderland	-	Arsenal
+2016-04-23 16:00	Tottenham	-	West Bromwich
+2016-04-23 16:00	West Ham	-	Manchester United
+2016-04-23 16:00	Manchester City	-	Stoke
+2016-04-23 16:00	Liverpool	-	Newcastle
+2016-04-23 16:00	Leicester	-	Swansea
+2016-04-23 16:00	Crystal Palace	-	Everton
+2016-04-23 16:00	Aston Villa	-	Southampton
+2016-04-23 16:00	Bournemouth	-	Chelsea
+Omgång 36
+2016-04-30 16:00	Stoke	-	Sunderland
+2016-04-30 16:00	Swansea	-	Liverpool
+2016-04-30 16:00	Watford	-	Aston Villa
+2016-04-30 16:00	West Bromwich	-	West Ham
+2016-04-30 16:00	Southampton	-	Manchester City
+2016-04-30 16:00	Newcastle	-	Crystal Palace
+2016-04-30 16:00	Manchester United	-	Leicester
+2016-04-30 16:00	Everton	-	Bournemouth
+2016-04-30 16:00	Chelsea	-	Tottenham
+2016-04-30 16:00	Arsenal	-	Norwich
+Omgång 37
+2016-05-07 16:00	Norwich	-	Manchester United
+2016-05-07 16:00	Sunderland	-	Chelsea
+2016-05-07 16:00	Tottenham	-	Southampton
+2016-05-07 16:00	West Ham	-	Swansea
+2016-05-07 16:00	Manchester City	-	Arsenal
+2016-05-07 16:00	Liverpool	-	Watford
+2016-05-07 16:00	Leicester	-	Everton
+2016-05-07 16:00	Crystal Palace	-	Stoke
+2016-05-07 16:00	Aston Villa	-	Newcastle
+2016-05-07 16:00	Bournemouth	-	West Bromwich
+Omgång 38
+2016-05-15 16:00	Watford	-	Sunderland
+2016-05-15 16:00	Swansea	-	Manchester City
+2016-05-15 16:00	Stoke	-	West Ham
+2016-05-15 16:00	Southampton	-	Crystal Palace
+2016-05-15 16:00	Newcastle	-	Tottenham
+2016-05-15 16:00	Manchester United	-	Bournemouth
+2016-05-15 16:00	Everton	-	Norwich
+2016-05-15 16:00	Chelsea	-	Leicester
+2016-05-15 16:00	Arsenal	-	Aston Villa
+2016-05-15 16:00	West Bromwich	-	Liverpool

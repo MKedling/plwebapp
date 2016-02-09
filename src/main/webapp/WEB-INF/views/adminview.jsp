@@ -10,8 +10,10 @@ ADMINVIEW
 
 <div>
 
-
-	${userSession.user.username}
+	<form method="post" action="admin/addMatches">
+		<input name="fileName" type="hidden" value="pl.txt">
+		<input type="submit" value="lägg till matcher">
+	</form>
 	
 	
 </div>

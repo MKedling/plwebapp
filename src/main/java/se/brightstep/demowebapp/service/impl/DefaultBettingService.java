@@ -25,7 +25,7 @@ public class DefaultBettingService implements BettingService{
 
 	public List<Bet> getAllBets() {
 		
-		return bettingDAO.getAllBets();
+		return bettingDAO.getAllBetsRound();
 	}
 
 

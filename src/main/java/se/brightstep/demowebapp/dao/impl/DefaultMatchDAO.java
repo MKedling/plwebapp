@@ -1,5 +1,6 @@
 package se.brightstep.demowebapp.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -39,7 +40,7 @@ public class DefaultMatchDAO implements MatchDAO{
 
 	public List<Match> getAllMatchesToBet() {
 		
-		String query = "SELECT * FROM Matches WHERE id NOT IN (SELECT match_id FROM bet where user_ID = ?) AND round = ?";
+		String query = "SELECT * FROM Matches WHERE id NOT IN (SELECT match_id FROM bet where user_ID = ?) AND round = ? AND start_time >= now()";
 		List<Match> allMatchesToBet;
 		
 		try{
@@ -51,5 +52,35 @@ public class DefaultMatchDAO implements MatchDAO{
 		
 		return allMatchesToBet;
 	}
+
+	@Override
+	public void addNewMatchesToDatabase(ArrayList<Match> allMatches) {
+		
+		for(Match match : allMatches){
+		
+			if(!matchExist(match)){
+				jdbcTemplate.update("INSERT INTO matches(start_time, round, home_team, away_team) VALUES (?, ?, ?, ?)",
+					     new Object[] { match.getStarttime(), match.getRound(), match.getHomeTeam(), match.getAwayTeam()  });
+			}else{
+				System.out.println("Match already exists: " + match);
+			}
+		}
+		
+	}
+	
+	public boolean matchExist(Match match){
+		Integer cnt = jdbcTemplate.queryForObject(
+			    "SELECT count(*) FROM matches WHERE home_team = ? AND away_team = ? AND round = ?", Integer.class, match.getHomeTeam(), match.getAwayTeam(), match.getRound());
+			return cnt != null && cnt > 0;
+	}
+
+	@Override
+	public int getCurrentRound() {
+		
+		String round = jdbcTemplate.queryForList("SELECT round FROM matches WHERE start_time >= now() ORDER BY round ASC").get(0).toString();
+		
+		return Integer.parseInt(round.replaceAll("[^0-9]", ""));
+	}
+	
 
 }

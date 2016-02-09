@@ -35,12 +35,14 @@ public abstract class SuperclassController {
 		
 		List<Bet> allBets = bettingService.getAllBets();
 		List<Match> matchesToBet = matchService.getAllMatchesToBet();
+		int round = userSession.getRound();
 		
 		modelAndView.addObject("bets" , allBets);
 		modelAndView.addObject("matchesToBet" , matchesToBet);
-		modelAndView.addObject("round" , userSession.getRound());
+		modelAndView.addObject("round" , round);
 		
-		modelAndView.addObject("score" , scoreService.getScore());
+		modelAndView.addObject("scoreRound" , scoreService.getRoundScore());
+		modelAndView.addObject("scoreTotal" , scoreService.getTotalScore());
 	}
 	
 

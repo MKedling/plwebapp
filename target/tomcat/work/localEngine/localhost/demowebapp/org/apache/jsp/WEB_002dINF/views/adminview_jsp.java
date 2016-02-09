@@ -69,11 +69,12 @@ public final class adminview_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("<div>\r\n");
       out.write("\r\n");
-      out.write("\r\n");
-      out.write("\t");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${userSession.user.username}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-      out.write("\r\n");
-      out.write("\t\r\n");
+      out.write("\t<form method=\"post\" action=\"admin/addMatches\">\r\n");
+      out.write("\t\t\r\n");
+      out.write("\t\t<input name=\"fileName\" type=\"hidden\" value=\"pl.txt\">\r\n");
+      out.write("\t\t<input type=\"submit\" value=\"lägg till matcher\">\r\n");
+      out.write("\t\t\r\n");
+      out.write("\t</form>\r\n");
       out.write("\t\r\n");
       out.write("</div>\r\n");
       out.write("\r\n");

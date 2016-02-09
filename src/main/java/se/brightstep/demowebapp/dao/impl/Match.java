@@ -55,6 +55,10 @@ public class Match {
 		this.starttime = timestamp;
 	}
 	
+	public String toString(){
+		return "Runda: " + round +  "  Tid: " + starttime + "  Hemmalag: " + homeTeam + " - " + awayTeam; 
+	}
+	
 	
 
 }

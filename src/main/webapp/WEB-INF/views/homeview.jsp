@@ -26,10 +26,22 @@
 <body>
 
 <div>
-	${userSession.user.username} : ${score} 
-	
+	<a href="admin">Admin</a>
 </div>
 
+<div class="list-group">
+	<div class="list-group-item">
+		<p class="username">
+			${userSession.user.username}
+		</p>
+		<p>
+			Round Score: ${scoreRound}
+		</p> 
+		<p>
+			Total Score: ${scoreTotal}
+		</p>
+	</div>
+</div>
 
 
 <div class="list-group">
@@ -59,7 +71,7 @@
 			   	<input type="hidden" name="match_id" value="${match.ID}" /> 
 		   	</form>
 		   	
-		   	<button type="button" class="btn btn-primary bet" value="">Primary</button> 	
+		   	<button type="button" class="btn btn-primary bet" value="">PLACERA BET</button> 	
 		   		
 	   	</div>	
 	   	 

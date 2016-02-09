@@ -52,6 +52,10 @@ http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
 		<property name="matchDAO" ref="matchDAO"/>
 	</bean>
 	
+	<bean name="adminMatchService" class="se.brightstep.demowebapp.service.impl.DefaultAdminMatchService">
+		<property name="matchDAO" ref="matchDAO"/>
+	</bean>
+	
 	<!-- DAO / Persistence Layer -->
 	<bean name="exampleDAO" class="se.brightstep.demowebapp.dao.impl.DefaultExampleDAO">
 		<property name="dataSource" ref="dataSource"/>

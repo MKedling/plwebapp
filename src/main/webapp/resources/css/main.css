@@ -10,7 +10,8 @@ div.input-group{
 
 span.plus_minus{
 	display: inline-block;
-	margin: 0px 30px;
+	margin: 0px 10px;
+	width: 50px;
 }
 
 span.plus_minus .btn{
@@ -21,6 +22,8 @@ span.plus_minus .btn{
 
 .team_name{
 	font-size: 2em;
+	width: 250px;
+	display: inline-block;
 }
 
 .score{
@@ -42,7 +45,6 @@ span.plus_minus .btn{
 	margin: auto;
     width: 100%;
     padding: 25px;
-	
 }
 
 .pagination{
@@ -52,5 +54,8 @@ span.plus_minus .btn{
 	width: 80px;
 }
 
+p.username{
+	font-size: 2em;
+}
 
 

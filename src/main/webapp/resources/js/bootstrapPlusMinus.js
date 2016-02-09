@@ -8,7 +8,7 @@ jQuery(document).ready(function($) {
 	    
 	    $(spinners).each(function (key,spinner) {
 	        spinner.settings = $.extend({
-		    	width:"150px",
+		    	width:"75px",
 	      		value:0,
 	            id:key,
 	      		min_value:0,

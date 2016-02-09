@@ -8,5 +8,6 @@ public interface BettingDAO {
 
 	public boolean placeBet(Bet bet);
 
+	public List<Bet> getAllBetsRound();
 	public List<Bet> getAllBets();
 }

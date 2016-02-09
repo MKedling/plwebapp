@@ -25,6 +25,11 @@ public class DefaultMatchService implements MatchService{
 	public List<Match> getAllMatchesToBet() {
 		return matchDAO.getAllMatchesToBet();
 	}
+
+	@Override
+	public int getCurrentRound() {
+		return matchDAO.getCurrentRound();
+	}
 	
 	
 

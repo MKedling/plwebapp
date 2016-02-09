@@ -22,6 +22,7 @@ import se.brightstep.demowebapp.service.UserService;
 import se.brightstep.demowebapp.session.UserSession;
 
 
+
 @Controller
 @RequestMapping(value = "/")
 public class LoginController extends SuperclassController{
@@ -38,8 +39,9 @@ public class LoginController extends SuperclassController{
 	{
 		ModelAndView modelAndView;
 		if(userService.login(username, password)){
-			
 			modelAndView = new ModelAndView("homeview");
+			int round = matchService.getCurrentRound();
+			userSession.setRound(round);
 			addBetsAndMatchesToModel(modelAndView);
 			return modelAndView;
 		}

@@ -8,5 +8,7 @@ public interface MatchService {
 	
 	public List<Match> getAllMatches();
 	public List<Match> getAllMatchesToBet();
+	
+	public int getCurrentRound();
 
 }

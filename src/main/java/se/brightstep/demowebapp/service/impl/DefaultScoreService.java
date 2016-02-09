@@ -33,9 +33,21 @@ public class DefaultScoreService implements ScoreService{
 		this.bettingDAO = bettingDAO;
 	}
 
-	public int getScore() {
+	public int getTotalScore() {
 		
 		ArrayList<Bet> allBets = new ArrayList<Bet>(bettingDAO.getAllBets());
+		int totalScore = 0;
+		
+		for(Bet bet : allBets){
+			totalScore += calculateScore(bet);
+		}
+		
+		return totalScore;
+	}
+	
+	public int getRoundScore() {
+		
+		ArrayList<Bet> allBets = new ArrayList<Bet>(bettingDAO.getAllBetsRound());
 		int totalScore = 0;
 		
 		for(Bet bet : allBets){
