@@ -30,6 +30,18 @@ public class DefaultMatchService implements MatchService{
 	public int getCurrentRound() {
 		return matchDAO.getCurrentRound();
 	}
+
+	@Override
+	public List<Match> getAllMatchesToAddResult() {
+		
+		return matchDAO.getAllMatchesToAddResult();
+	}
+
+	@Override
+	public boolean addResult(int matchID, int homeScore, int awayScore) {
+		return matchDAO.addResult(matchID, homeScore, awayScore);
+		
+	}
 	
 	
 

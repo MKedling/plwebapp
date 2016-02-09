@@ -46,7 +46,7 @@ public class DefaultMatchDAO implements MatchDAO{
 		try{
 			allMatchesToBet = jdbcTemplate.query(query, new MatchRowMapper(), userSession.getUser().getID(), userSession.getRound());
 		}catch(org.springframework.dao.EmptyResultDataAccessException e){
-			System.out.println("User did not exist");
+			System.out.println("No Matches");
 			return null;
 		}
 		
@@ -73,6 +73,12 @@ public class DefaultMatchDAO implements MatchDAO{
 			    "SELECT count(*) FROM matches WHERE home_team = ? AND away_team = ? AND round = ?", Integer.class, match.getHomeTeam(), match.getAwayTeam(), match.getRound());
 			return cnt != null && cnt > 0;
 	}
+	
+	public boolean matchWithoutResultExist(int matchID){
+		Integer cnt = jdbcTemplate.queryForObject(
+			    "SELECT count(*) FROM matches WHERE id = ? AND home_score IS NULL AND away_score IS NULL", Integer.class, matchID);
+			return cnt != null && cnt > 0;
+	}
 
 	@Override
 	public int getCurrentRound() {
@@ -80,6 +86,33 @@ public class DefaultMatchDAO implements MatchDAO{
 		String round = jdbcTemplate.queryForList("SELECT round FROM matches WHERE start_time >= now() ORDER BY round ASC").get(0).toString();
 		
 		return Integer.parseInt(round.replaceAll("[^0-9]", ""));
+	}
+
+	@Override
+	public List<Match> getAllMatchesToAddResult() {
+		
+		String query = "SELECT * FROM Matches WHERE start_time < now() AND (home_score IS NULL OR away_score IS NULL)";
+		List<Match> allMatchesToAddResult;
+		
+		try{
+			allMatchesToAddResult = jdbcTemplate.query(query, new MatchRowMapper());
+		}catch(org.springframework.dao.EmptyResultDataAccessException e){
+			System.out.println("No Matches");
+			return null;
+		}
+		
+		return allMatchesToAddResult;
+	}
+
+	@Override
+	public boolean addResult(int matchID, int homeScore, int awayScore) {
+		
+		if(matchWithoutResultExist(matchID)){
+			jdbcTemplate.update("UPDATE matches SET home_score = ?, away_score = ? WHERE id = ?", homeScore, awayScore, matchID);
+			return true;
+		}
+		System.out.println("Match utan resultat finns inte");
+		return false;
 	}
 	
 

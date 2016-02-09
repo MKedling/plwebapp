@@ -2,6 +2,7 @@ package se.brightstep.demowebapp.controller;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,9 +12,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import se.brightstep.demowebapp.dao.impl.Bet;
 import se.brightstep.demowebapp.dao.impl.Match;
 import se.brightstep.demowebapp.service.AdminMatchService;
 import se.brightstep.demowebapp.service.BettingService;
+import se.brightstep.demowebapp.service.MatchService;
 import se.brightstep.demowebapp.service.UserService;
 import se.brightstep.demowebapp.session.UserSession;
 
@@ -26,7 +29,7 @@ public class AdminController extends SuperclassController{
 	private UserService userService;
 	
 	@Autowired
-	private UserService matchService;
+	private MatchService matchService;
 	
 	@Autowired
 	private AdminMatchService adminMatchService;
@@ -34,10 +37,12 @@ public class AdminController extends SuperclassController{
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public ModelAndView isAdmin()
 	{
+		ModelAndView modelAndView = new ModelAndView("adminview");
+		List<Match> matchesToAddResult = matchService.getAllMatchesToAddResult();
 		
-		System.out.println(userSession.getUser().getUsername());
+		modelAndView.addObject("matchesToAddResult" , matchesToAddResult);
 		
-		return new ModelAndView("adminview");
+		return modelAndView;
 	
 		/*
 		if(userService.isAdmin(username, password)){
@@ -58,6 +63,22 @@ public class AdminController extends SuperclassController{
 		
 		return new ModelAndView("adminview");
 	
+	}
+	
+	@RequestMapping(value = "/admin/addResult", method = RequestMethod.POST)
+	public ModelAndView bet(@RequestParam("match_id") int matchID,
+							@RequestParam("score_home[1]") int homeScore,
+							@RequestParam("score_away[1]") int awayScore)
+	{
+		
+		matchService.addResult(matchID, homeScore, awayScore);
+		
+		ModelAndView modelAndView = new ModelAndView("adminview");
+		List<Match> matchesToAddResult = matchService.getAllMatchesToAddResult();
+		
+		modelAndView.addObject("matchesToAddResult" , matchesToAddResult);
+		
+		return modelAndView;
 	}
 	
 	
