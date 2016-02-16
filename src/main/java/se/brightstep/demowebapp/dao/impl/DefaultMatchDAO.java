@@ -38,13 +38,13 @@ public class DefaultMatchDAO implements MatchDAO{
 		return allMatches;
 	}
 
-	public List<Match> getAllMatchesToBet() {
+	public List<Match> getAllMatchesToBet(int round) {
 		
 		String query = "SELECT * FROM Matches WHERE id NOT IN (SELECT match_id FROM bet where user_ID = ?) AND round = ? AND start_time >= now()";
 		List<Match> allMatchesToBet;
 		
 		try{
-			allMatchesToBet = jdbcTemplate.query(query, new MatchRowMapper(), userSession.getUser().getID(), userSession.getRound());
+			allMatchesToBet = jdbcTemplate.query(query, new MatchRowMapper(), userSession.getUser().getID(), round);
 		}catch(org.springframework.dao.EmptyResultDataAccessException e){
 			System.out.println("No Matches");
 			return null;

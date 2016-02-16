@@ -23,10 +23,15 @@ public class DefaultBettingService implements BettingService{
 		return bettingDAO.placeBet(bet);
 	}
 
-	public List<Bet> getAllBets() {
-		
-		return bettingDAO.getAllBetsRound();
+	public List<Bet> getAllBetsRound(int id, int round){
+		return bettingDAO.getAllBetsRound(id, round);
 	}
+	public List<Bet> getAllBets(int id){
+		return bettingDAO.getAllBets(id);
+	}
+
+	
+	
 
 
 }

@@ -9,6 +9,8 @@
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
 
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -25,14 +27,23 @@
 </head>
 <body>
 
-<div>
-	<a href="admin">Admin</a>
-</div>
+
+<div class="page">
+<div class="container-fluid">
+<div class="row">
+<div class="main-content col-centered col-lg-12">
 
 <div class="list-group">
+	<div>
+		<a href="admin">Admin</a>
+	</div>
+
 	<div class="list-group-item">
 		<p class="username">
 			${userSession.user.username}
+		</p>
+		<p>
+			Current round: ${currentRound}
 		</p>
 		<p>
 			Round Score: ${scoreRound}
@@ -40,20 +51,54 @@
 		<p>
 			Total Score: ${scoreTotal}
 		</p>
+		
 	</div>
 </div>
+
+
+<div class="list-group highscore">
+	<div class="list-group-item">
+		<h3 class="heading">
+			Highscore
+		</h3>
+		<div class="wrapper col-lg-6">
+			<div class="total-score score-section">
+				<h4>
+					Total:
+				</h4>
+				<c:forEach items="${totalHighscore}" var="entry">
+					<span class="highscore-entry">${entry.user.username}: <span class="value">${entry.score}</span></span>
+				   	<br> 
+				</c:forEach>
+			</div>
+		</div>
+		<div class="wrapper col-lg-6">
+			<div class="round-score score-section">
+				<h4>
+					Round:
+				</h4>
+				<c:forEach items="${roundHighscore}" var="entry">
+					<span class="highscore-entry">${entry.user.username}: <span class="value">${entry.score}</span></span>
+				   	<br> 
+				</c:forEach>
+			</div>
+		</div>
+	</div>
+</div>
+
+
 
 
 <div class="list-group">
 	
 	<div class="pagination round">
 		<form id="pagination_form" method="POST" action="/demowebapp/plapp/login/update">
-			<span class="plus_minus" data-name="quantity" data-value="${round}" data-id="101"></span>
+			<span class="plus_minus" data-name="quantity" data-value="${roundToView}" data-id="101"></span>
 		</form>
 	</div>
 	<c:forEach items="${matchesToBet}" var="match">
 		
-		<div class="list-group-item">
+		<div class="list-group-item matches">
 			
 			${match.starttime}
 			<br>
@@ -68,7 +113,8 @@
 			   		<span class="plus_minus away_team" data-name="score_away" data-value="0" data-id="1"></span>
 			   	</div>
 			   	
-			   	<input type="hidden" name="match_id" value="${match.ID}" /> 
+			   	<input type="hidden" name="match_id" value="${match.ID}" />
+			   	<input type="hidden" name="round" value="${match.round}" />  
 		   	</form>
 		   	
 		   	<button type="button" class="btn btn-primary bet" value="">PLACERA BET</button> 	
@@ -78,7 +124,7 @@
 	</c:forEach>
 	
 	<c:forEach items="${bets}" var="bet">
-		
+		<c:if test = "${bet.round == roundToView}">
 		<div class="list-group-item">
 			
 			${bet.starttime}
@@ -95,10 +141,19 @@
 		   	</div>
 		   	
 	   	</div>	
+	   
+	   </c:if>
 	   		
 	</c:forEach>
+	
 </div>
 
+
+
+</div><!-- main content-->
+</div>	<!-- row -->
+</div> <!-- container fluid -->
+</div> <!-- page -->
 
 </body>
 </html>

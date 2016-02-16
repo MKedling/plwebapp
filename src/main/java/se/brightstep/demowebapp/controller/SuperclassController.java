@@ -31,18 +31,24 @@ public abstract class SuperclassController {
 	protected ScoreService scoreService;
 	
 	
-	public void addBetsAndMatchesToModel(ModelAndView modelAndView){
+	public void addBetsAndMatchesToModel(ModelAndView modelAndView, int roundToView){
 		
-		List<Bet> allBets = bettingService.getAllBets();
-		List<Match> matchesToBet = matchService.getAllMatchesToBet();
-		int round = userSession.getRound();
+		List<Bet> allBets = bettingService.getAllBets(userSession.getUser().getID());
+		List<Match> matchesToBet = matchService.getAllMatchesToBet(roundToView);
 		
 		modelAndView.addObject("bets" , allBets);
 		modelAndView.addObject("matchesToBet" , matchesToBet);
-		modelAndView.addObject("round" , round);
+		modelAndView.addObject("currentRound" , userSession.getRound());
+		modelAndView.addObject("roundToView" , roundToView);
 		
-		modelAndView.addObject("scoreRound" , scoreService.getRoundScore());
-		modelAndView.addObject("scoreTotal" , scoreService.getTotalScore());
+		modelAndView.addObject("scoreRound" , scoreService.getRoundScore(userSession.getUser().getID(), roundToView));
+		modelAndView.addObject("scoreTotal" , scoreService.getTotalScore(userSession.getUser().getID()));
+		
+		modelAndView.addObject("totalHighscore" , scoreService.getTotalHighscore());
+		modelAndView.addObject("roundHighscore" , scoreService.getRoundHighscore(roundToView));
+		
+		
+		
 	}
 	
 

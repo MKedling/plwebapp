@@ -8,6 +8,7 @@ public interface BettingService {
 
 	public boolean placeBet(Bet bet);
 	
-	public List<Bet> getAllBets();
+	public List<Bet> getAllBets(int id);
+	public List<Bet> getAllBetsRound(int id, int round);
 
 }

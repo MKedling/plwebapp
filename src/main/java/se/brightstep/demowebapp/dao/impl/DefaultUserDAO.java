@@ -88,6 +88,21 @@ public class DefaultUserDAO implements UserDAO{
 	}
 
 
+	@Override
+	public List<User> getAllUsers() {
+		
+		String query = "SELECT * FROM users";
+		List<User> allUsers = null;
+		try{
+			allUsers = (List<User>) jdbcTemplate.query(query, new UserRowMapper());
+			}catch(org.springframework.dao.EmptyResultDataAccessException e){
+				return null;
+			}
+	
+		return allUsers;
+	}
+
+
 	/*
 	public int getScore() {
 		

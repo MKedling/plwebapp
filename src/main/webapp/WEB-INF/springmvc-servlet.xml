@@ -42,6 +42,7 @@ http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
 	<bean name="scoreService" class="se.brightstep.demowebapp.service.impl.DefaultScoreService">
 		<property name="bettingDAO" ref="bettingDAO"/>
 		<property name="matchDAO" ref="matchDAO"/>
+		<property name="userDAO" ref="userDAO"/>
 	</bean>
 	
 	<bean name="adminMatchService" class="se.brightstep.demowebapp.service.impl.DefaultAdminMatchService">

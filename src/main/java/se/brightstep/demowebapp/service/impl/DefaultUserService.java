@@ -1,7 +1,10 @@
 package se.brightstep.demowebapp.service.impl;
 
 
+import java.util.List;
+
 import se.brightstep.demowebapp.dao.UserDAO;
+import se.brightstep.demowebapp.dao.impl.User;
 import se.brightstep.demowebapp.service.UserService;
 
 public class DefaultUserService implements UserService{
@@ -23,6 +26,12 @@ public class DefaultUserService implements UserService{
 	public boolean createUser(String username, String password, String email) {
 		
 		return userDAO.createUser(username, password, email);
+	}
+
+
+	@Override
+	public List<User> getAllUsers() {
+		return userDAO.getAllUsers();
 	}
 
 	/*

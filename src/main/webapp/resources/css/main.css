@@ -1,3 +1,17 @@
+body{
+	box-sizing: border-box;
+}
+
+.main-content{
+	max-width:750px;
+	margin: auto;
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
 .login{
 	float: left;
 	align: center;
@@ -40,12 +54,11 @@ span.plus_minus .btn{
 	font-weight: bold;
 }
 
-.list-group{
-	max-width: 750px;
-	margin: auto;
-    width: 100%;
-    padding: 25px;
+.list-group, .list-group-item{
+    padding: 15px;
+    overflow: auto;
 }
+
 
 .pagination{
 	display: inline-block;
@@ -57,5 +70,30 @@ span.plus_minus .btn{
 p.username{
 	font-size: 2em;
 }
+
+.matches{
+	padding: 25px;
+}
+
+.highscore h3{
+	text-align: center;
+}
+
+.score-section{
+	padding: 10px 25px;
+}
+
+.highscore .total-score{
+	float: left;
+}
+
+.highscore .round-score{
+	float: right;
+}
+
+.score-section span:first-of-type span{
+	color: red;
+}
+
 
 

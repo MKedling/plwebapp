@@ -41,7 +41,7 @@ public class LoginController extends SuperclassController{
 			modelAndView = new ModelAndView("homeview");
 			int round = matchService.getCurrentRound();
 			userSession.setRound(round);
-			addBetsAndMatchesToModel(modelAndView);
+			addBetsAndMatchesToModel(modelAndView, userSession.getRound());
 			return modelAndView;
 		}
 		
@@ -68,7 +68,7 @@ public class LoginController extends SuperclassController{
 		
 		if(createUser(username, password, email)){
 			modelAndView = new ModelAndView("homeview");
-			addBetsAndMatchesToModel(modelAndView);
+			addBetsAndMatchesToModel(modelAndView, userSession.getRound());
 			return modelAndView;
 			
 		}
@@ -83,11 +83,10 @@ public class LoginController extends SuperclassController{
 	@RequestMapping(value = "/login/update", method = RequestMethod.POST)
 	public ModelAndView updateRound(@RequestParam("quantity[101]") int q)
 	{
-		userSession.setRound(q);
-	
+		
 		ModelAndView modelAndView;
 		modelAndView = new ModelAndView("homeview");
-		addBetsAndMatchesToModel(modelAndView);
+		addBetsAndMatchesToModel(modelAndView, q);
 		
 		return modelAndView;
 		

@@ -30,7 +30,8 @@ public class BetController extends SuperclassController{
 	@RequestMapping(value = "login/bet", method = RequestMethod.POST)
 	public ModelAndView bet(@RequestParam("match_id") int matchID,
 							@RequestParam("score_home[1]") int homeScore,
-							@RequestParam("score_away[1]") int awayScore)
+							@RequestParam("score_away[1]") int awayScore,
+							@RequestParam("round") int round)
 	{
 		int userID = userSession.getUser().getID();
 		
@@ -44,7 +45,7 @@ public class BetController extends SuperclassController{
 		
 		bettingService.placeBet(bet);
 		ModelAndView modelAndView = new ModelAndView("homeview");
-		addBetsAndMatchesToModel(modelAndView);
+		addBetsAndMatchesToModel(modelAndView, round);
 		
 		return modelAndView;
 	}

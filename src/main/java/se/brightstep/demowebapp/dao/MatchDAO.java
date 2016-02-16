@@ -8,7 +8,7 @@ import se.brightstep.demowebapp.dao.impl.Match;
 public interface MatchDAO{
 	
 	public List<Match> getAllMatches();
-	public List<Match> getAllMatchesToBet();
+	public List<Match> getAllMatchesToBet(int round);
 	public void addNewMatchesToDatabase(ArrayList<Match> matches);
 	
 	public int getCurrentRound();
