@@ -4,7 +4,7 @@ package se.brightstep.demowebapp.service.impl;
 import java.util.List;
 
 import se.brightstep.demowebapp.dao.UserDAO;
-import se.brightstep.demowebapp.dao.impl.User;
+import se.brightstep.demowebapp.dto.User;
 import se.brightstep.demowebapp.service.UserService;
 
 public class DefaultUserService implements UserService{

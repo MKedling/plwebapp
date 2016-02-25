@@ -2,9 +2,10 @@ package se.brightstep.demowebapp.session;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-import org.springframework.context.annotation.ScopedProxyMode;
 
-import se.brightstep.demowebapp.dao.impl.User;
+import se.brightstep.demowebapp.dto.User;
+
+import org.springframework.context.annotation.ScopedProxyMode;
 
 @Component
 @Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS )

@@ -9,10 +9,10 @@ import java.util.Map;
 import se.brightstep.demowebapp.dao.BettingDAO;
 import se.brightstep.demowebapp.dao.MatchDAO;
 import se.brightstep.demowebapp.dao.UserDAO;
-import se.brightstep.demowebapp.dao.impl.Bet;
-import se.brightstep.demowebapp.dao.impl.HighscoreEntry;
-import se.brightstep.demowebapp.dao.impl.User;
-import se.brightstep.demowebapp.dao.impl.UserScore;
+import se.brightstep.demowebapp.dto.Bet;
+import se.brightstep.demowebapp.dto.HighscoreEntry;
+import se.brightstep.demowebapp.dto.User;
+import se.brightstep.demowebapp.dto.UserScore;
 import se.brightstep.demowebapp.service.ScoreService;
 import se.brightstep.demowebapp.service.UserService;
 

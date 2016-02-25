@@ -28,6 +28,8 @@
 <body>
 
 
+${nextMatchToBet.starttime}
+
 <div class="page">
 <div class="container-fluid">
 <div class="row">
@@ -96,55 +98,22 @@
 			<span class="plus_minus" data-name="quantity" data-value="${roundToView}" data-id="101"></span>
 		</form>
 	</div>
+	
 	<c:forEach items="${matchesToBet}" var="match">
-		
-		<div class="list-group-item matches">
-			
-			${match.starttime}
-			<br>
-			Round: ${match.round}
-			<form method="POST" action="/demowebapp/plapp/login/bet">
-				<div>
-			   		<span class="team_name"> ${match.homeTeam}</span>
-			   		<span class="plus_minus home_team" data-name="score_home" data-value="0" data-id="1"></span>
-			   	</div>
-			   	<div>
-			   		<span class="team_name">${match.awayTeam}</span>
-			   		<span class="plus_minus away_team" data-name="score_away" data-value="0" data-id="1"></span>
-			   	</div>
-			   	
-			   	<input type="hidden" name="match_id" value="${match.ID}" />
-			   	<input type="hidden" name="round" value="${match.round}" />  
-		   	</form>
-		   	
-		   	<button type="button" class="btn btn-primary bet" value="">PLACERA BET</button> 	
-		   		
-	   	</div>	
-	   	 
+		<c:set var="match" value="${match}" scope="request" />
+		<c:set var="matchType" value="matchToBet" scope="request" />
+	    <jsp:include page="match.jsp"/>   
 	</c:forEach>
 	
 	<c:forEach items="${bets}" var="bet">
 		<c:if test = "${bet.round == roundToView}">
-		<div class="list-group-item">
 			
-			${bet.starttime}
-			<br>
-			Round: ${bet.round}
+				<c:set var="bet" value="${bet}" scope="request" />
+				<c:set var="matchType" value="matchBetExist" scope="request" />
+			    <jsp:include page="match.jsp"/>   
 			
-			<div>
-		   		<span class="team_name"> ${bet.homeTeam}</span>
-		   		<span class="score"> ${bet.betHomeScore}</span>
-		   	</div>
-		   	<div>
-		   		<span class="team_name">${bet.awayTeam}</span>
-		   		<span class="score"> ${bet.betAwayScore}</span>
-		   	</div>
-		   	
-	   	</div>	
-	   
 	   </c:if>
-	   		
-	</c:forEach>
+   </c:forEach>
 	
 </div>
 

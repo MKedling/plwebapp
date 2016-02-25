@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
-import se.brightstep.demowebapp.dao.impl.Bet;
-import se.brightstep.demowebapp.dao.impl.Match;
+import se.brightstep.demowebapp.dto.Bet;
+import se.brightstep.demowebapp.dto.Match;
 import se.brightstep.demowebapp.service.BettingService;
 import se.brightstep.demowebapp.service.MatchService;
 import se.brightstep.demowebapp.service.ScoreService;

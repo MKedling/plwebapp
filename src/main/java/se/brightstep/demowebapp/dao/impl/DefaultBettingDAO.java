@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import se.brightstep.demowebapp.dao.BettingDAO;
+import se.brightstep.demowebapp.dto.Bet;
+import se.brightstep.demowebapp.dto.rowMapper.BetRowMapper;
 import se.brightstep.demowebapp.session.UserSession;
 
 public class DefaultBettingDAO implements BettingDAO{

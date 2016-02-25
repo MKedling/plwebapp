@@ -1,8 +1,10 @@
-package se.brightstep.demowebapp.dao.impl;
+package se.brightstep.demowebapp.dto.rowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import org.springframework.jdbc.core.RowMapper;
+
+import se.brightstep.demowebapp.dto.Bet;
 
 public class BetRowMapper implements RowMapper{
 	

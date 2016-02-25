@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import se.brightstep.demowebapp.dao.MatchDAO;
+import se.brightstep.demowebapp.dto.Match;
+import se.brightstep.demowebapp.dto.rowMapper.MatchRowMapper;
 import se.brightstep.demowebapp.session.UserSession;
 
 public class DefaultMatchDAO implements MatchDAO{

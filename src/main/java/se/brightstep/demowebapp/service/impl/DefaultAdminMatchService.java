@@ -14,7 +14,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import se.brightstep.demowebapp.dao.MatchDAO;
-import se.brightstep.demowebapp.dao.impl.Match;
+import se.brightstep.demowebapp.dto.Match;
 import se.brightstep.demowebapp.service.AdminMatchService;
 
 public class DefaultAdminMatchService implements AdminMatchService{

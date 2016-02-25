@@ -3,7 +3,7 @@ package se.brightstep.demowebapp.dao;
 import java.util.ArrayList;
 import java.util.List;
 
-import se.brightstep.demowebapp.dao.impl.Match;
+import se.brightstep.demowebapp.dto.Match;
 
 public interface MatchDAO{
 	

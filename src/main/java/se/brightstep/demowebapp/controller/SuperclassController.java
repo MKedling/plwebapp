@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.ModelAndView;
 
-import se.brightstep.demowebapp.dao.impl.Bet;
-import se.brightstep.demowebapp.dao.impl.Match;
+import se.brightstep.demowebapp.dto.Bet;
+import se.brightstep.demowebapp.dto.Match;
 import se.brightstep.demowebapp.service.BettingService;
 import se.brightstep.demowebapp.service.EmailService;
 import se.brightstep.demowebapp.service.MatchService;

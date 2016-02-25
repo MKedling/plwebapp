@@ -3,7 +3,7 @@ package se.brightstep.demowebapp.service.impl;
 import java.util.List;
 
 import se.brightstep.demowebapp.dao.MatchDAO;
-import se.brightstep.demowebapp.dao.impl.Match;
+import se.brightstep.demowebapp.dto.Match;
 import se.brightstep.demowebapp.service.MatchService;
 
 public class DefaultMatchService implements MatchService{

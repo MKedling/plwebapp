@@ -26,50 +26,41 @@
 <body>
 
 
-<div>
-	<span>ADMINVIEW</span>
-</div>
+<div class="page">
+<div class="container-fluid">
+<div class="row">
+<div class="main-content col-centered col-lg-12">
 
 
-<div>
-	<form method="post" action="admin/addMatches">
-		<input name="fileName" type="hidden" value="pl.txt">
-		<input type="submit" value="lägg till matcher">
-	</form>
-</div>
 
 <div class="list-group">
 
+	<div class="list-group-item">
+	<div>
+		<span>ADMINVIEW</span>
+	</div>	
+	<div>
+		<form method="post" action="admin/addMatches">
+			<input name="fileName" type="hidden" value="pl.txt">
+			<input type="submit" value="lägg till matcher">
+		</form>
+	</div>
+	</div>
+
 	<c:forEach items="${matchesToAddResult}" var="match">
-		
-		<div class="list-group-item">
-			
-			${match.starttime}
-			<br>
-			Round: ${match.round}
-			
-			<form method="POST" action="admin/addResult">
-				<div>
-			   		<span class="team_name"> ${match.homeTeam}</span>
-			   		<span class="plus_minus home_team" data-name="score_home" data-value="0" data-id="1"></span>
-			   	</div>
-			   	<div>
-			   		<span class="team_name">${match.awayTeam}</span>
-			   		<span class="plus_minus away_team" data-name="score_away" data-value="0" data-id="1"></span>
-			   	</div>
-			   	
-			   	<input type="hidden" name="match_id" value="${match.ID}" /> 
-		   	</form>
-		   	
-		   	<button type="button" class="btn btn-primary bet" value="">LÄGG TILL</button> 	
-		   		
-	   	</div>	
-	   	 
+		<c:set var="match" value="${match}" scope="request" />
+		<c:set var="matchType" value="matchToAddResult" scope="request" />
+	    <jsp:include page="match.jsp"/>   
 	</c:forEach>
 
 </div>
 
 
+
+</div><!-- main content-->
+</div>	<!-- row -->
+</div> <!-- container fluid -->
+</div> <!-- page -->
 	
 </body>
 </html>

@@ -2,7 +2,7 @@ package se.brightstep.demowebapp.service;
 
 import java.util.List;
 
-import se.brightstep.demowebapp.dao.impl.Bet;
+import se.brightstep.demowebapp.dto.Bet;
 
 public interface BettingService {
 

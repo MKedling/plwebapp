@@ -1,7 +1,7 @@
 package se.brightstep.demowebapp.service.impl;
 
-import se.brightstep.demowebapp.dao.impl.HighscoreEntry;
-import se.brightstep.demowebapp.dao.impl.User;
+import se.brightstep.demowebapp.dto.HighscoreEntry;
+import se.brightstep.demowebapp.dto.User;
 import se.brightstep.demowebapp.service.EmailService;
 import se.brightstep.demowebapp.service.ScoreService;
 import se.brightstep.demowebapp.service.UserService;

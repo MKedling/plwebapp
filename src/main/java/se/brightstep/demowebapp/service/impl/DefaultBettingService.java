@@ -3,7 +3,7 @@ package se.brightstep.demowebapp.service.impl;
 import java.util.List;
 
 import se.brightstep.demowebapp.dao.BettingDAO;
-import se.brightstep.demowebapp.dao.impl.Bet;
+import se.brightstep.demowebapp.dto.Bet;
 import se.brightstep.demowebapp.service.BettingService;
 
 public class DefaultBettingService implements BettingService{

@@ -1,5 +1,6 @@
 package se.brightstep.demowebapp.dto;
 
+import java.util.Comparator;
 
 public class HighscoreEntry implements Comparable<HighscoreEntry>{
 
@@ -22,6 +23,7 @@ public class HighscoreEntry implements Comparable<HighscoreEntry>{
 	public void setScore(int score) {
 		this.score = score;
 	} 
+	
 	
 	@Override
 	public int compareTo(HighscoreEntry highscoreentry){

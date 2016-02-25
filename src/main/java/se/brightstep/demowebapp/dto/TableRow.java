@@ -1,4 +1,4 @@
-package se.brightstep.demowebapp.dao.impl;
+package se.brightstep.demowebapp.dto;
 
 import java.math.BigDecimal;
 

@@ -13,6 +13,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import se.brightstep.demowebapp.dao.BettingDAO;
 import se.brightstep.demowebapp.dao.MatchDAO;
 import se.brightstep.demowebapp.dao.UserDAO;
+import se.brightstep.demowebapp.dto.User;
+import se.brightstep.demowebapp.dto.rowMapper.UserRowMapper;
 import se.brightstep.demowebapp.session.UserSession;
 
 public class DefaultUserDAO implements UserDAO{
