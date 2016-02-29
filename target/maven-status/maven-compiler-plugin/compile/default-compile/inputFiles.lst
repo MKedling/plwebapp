@@ -1,11 +1,13 @@
+C:\Users\Dell\Desktop\app\plwebapp\src\main\java\se\brightstep\demowebapp\misc\MatchStartTimeComparator.java
 C:\Users\Dell\Desktop\app\plwebapp\src\main\java\se\brightstep\demowebapp\dto\UserScore.java
 C:\Users\Dell\Desktop\app\plwebapp\src\main\java\se\brightstep\demowebapp\service\MatchService.java
 C:\Users\Dell\Desktop\app\plwebapp\src\main\java\se\brightstep\demowebapp\service\impl\DefaultBettingService.java
-C:\Users\Dell\Desktop\app\plwebapp\src\main\java\se\brightstep\demowebapp\dto\Match.java
+C:\Users\Dell\Desktop\app\plwebapp\src\main\java\se\brightstep\demowebapp\dto\json\Match.java
 C:\Users\Dell\Desktop\app\plwebapp\src\main\java\se\brightstep\demowebapp\service\UserService.java
 C:\Users\Dell\Desktop\app\plwebapp\src\main\java\se\brightstep\demowebapp\service\impl\DefaultAdminMatchService.java
 C:\Users\Dell\Desktop\app\plwebapp\src\main\java\se\brightstep\demowebapp\service\ScoreService.java
 C:\Users\Dell\Desktop\app\plwebapp\src\main\java\se\brightstep\demowebapp\dao\MatchDAO.java
+C:\Users\Dell\Desktop\app\plwebapp\src\main\java\se\brightstep\demowebapp\service\impl\DefaultMatchDayService.java
 C:\Users\Dell\Desktop\app\plwebapp\src\main\java\se\brightstep\demowebapp\dao\BettingDAO.java
 C:\Users\Dell\Desktop\app\plwebapp\src\main\java\se\brightstep\demowebapp\service\impl\DefaultMatchService.java
 C:\Users\Dell\Desktop\app\plwebapp\src\main\java\se\brightstep\demowebapp\dto\TableRow.java
@@ -21,7 +23,9 @@ C:\Users\Dell\Desktop\app\plwebapp\src\main\java\se\brightstep\demowebapp\dto\ro
 C:\Users\Dell\Desktop\app\plwebapp\src\main\java\se\brightstep\demowebapp\dto\Bet.java
 C:\Users\Dell\Desktop\app\plwebapp\src\main\java\se\brightstep\demowebapp\dto\User.java
 C:\Users\Dell\Desktop\app\plwebapp\src\main\java\se\brightstep\demowebapp\cronjob\CronJob.java
+C:\Users\Dell\Desktop\app\plwebapp\src\main\java\se\brightstep\demowebapp\dto\json\Result.java
 C:\Users\Dell\Desktop\app\plwebapp\src\main\java\se\brightstep\demowebapp\rowmapper\MatchRowMapper.java
+C:\Users\Dell\Desktop\app\plwebapp\src\main\java\se\brightstep\demowebapp\dto\json\MatchDay.java
 C:\Users\Dell\Desktop\app\plwebapp\src\main\java\se\brightstep\demowebapp\service\EmailService.java
 C:\Users\Dell\Desktop\app\plwebapp\src\main\java\se\brightstep\demowebapp\dao\impl\DefaultMatchDAO.java
 C:\Users\Dell\Desktop\app\plwebapp\src\main\java\se\brightstep\demowebapp\rowmapper\UserRowMapper.java
@@ -30,6 +34,7 @@ C:\Users\Dell\Desktop\app\plwebapp\src\main\java\se\brightstep\demowebapp\contro
 C:\Users\Dell\Desktop\app\plwebapp\src\main\java\se\brightstep\demowebapp\service\AdminMatchService.java
 C:\Users\Dell\Desktop\app\plwebapp\src\main\java\se\brightstep\demowebapp\controller\SuperclassController.java
 C:\Users\Dell\Desktop\app\plwebapp\src\main\java\se\brightstep\demowebapp\service\impl\DefaultEmailService.java
+C:\Users\Dell\Desktop\app\plwebapp\src\main\java\se\brightstep\demowebapp\service\MatchDayService.java
 C:\Users\Dell\Desktop\app\plwebapp\src\main\java\se\brightstep\demowebapp\rowmapper\BetRowMapper.java
 C:\Users\Dell\Desktop\app\plwebapp\src\main\java\se\brightstep\demowebapp\dao\UserDAO.java
 C:\Users\Dell\Desktop\app\plwebapp\src\main\java\se\brightstep\demowebapp\service\impl\DefaultScoreService.java

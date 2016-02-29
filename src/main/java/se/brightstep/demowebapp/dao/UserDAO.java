@@ -11,6 +11,7 @@ public interface UserDAO {
 	public boolean createUser(String username, String password, String email);
 
 	public List<User> getAllUsers();
+	public int getUserId(String username);
 
 	
 	//public int getScore();

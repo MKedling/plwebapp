@@ -48,12 +48,13 @@ public class DefaultEmailService implements EmailService{
 			sb.append(entry.getUser().getUsername() + " : " + entry.getScore()+ "\n");
 		}
 		
-		sb.append("\n\n\n");
+		sb.append("\n\n");
 		
 		sb.append("Total highscore:\n");
-		for(HighscoreEntry entry : scoreService.getRoundHighscore(round)){
+		for(HighscoreEntry entry : scoreService.getTotalHighscore()){
 			sb.append(entry.getUser().getUsername() + " : " + entry.getScore()+ "\n");
 		}
+		
 		
 		return sb;
 	}

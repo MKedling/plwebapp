@@ -1,15 +1,23 @@
 package se.brightstep.demowebapp.dao.impl;
 
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import se.brightstep.demowebapp.dao.MatchDAO;
-import se.brightstep.demowebapp.dto.Match;
+import se.brightstep.demowebapp.dto.json.Match;
+import se.brightstep.demowebapp.dto.json.MatchDay;
 import se.brightstep.demowebapp.dto.rowMapper.MatchRowMapper;
 import se.brightstep.demowebapp.session.UserSession;
 
@@ -78,16 +86,17 @@ public class DefaultMatchDAO implements MatchDAO{
 	
 	public boolean matchWithoutResultExist(int matchID){
 		Integer cnt = jdbcTemplate.queryForObject(
-			    "SELECT count(*) FROM matches WHERE id = ? AND home_score IS NULL AND away_score IS NULL", Integer.class, matchID);
+			    "SELECT count(*) FROM matches WHERE id = ? AND (home_score IS NULL OR away_score IS NULL)", Integer.class, matchID);
 			return cnt != null && cnt > 0;
 	}
 
 	@Override
 	public int getCurrentRound() {
-		
-		String round = jdbcTemplate.queryForList("SELECT round FROM matches WHERE start_time >= now() ORDER BY round ASC").get(0).toString();
-		
-		return Integer.parseInt(round.replaceAll("[^0-9]", ""));
+		try{
+			return jdbcTemplate.queryForObject("SELECT round FROM matches WHERE start_time >= now() ORDER BY round ASC LIMIT 1", Integer.class);
+		}catch(EmptyResultDataAccessException e){
+			return -1;
+		}
 	}
 
 	@Override
@@ -113,9 +122,99 @@ public class DefaultMatchDAO implements MatchDAO{
 			jdbcTemplate.update("UPDATE matches SET home_score = ?, away_score = ? WHERE id = ?", homeScore, awayScore, matchID);
 			return true;
 		}
-		System.out.println("Match utan resultat finns inte");
+		System.out.println("LOG: Match resultat ej uppdaterat, kanske redan finns?");
 		return false;
 	}
+	
+	@Override
+	public boolean addResult(Match match) {
+		if(match.getStatus().equals("FINISHED")){
+			return addResult(	match.getID(), 
+								match.getResult().getHomeScore(), 
+								match.getResult().getAwayScore()
+								);
+			}
+		
+		return false;
+	}
+
+	@Override
+	public MatchDay getMatchDay(int round) {
+		ObjectMapper mapper = new ObjectMapper();
+		String url = "http://api.football-data.org/v1/soccerseasons/398/fixtures?matchday=" + round;
+		
+		try {
+			
+			URL obj = new URL(url);
+			HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+
+			// optional default is GET
+			con.setRequestMethod("GET");
+
+			//Inte säker på att denna funger aeller inte
+			con.setRequestProperty("header", "X-Auth-Token: 60cdd65ef44b4e04ab16b18b29308a5a");
+			
+			MatchDay matchDay =  mapper.readValue(new URL(url), MatchDay.class);
+			
+			for(Match match : matchDay.getMatches()){
+				populateID(match);
+			}
+			return matchDay;
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	public void populateID(MatchDay matchDay){
+		
+	}
+	
+	public void populateID(Match match){
+		int id = getMatchID(match);
+		if(id != -1){
+			match.setID(getMatchID(match));
+		}else{
+			System.out.println("LOG: id för match: " + match + "  finns inte i databasen");
+		}
+	}
+	
+	// vad händer om ingen match finns?
+	public int getMatchID(Match match){
+		if(matchExist(match)){
+			return jdbcTemplate.queryForObject(
+				    "SELECT ID FROM matches WHERE home_team = ? AND away_team = ? AND round = ?", 
+				    Integer.class, match.getHomeTeam(), match.getAwayTeam(), match.getRound());
+		}else{
+			return -1;
+		}
+		
+		
+	}
+
+	@Override
+	public List<Integer> getMatchDaysToAddResult() {
+		String query = "select round from matches where (home_score OR away_score) IS NULL AND start_time < NOW() GROUP BY round";
+		return jdbcTemplate.queryForList(query, Integer.class);
+	}
+	
+	
+	public Match getMatch(String homeTeam, String awayTeam) {
+	
+		String query = "SELECT * FROM matches WHERE home_team = ? AND away_team = ?";
+			
+		try{
+			return (Match) jdbcTemplate.queryForObject(query, new MatchRowMapper(), homeTeam, awayTeam);
+		}catch(org.springframework.dao.EmptyResultDataAccessException e){
+			System.out.println("No Match");
+			return null;
+		}
+
+	}
+
+	
 	
 
 }

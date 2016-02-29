@@ -40,10 +40,22 @@
 		<span>ADMINVIEW</span>
 	</div>	
 	<div>
-		<form method="post" action="admin/addMatches">
-			<input name="fileName" type="hidden" value="pl.txt">
-			<input type="submit" value="lägg till matcher">
+		
+		<form method="post" action="/demowebapp/plapp/login/admin/addNewMatches">
+			<input type="number" name="round">
+			<input type="submit" value="lägg till">
 		</form>
+		
+		<form method="post" action="/demowebapp/plapp/login/admin/addResultMatchDay">
+			<input type="number" name="matchDay">
+			<input type="submit" value="add results">
+		</form>
+		
+		<form method="post" action="/demowebapp/plapp/login/admin/addBets">
+			<input type="submit" value="add bets">
+		</form>
+	
+		
 	</div>
 	</div>
 

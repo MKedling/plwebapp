@@ -6,9 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.ModelAndView;
 
 import se.brightstep.demowebapp.dto.Bet;
-import se.brightstep.demowebapp.dto.Match;
+import se.brightstep.demowebapp.dto.json.Match;
 import se.brightstep.demowebapp.service.BettingService;
 import se.brightstep.demowebapp.service.EmailService;
+import se.brightstep.demowebapp.service.MatchDayService;
 import se.brightstep.demowebapp.service.MatchService;
 import se.brightstep.demowebapp.service.ScoreService;
 import se.brightstep.demowebapp.service.UserService;
@@ -34,6 +35,8 @@ public abstract class SuperclassController {
 	@Autowired
 	protected EmailService emailService;
 	
+	@Autowired
+	protected MatchDayService matchDayService;
 	
 	public void addBetsAndMatchesToModel(ModelAndView modelAndView, int roundToView){
 		

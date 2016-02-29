@@ -27,9 +27,6 @@
 	
 	<bean id="cronJob" class="se.brightstep.demowebapp.cronjob.CronJob"></bean>
 	
-	
-	
-	
 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -67,6 +64,11 @@
 	
 	<bean name="emailService" class="se.brightstep.demowebapp.service.impl.DefaultEmailService">
 	</bean>
+	
+	<bean name="matchDayService" class="se.brightstep.demowebapp.service.impl.DefaultMatchDayService">
+	</bean>
+	
+	
 	
 	<!-- DAO / Persistence Layer -->
 	<bean name="userDAO" class="se.brightstep.demowebapp.dao.impl.DefaultUserDAO">

@@ -34,6 +34,12 @@ public class DefaultUserService implements UserService{
 		return userDAO.getAllUsers();
 	}
 
+	@Override
+	public int getUserId(String username) {
+		
+		return userDAO.getUserId(username);
+	}
+
 	/*
 	public int getScore() {
 		

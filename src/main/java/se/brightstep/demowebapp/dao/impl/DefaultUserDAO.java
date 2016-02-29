@@ -105,56 +105,12 @@ public class DefaultUserDAO implements UserDAO{
 	}
 
 
-	/*
-	public int getScore() {
-		
-		List<Match> allMatches =matchDAO.getAllMatches();
-		List<Bet> allBets = betDAO.getAllBets();
-		
-		int score= 0;
-		
-		for(Bet bet : allBets){
-			for(Match match: allMatches){
-				if(bet.getMatchId() == match.getID()){
-					
-					if(bet.getHomeScore() == match.getHomeScore() && bet.getAwayScore() == match.getAwayScore()){
-						score = score + 2;
-					}else{
-						if(getResult(match) == getResult(bet)){
-							score++;
-						}
-							
-					}
-					
-				}
-			}
-		}
-		
-		return score;
+	@Override
+	public int getUserId(String username) {
+		String query = "SELECT id FROM users WHERE  username = ?";
+		return jdbcTemplate.queryForObject(query, Integer.class, username);
 	}
-	
-	
-	private Result getResult(Match match){
-		return getResult(match.getHomeScore(), match.getAwayScore());
-			
-	}
-	
-	private Result getResult(Bet bet){
-		return getResult(bet.getHomeScore(), bet.getAwayScore());
-		
-	}
-	
-	private Result getResult(int home, int away){
-		if(home == away){
-			return Result.DRAW;
-		}else if(home > away){
-			return Result.HOMEWIN;
-		}else{
-			return Result.AWAYWIN;
-		}
-	}
-	
-	*/
+
 	
 
 

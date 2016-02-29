@@ -3,7 +3,8 @@ package se.brightstep.demowebapp.service.impl;
 import java.util.List;
 
 import se.brightstep.demowebapp.dao.MatchDAO;
-import se.brightstep.demowebapp.dto.Match;
+import se.brightstep.demowebapp.dto.json.Match;
+import se.brightstep.demowebapp.dto.json.MatchDay;
 import se.brightstep.demowebapp.service.MatchService;
 
 public class DefaultMatchService implements MatchService{
@@ -43,6 +44,22 @@ public class DefaultMatchService implements MatchService{
 		
 	}
 	
+	@Override
+	public boolean addResult(Match match) {
+		// TODO Auto-generated method stub
+		return matchDAO.addResult(match);
+	}
+
+	@Override
+	public MatchDay getMatchDay(int round) {
+		return matchDAO.getMatchDay(round);
+	}
+
+	@Override
+	public Match getMatch(String homeTeam, String awayTeam) {
+		return matchDAO.getMatch(homeTeam, awayTeam);
+	}
+
 	
 
 }
