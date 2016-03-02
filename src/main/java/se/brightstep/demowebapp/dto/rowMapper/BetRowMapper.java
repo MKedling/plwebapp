@@ -19,6 +19,11 @@ public class BetRowMapper implements RowMapper{
 		
 		bet.setMatchHomeScore(rs.getInt("match_home_score"));
 		bet.setMatchAwayScore(rs.getInt("match_away_score"));
+		if(rs.wasNull()){
+			bet.setMatchHomeScore(null);
+			bet.setMatchAwayScore(null);
+		}
+		
 		bet.setBetHomeScore(rs.getInt("bet_home_score"));
 		bet.setBetAwayScore(rs.getInt("bet_away_score"));
 		

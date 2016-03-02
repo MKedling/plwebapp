@@ -25,7 +25,7 @@ public class CronJob {
 	private static int roundWhenLastExecuted = -1;
 	
 	//@Scheduled(cron="0 0 11 * * *")
-	@Scheduled(cron="*/30 * * * * ?")
+	//@Scheduled(cron="*/30 * * * * ?")
     public void demoServiceMethod()
     {
 		for(Integer i : addNewResults()){

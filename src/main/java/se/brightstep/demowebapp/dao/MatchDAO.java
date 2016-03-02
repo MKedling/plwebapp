@@ -19,5 +19,6 @@ public interface MatchDAO{
 	public boolean addResult(Match match);
 	public List<Integer> getMatchDaysToAddResult();
 	public Match getMatch(String homeTeam, String awayTeam);
+	public Match getMatch(int id);
 
 }

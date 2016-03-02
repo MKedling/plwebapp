@@ -30,6 +30,16 @@ public class DefaultBettingService implements BettingService{
 		return bettingDAO.getAllBets(id);
 	}
 
+	@Override
+	public List<Bet> getAllCompletedBets(int id) {
+		return bettingDAO.getAllCompletedBets(id);
+	}
+
+	@Override
+	public List<Bet> getAllCompletedBetsRound(int id, int round) {
+		return bettingDAO.getAllCompletedBetsRound(id, round);
+	}
+
 	
 	
 

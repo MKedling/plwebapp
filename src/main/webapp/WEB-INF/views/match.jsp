@@ -2,9 +2,11 @@
 
 <div class="list-group-item matches">
 			
-			${match.starttime}
-			<br>
-			Round: ${match.round}
+			<div>
+				<span>${match.starttime}</span>
+				<br>
+				<span>Round: ${match.round}</span>
+			</div>
 			
 			<c:if test="${matchType eq 'matchToBet'}" >
 				<form method="POST" action="/demowebapp/plapp/login/bet">
@@ -51,7 +53,5 @@
 			   	
 			   	<button type="button" class="btn btn-primary bet" value="">LÄGG TILL</button> 
 			 </c:if>
-		   	
-		   	
 		   		
 	   	</div>	

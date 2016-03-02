@@ -211,7 +211,17 @@ public class DefaultMatchDAO implements MatchDAO{
 			System.out.println("No Match");
 			return null;
 		}
-
+	}
+	
+	public Match getMatch(int id) {
+		
+		String query = "SELECT * FROM matches WHERE id = ?";
+		try{
+			return (Match) jdbcTemplate.queryForObject(query, new MatchRowMapper(), id);
+		}catch(org.springframework.dao.EmptyResultDataAccessException e){
+			System.out.println("No Match");
+			return null;
+		}
 	}
 
 	

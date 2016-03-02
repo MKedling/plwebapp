@@ -105,17 +105,22 @@ ${nextMatchToBet.starttime}
 	    <jsp:include page="match.jsp"/>   
 	</c:forEach>
 	
-	<c:forEach items="${bets}" var="bet">
-		<c:if test = "${bet.round == roundToView}">
-			
-				<c:set var="bet" value="${bet}" scope="request" />
-				<c:set var="matchType" value="matchBetExist" scope="request" />
-			    <jsp:include page="match.jsp"/>   
-			
-	   </c:if>
+	<c:forEach items="${allBetsRound}" var="bet">
+		
+		<c:set var="bet" value="${bet}" scope="request" />
+		<c:set var="matchType" value="matchBetExist" scope="request" />
+	    <jsp:include page="match.jsp"/>   
+	 
    </c:forEach>
-	
 </div>
+   
+   
+   
+<div class="list-group">
+	<c:set var="allCompletedBetsRound" value="${allCompletedBetsRound}" scope="request" />
+    <jsp:include page="completedMatch.jsp"/>   
+</div>	
+
 
 
 

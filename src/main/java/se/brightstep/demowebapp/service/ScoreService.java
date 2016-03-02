@@ -12,9 +12,6 @@ public interface ScoreService {
 	
 	public int getRoundScore(int id, int round);
 	public int getTotalScore(int id);
-	
-	public List<UserScore> getTotalScoreAllUsers();
-	public List<UserScore> getRoundScoreAllUsers(int id, int round);
 
 	public List<HighscoreEntry> getTotalHighscore();
 	public List<HighscoreEntry> getRoundHighscore(int round);

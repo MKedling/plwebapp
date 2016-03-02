@@ -41,9 +41,17 @@ public abstract class SuperclassController {
 	public void addBetsAndMatchesToModel(ModelAndView modelAndView, int roundToView){
 		
 		List<Bet> allBets = bettingService.getAllBets(userSession.getUser().getID());
+		List<Bet> allBetsRound = bettingService.getAllBetsRound(userSession.getUser().getID(), roundToView);
+		List<Bet> allCompletedBets = bettingService.getAllCompletedBets(userSession.getUser().getID());
+		List<Bet> allCompletedBetsRound = bettingService.getAllCompletedBetsRound(userSession.getUser().getID(), roundToView);
+		
 		List<Match> matchesToBet = matchService.getAllMatchesToBet(roundToView);
 		
 		modelAndView.addObject("bets" , allBets);
+		modelAndView.addObject("allBetsRound" , allBetsRound);
+		modelAndView.addObject("allCompletedBets" , allCompletedBets);
+		modelAndView.addObject("allCompletedBetsRound" , allCompletedBetsRound);
+		
 		modelAndView.addObject("matchesToBet" , matchesToBet);
 		modelAndView.addObject("currentRound" , userSession.getRound());
 		modelAndView.addObject("roundToView" , roundToView);
@@ -52,6 +60,8 @@ public abstract class SuperclassController {
 		modelAndView.addObject("scoreTotal" , scoreService.getTotalScore(userSession.getUser().getID()));
 		
 		modelAndView.addObject("totalHighscore" , scoreService.getTotalHighscore());
+		modelAndView.addObject("roundHighscore" , scoreService.getRoundHighscore(roundToView));
+
 		modelAndView.addObject("roundHighscore" , scoreService.getRoundHighscore(roundToView));
 		
 		

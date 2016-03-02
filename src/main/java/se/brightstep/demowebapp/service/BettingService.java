@@ -11,4 +11,7 @@ public interface BettingService {
 	public List<Bet> getAllBets(int id);
 	public List<Bet> getAllBetsRound(int id, int round);
 
+	public List<Bet> getAllCompletedBets(int id);
+	public List<Bet> getAllCompletedBetsRound(int id, int round);
+
 }

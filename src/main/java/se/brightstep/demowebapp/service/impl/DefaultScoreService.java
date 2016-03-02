@@ -53,7 +53,7 @@ public class DefaultScoreService implements ScoreService{
 
 	public int getTotalScore(int userId) {
 		
-		ArrayList<Bet> allBets = new ArrayList<Bet>(bettingDAO.getAllBets(userId));
+		ArrayList<Bet> allBets = new ArrayList<Bet>(bettingDAO.getAllCompletedBets(userId));
 		int totalScore = 0;
 		
 		for(Bet bet : allBets){
@@ -65,7 +65,7 @@ public class DefaultScoreService implements ScoreService{
 	
 	public int getRoundScore(int userId, int round) {
 		
-		ArrayList<Bet> allBets = new ArrayList<Bet>(bettingDAO.getAllBetsRound(userId, round));
+		ArrayList<Bet> allBets = new ArrayList<Bet>(bettingDAO.getAllCompletedBetsRound(userId, round));
 		int totalScore = 0;
 		
 		for(Bet bet : allBets){
@@ -98,19 +98,6 @@ public class DefaultScoreService implements ScoreService{
 			return Result1X2.AWAYWIN;
 		}
 		
-	}
-
-
-	@Override
-	public List<UserScore> getRoundScoreAllUsers(int id, int round) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<UserScore> getTotalScoreAllUsers() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override

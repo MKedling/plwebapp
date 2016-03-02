@@ -36,8 +36,12 @@ span.plus_minus .btn{
 
 .team_name{
 	font-size: 2em;
-	width: 250px;
+	width: 75%;
 	display: inline-block;
+}
+
+table .team_name{
+	width: 100%;
 }
 
 .score{

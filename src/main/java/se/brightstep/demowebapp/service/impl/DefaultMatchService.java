@@ -60,6 +60,11 @@ public class DefaultMatchService implements MatchService{
 		return matchDAO.getMatch(homeTeam, awayTeam);
 	}
 
+	@Override
+	public Match getMatch(int id) {
+		return matchDAO.getMatch(id);
+	}
+
 	
 
 }

@@ -11,15 +11,14 @@ public class Bet {
 	private String homeTeam;
 	private String awayTeam;
 	
-	private int matchHomeScore;
-	private int matchAwayScore;
-	private int betHomeScore;
-	private int betAwayScore;
+	private Integer matchHomeScore;
+	private Integer matchAwayScore;
+	private Integer betHomeScore;
+	private Integer betAwayScore;
 	
-	private int round;
+	private Integer round;
 	private Timestamp starttime;
 	private Timestamp timeOfBet;
-	
 	public int getMatchID() {
 		return matchID;
 	}
@@ -50,29 +49,35 @@ public class Bet {
 	public void setAwayTeam(String awayTeam) {
 		this.awayTeam = awayTeam;
 	}
-	public int getMatchHomeScore() {
+	public Integer getMatchHomeScore() {
 		return matchHomeScore;
 	}
-	public void setMatchHomeScore(int matchHomeScore) {
+	public void setMatchHomeScore(Integer matchHomeScore) {
 		this.matchHomeScore = matchHomeScore;
 	}
-	public int getMatchAwayScore() {
+	public Integer getMatchAwayScore() {
 		return matchAwayScore;
 	}
-	public void setMatchAwayScore(int matchAwayScore) {
+	public void setMatchAwayScore(Integer matchAwayScore) {
 		this.matchAwayScore = matchAwayScore;
 	}
-	public int getBetHomeScore() {
+	public Integer getBetHomeScore() {
 		return betHomeScore;
 	}
-	public void setBetHomeScore(int betHomeScore) {
+	public void setBetHomeScore(Integer betHomeScore) {
 		this.betHomeScore = betHomeScore;
 	}
-	public int getBetAwayScore() {
+	public Integer getBetAwayScore() {
 		return betAwayScore;
 	}
-	public void setBetAwayScore(int betAwayScore) {
+	public void setBetAwayScore(Integer betAwayScore) {
 		this.betAwayScore = betAwayScore;
+	}
+	public Integer getRound() {
+		return round;
+	}
+	public void setRound(Integer round) {
+		this.round = round;
 	}
 	public Timestamp getStarttime() {
 		return starttime;
@@ -87,14 +92,6 @@ public class Bet {
 		this.timeOfBet = timeOfBet;
 	}
 	
-	public int getRound() {
-		return round;
-	}
-	public void setRound(int round) {
-		this.round = round;
-	}
-	
-	
-	
+
 
 }
