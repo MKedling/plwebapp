@@ -122,6 +122,11 @@ ${nextMatchToBet.starttime}
     <jsp:include page="completedMatch.jsp"/>   
 </div>	
 
+<div class="list-group">
+	<c:set var="allCompletedBetsRound" value="${allBets}" scope="request" />
+    <jsp:include page="completedMatch.jsp"/>   
+</div>	
+
 
 
 

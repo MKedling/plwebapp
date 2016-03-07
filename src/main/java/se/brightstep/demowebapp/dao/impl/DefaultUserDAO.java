@@ -111,6 +111,42 @@ public class DefaultUserDAO implements UserDAO{
 		return jdbcTemplate.queryForObject(query, Integer.class, username);
 	}
 
+
+	@Override
+	public User getUser(String username) {
+		String query = "select * from users WHERE username = ?";
+		
+		User user;
+		
+		try{
+		user = (User) jdbcTemplate.queryForObject(
+							query, new Object[] { username } , new UserRowMapper());
+		}catch(org.springframework.dao.EmptyResultDataAccessException e){
+			System.out.println("User did not exist");
+			return null;
+		}
+		
+		return user;
+	}
+
+
+	@Override
+	public User getUser(int userId) {
+		String query = "select * from users WHERE ID = ?";
+		
+		User user;
+		
+		try{
+		user = (User) jdbcTemplate.queryForObject(
+							query, new Object[] { userId } , new UserRowMapper());
+		}catch(org.springframework.dao.EmptyResultDataAccessException e){
+			System.out.println("User did not exist");
+			return null;
+		}
+		
+		return user;
+	}
+
 	
 
 

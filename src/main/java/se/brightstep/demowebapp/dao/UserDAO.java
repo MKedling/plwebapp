@@ -13,8 +13,9 @@ public interface UserDAO {
 	public List<User> getAllUsers();
 	public int getUserId(String username);
 
-	
-	//public int getScore();
+	public User getUser(String username);
+	public User getUser(int userId);
+
 
 	
 }

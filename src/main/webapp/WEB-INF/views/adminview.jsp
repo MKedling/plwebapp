@@ -41,29 +41,23 @@
 	</div>	
 	<div>
 		
-		<form method="post" action="/demowebapp/plapp/login/admin/addNewMatches">
+		<form method="post" action="/demowebapp/plapp/admin/addNewMatches">
 			<input type="number" name="round">
 			<input type="submit" value="lägg till">
 		</form>
 		
-		<form method="post" action="/demowebapp/plapp/login/admin/addResultMatchDay">
+		<form method="post" action="/demowebapp/plapp/admin/addResultMatchDay">
 			<input type="number" name="matchDay">
 			<input type="submit" value="add results">
 		</form>
 		
-		<form method="post" action="/demowebapp/plapp/login/admin/addBets">
+		<form method="post" action="/demowebapp/plapp/admin/addBets">
 			<input type="submit" value="add bets">
 		</form>
 	
 		
 	</div>
 	</div>
-
-	<c:forEach items="${matchesToAddResult}" var="match">
-		<c:set var="match" value="${match}" scope="request" />
-		<c:set var="matchType" value="matchToAddResult" scope="request" />
-	    <jsp:include page="match.jsp"/>   
-	</c:forEach>
 
 </div>
 

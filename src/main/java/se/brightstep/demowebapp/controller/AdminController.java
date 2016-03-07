@@ -34,7 +34,7 @@ import java.net.URL;
 
 
 @Controller
-@RequestMapping(value = "/login")
+@RequestMapping(value = "/")
 public class AdminController extends SuperclassController{
 	
 	@Autowired
@@ -50,19 +50,8 @@ public class AdminController extends SuperclassController{
 	public ModelAndView isAdmin()
 	{
 		ModelAndView modelAndView = new ModelAndView("adminview");
-		List<Match> matchesToAddResult = matchService.getAllMatchesToAddResult();
-		
-		modelAndView.addObject("matchesToAddResult" , matchesToAddResult);
 		
 		return modelAndView;
-	
-		/*
-		if(userService.isAdmin(username, password)){
-			return new ModelAndView("adminview");
-		}
-		
-		return new ModelAndView("loginview");
-		*/
 	}
 	
 	@RequestMapping(value = "/admin/addResult", method = RequestMethod.POST)
@@ -131,7 +120,7 @@ public class AdminController extends SuperclassController{
 		teamName.put("Watford", "Watford FC");
 		teamName.put("WBA", "West Bromwich Albion FC");
 		
-		try (BufferedReader br = new BufferedReader(new FileReader("./resources/input/Premier League-tipp2.csv"))) {
+		try (BufferedReader br = new BufferedReader(new FileReader("./resources/input/Mattias.csv"))) {
 		    String line;
 		    
 		    int userId = userService.getUserId(br.readLine());

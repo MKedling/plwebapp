@@ -120,6 +120,7 @@ public class DefaultMatchDAO implements MatchDAO{
 		
 		if(matchWithoutResultExist(matchID)){
 			jdbcTemplate.update("UPDATE matches SET home_score = ?, away_score = ? WHERE id = ?", homeScore, awayScore, matchID);
+			System.out.println("LOG: result matchid: " + matchID);
 			return true;
 		}
 		System.out.println("LOG: Match resultat ej uppdaterat, kanske redan finns?");

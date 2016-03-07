@@ -38,10 +38,12 @@ public class DefaultBettingDAO implements BettingDAO{
 			return false;
 		}
 		
+		
 		if(matchService.getMatch(bet.getMatchID()).getStarttime().before(new Date())){
 			System.out.println("LOG: bet cant be placed, match starttime has already been");
 			return false;
 		}
+		
 		
 		jdbcTemplate.update("INSERT INTO bet(match_ID, user_ID, home_score, away_score) VALUES (?, ?, ?, ?)",
 			     new Object[] { bet.getMatchID(), bet.getUserID(), bet.getBetHomeScore(), bet.getBetAwayScore()  });
@@ -101,7 +103,7 @@ public class DefaultBettingDAO implements BettingDAO{
 	
 	public boolean betExist(Bet bet){
 		Integer cnt = jdbcTemplate.queryForObject(
-			    "SELECT count(*) FROM bet WHERE match_id = ? AND user_id = ?", Integer.class, bet.getMatchID(), userSession.getUser().getID());
+			    "SELECT count(*) FROM bet WHERE match_id = ? AND user_id = ?", Integer.class, bet.getMatchID(), bet.getUserID());
 			return cnt != null && cnt > 0;
 	}
 

@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import se.brightstep.demowebapp.dao.UserDAO;
 import se.brightstep.demowebapp.dto.Bet;
 import se.brightstep.demowebapp.dto.json.Match;
 import se.brightstep.demowebapp.service.BettingService;
@@ -70,8 +72,10 @@ public class LoginController extends SuperclassController{
 		ModelAndView modelAndView;
 		modelAndView = new ModelAndView("homeview");
 		
-		int round = matchService.getCurrentRound();
-		userSession.setRound(round);
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    userSession.setUser(userService.getUser(auth.getName()));
+	
+		userSession.setRound(matchService.getCurrentRound());
 		addBetsAndMatchesToModel(modelAndView, userSession.getRound());
 		
 		return modelAndView;

@@ -92,6 +92,10 @@ public class Bet {
 		this.timeOfBet = timeOfBet;
 	}
 	
+	public String toString(){
+		return "Round:"+ round + "  matchid: "+ matchID + " uid" + userID + "  "  + getHomeTeam() + " - " + getAwayTeam() + "  predicted:" + getBetHomeScore() + "-" + getBetAwayScore() + "  actual: " + getMatchHomeScore()+ "-" + getMatchAwayScore() + "  betid" + betID;
+	}
+	
 
 
 }
