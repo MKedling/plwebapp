@@ -5,6 +5,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:task="http://www.springframework.org/schema/task"
  	xmlns:util="http://www.springframework.org/schema/util"
+ 	xmlns:security="http://www.springframework.org/schema/security"
 	xsi:schemaLocation="
 						http://www.springframework.org/schema/beans
 						http://www.springframework.org/schema/beans/spring-beans.xsd
@@ -24,6 +25,7 @@
 	<context:component-scan base-package="se.brightstep.demowebapp" />
 
 	<task:annotation-driven />
+	
 	
 	<bean id="cronJob" class="se.brightstep.demowebapp.cronjob.CronJob"></bean>
 	
@@ -97,6 +99,9 @@
       <property name="password" value="password"/>
    </bean>
    
-	
-	
+
+  	
 </beans>
+
+
+

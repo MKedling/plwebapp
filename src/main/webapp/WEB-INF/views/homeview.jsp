@@ -95,6 +95,7 @@ ${nextMatchToBet.starttime}
 	
 	<div class="pagination round">
 		<form id="pagination_form" method="POST" action="/demowebapp/plapp/login/update">
+		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 			<span class="plus_minus" data-name="quantity" data-value="${roundToView}" data-id="101"></span>
 		</form>
 	</div>
