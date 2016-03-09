@@ -2,37 +2,30 @@ package se.brightstep.demowebapp.security;
 
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
-import javax.sql.DataSource;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.security.config.annotation.authentication.builders.*;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.*;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-	
-	
+		
 	@Autowired
-	private DataSource dataSource;
+	UserDetailsService userDetailsService;
 
-	
+	//This method sets password encrypter
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth.jdbcAuthentication()
-        .dataSource(dataSource)
-        .usersByUsernameQuery(
-                "select username,password, enabled from users where username=?")
-        .authoritiesByUsernameQuery(
-                "select username, role from user_roles where username=?");
+		auth.userDetailsService(userDetailsService).passwordEncoder(passwordencoder());
 	}
 	
 	
-	
 	protected void configure(HttpSecurity http) throws Exception {
-		
 		http.csrf()
         .disable()
 		.authorizeRequests()                                                                                
@@ -44,6 +37,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 	
 	
+	@Bean(name="passwordEncoder")
+	public PasswordEncoder passwordencoder(){
+		return new BCryptPasswordEncoder();
+	}
+	
 	@Bean(name = "dataSource")
 	public DriverManagerDataSource dataSource() {
 		DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
@@ -52,6 +50,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		driverManagerDataSource.setUsername("root");
 		driverManagerDataSource.setPassword("password");
 		return driverManagerDataSource;
+	}
+	
+	@Bean(name="userDetailsService")
+	public UserDetailsService userDetailsService(){
+		JdbcDaoImpl jdbcImpl = new JdbcDaoImpl();
+		jdbcImpl.setDataSource(dataSource());
+		jdbcImpl.setUsersByUsernameQuery("select username,password, enabled from users where username=?");
+		jdbcImpl.setAuthoritiesByUsernameQuery("select username, role from user_roles where username=?");
+		return jdbcImpl;
 	}
 	
 	

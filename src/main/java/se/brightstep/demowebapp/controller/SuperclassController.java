@@ -3,6 +3,7 @@ package se.brightstep.demowebapp.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.servlet.ModelAndView;
 
 import se.brightstep.demowebapp.dto.Bet;
@@ -37,6 +38,10 @@ public abstract class SuperclassController {
 	
 	@Autowired
 	protected MatchDayService matchDayService;
+	
+	@Autowired
+	protected PasswordEncoder passwordEncoder;
+	
 	
 	public void addBetsAndMatchesToModel(ModelAndView modelAndView, int roundToView){
 		
