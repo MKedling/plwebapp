@@ -5,17 +5,17 @@
 	version="3.0">
 
 	<servlet>
-		<servlet-name>springmvc</servlet-name>
+		<servlet-name>plapp</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
 	<servlet-mapping>
-		<servlet-name>springmvc</servlet-name>
+		<servlet-name>plapp</servlet-name>
 		<url-pattern>/plapp/*</url-pattern>
 	</servlet-mapping>
-	
-	
+
+
 	<listener>
 		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
 	</listener>

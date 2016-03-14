@@ -13,7 +13,7 @@
 	
 <div class="login">
 	<h2>Login</h2>
-	<form method="post" action="/demowebapp/login">
+	<form method="post" action="/plapp/login">
 		<label for="username">Användarnamn</label>
 		<input id="username" name="username" type="text" value="kalle"/>
 		
@@ -23,7 +23,7 @@
 		<input type="submit" value="logga in">
 	</form>
 	
-	<form method="get" action="/demowebapp/plapp/register">
+	<form method="get" action="/plapp/plapp/register">
 		<input type="submit" value="skapa konto">
 	</form>
 	

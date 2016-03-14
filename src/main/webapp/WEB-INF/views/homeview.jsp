@@ -27,17 +27,18 @@
 </head>
 <body>
 
-
-${nextMatchToBet.starttime}
-
 <div class="page">
 <div class="container-fluid">
 <div class="row">
 <div class="main-content col-centered col-lg-12">
 
+
+<jsp:include page="popup.jsp"/>
+
+
 <div class="list-group">
 	<div>
-		<a href="admin">Admin</a>
+		<a href="/plapp/plapp/admin">Admin</a>
 	</div>
 
 	<div class="list-group-item">
@@ -59,44 +60,19 @@ ${nextMatchToBet.starttime}
 
 
 <div class="list-group highscore">
-	<div class="list-group-item">
-		<h3 class="heading">
-			Highscore
-		</h3>
-		<div class="wrapper col-lg-6">
-			<div class="total-score score-section">
-				<h4>
-					Total:
-				</h4>
-				<c:forEach items="${totalHighscore}" var="entry">
-					<span class="highscore-entry">${entry.user.username}: <span class="value">${entry.score}</span></span>
-				   	<br> 
-				</c:forEach>
-			</div>
-		</div>
-		<div class="wrapper col-lg-6">
-			<div class="round-score score-section">
-				<h4>
-					Round:
-				</h4>
-				<c:forEach items="${roundHighscore}" var="entry">
-					<span class="highscore-entry">${entry.user.username}: <span class="value">${entry.score}</span></span>
-				   	<br> 
-				</c:forEach>
-			</div>
-		</div>
-	</div>
+	
+	<c:set var="totalHighscore" value="${totalHighscore}" scope="request" />
+	<c:set var="roundHighscore" value="${roundHighscore}" scope="request" />
+	<jsp:include page="highscore.jsp"/>
+	
 </div>
-
-
 
 
 <div class="list-group">
 	
 	<div class="pagination round">
-		<form id="pagination_form" method="POST" action="/demowebapp/plapp/login/update">
-		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-			<span class="plus_minus" data-name="quantity" data-value="${roundToView}" data-id="101"></span>
+		<form id="pagination_form" method="POST" action="/plapp/plapp/login/update">
+			<span id="roundToView" class="plus_minus" data-name="quantity" data-value="${roundToView}" data-id="101"></span>
 		</form>
 	</div>
 	
@@ -108,26 +84,13 @@ ${nextMatchToBet.starttime}
 	
 	<c:forEach items="${allBetsRound}" var="bet">
 		
-		<c:set var="bet" value="${bet}" scope="request" />
+		<c:set var="match" value="${bet}" scope="request" />
 		<c:set var="matchType" value="matchBetExist" scope="request" />
 	    <jsp:include page="match.jsp"/>   
 	 
    </c:forEach>
 </div>
    
-   
-   
-<div class="list-group">
-	<c:set var="allCompletedBetsRound" value="${allCompletedBetsRound}" scope="request" />
-    <jsp:include page="completedMatch.jsp"/>   
-</div>	
-
-<div class="list-group">
-	<c:set var="allCompletedBetsRound" value="${allBets}" scope="request" />
-    <jsp:include page="completedMatch.jsp"/>   
-</div>	
-
-
 
 
 </div><!-- main content-->

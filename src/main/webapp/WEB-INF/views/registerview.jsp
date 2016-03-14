@@ -11,7 +11,7 @@
 </div>
 
 <div>
-	<form method="post" action="/demowebapp/plapp/register">
+	<form method="post" action="/plapp/plapp/register">
 		<label for="username">Användarnamn</label>
 		<input id="username" name="username" type="text"/>
 		

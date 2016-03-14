@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>se.brightstep</groupId>
-	<artifactId>demowebapp</artifactId>
+	<groupId>kedling</groupId>
+	<artifactId>plapp</artifactId>
 	<packaging>war</packaging>
 	<version>1.0-SNAPSHOT</version>
-	<name>demowebapp Maven Webapp</name>
+	<name>MKedling plapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
 		<dependency>
@@ -102,6 +102,6 @@
 		</plugins>
 	
 
-		<finalName>demowebapp</finalName>
+		<finalName>plapp</finalName>
 	</build>
 </project>

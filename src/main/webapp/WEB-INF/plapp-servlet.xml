@@ -1,0 +1,98 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:task="http://www.springframework.org/schema/task"
+ 	xmlns:util="http://www.springframework.org/schema/util"
+ 	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="
+						http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/mvc
+						http://www.springframework.org/schema/mvc/spring-mvc.xsd
+						http://www.springframework.org/schema/context
+						http://www.springframework.org/schema/context/spring-context.xsd
+						http://www.springframework.org/schema/jdbc
+						http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+						http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+				        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+				        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd">
+						
+						
+
+
+	<context:component-scan base-package="app" />
+
+	<task:annotation-driven />
+	
+	<bean id="cronJob" class="app.cronjob.CronJob"></bean>
+	
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix">
+			<value>/WEB-INF/views/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+		<property name="exposeContextBeansAsAttributes" value="true"/>
+	</bean>
+
+	
+	<bean name="userService" class="app.service.impl.DefaultUserService">
+		<property name="userDAO" ref="userDAO"/>
+	</bean>
+	
+	<bean name="matchService" class="app.service.impl.DefaultMatchService">
+		<property name="matchDAO" ref="matchDAO"/>
+	</bean>
+	
+	<bean name="bettingService" class="app.service.impl.DefaultBettingService">
+		<property name="bettingDAO" ref="bettingDAO"/>
+	</bean>
+	
+	<bean name="scoreService" class="app.service.impl.DefaultScoreService">
+		<property name="bettingDAO" ref="bettingDAO"/>
+		<property name="matchDAO" ref="matchDAO"/>
+		<property name="userDAO" ref="userDAO"/>
+	</bean>
+	
+	<bean name="adminMatchService" class="app.service.impl.DefaultAdminMatchService">
+		<property name="matchDAO" ref="matchDAO"/>
+	</bean>
+	
+	<bean name="emailService" class="app.service.impl.DefaultEmailService">
+	</bean>
+	
+	<bean name="matchDayService" class="app.service.impl.DefaultMatchDayService">
+	</bean>
+	
+	
+	
+	<!-- DAO / Persistence Layer -->
+	<bean name="userDAO" class="app.dao.impl.DefaultUserDAO">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	
+	<bean name="matchDAO" class="app.dao.impl.DefaultMatchDAO">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	
+	<bean name="bettingDAO" class="app.dao.impl.DefaultBettingDAO">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	
+	
+	
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+      <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+      <property name="url" value="jdbc:mysql://localhost:3306/TEST"/>
+      <property name="username" value="root"/>
+      <property name="password" value="password"/>
+   </bean>
+   
+
+  	
+</beans>
+

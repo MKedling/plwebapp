@@ -98,3 +98,19 @@ p.username{
 .score-section span:first-of-type span{
 	color: red;
 }
+
+#popup{
+	max-height: 90vh;
+}
+
+.modal-dialog{
+	max-height:500px;
+}
+
+.modal-body{
+	max-height:60vh;
+	overflow: auto;
+}
+
+
+

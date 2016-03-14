@@ -16,7 +16,7 @@
   			</th>
   		</tr>
 
-	<c:forEach items="${allCompletedBetsRound}" var="bet">
+	<c:forEach items="${allCompletedBets}" var="bet">
    		<tr>
    			<td class="round"> ${bet.round}</td>
    			<td class="completed_team_name"> ${bet.homeTeam} - ${bet.awayTeam}</td>
