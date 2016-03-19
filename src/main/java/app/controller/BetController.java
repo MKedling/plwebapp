@@ -59,7 +59,9 @@ public class BetController extends SuperclassController{
 		
 		ModelAndView modelAndView = new ModelAndView("completedMatch");
 		//Change name of model attribute
-		modelAndView.addObject("allCompletedBets", bettingService.getAllStartedBetsRound(userID, round));
+		
+		List<Bet> allCompletedBets = bettingService.getAllStartedBetsRound(userID, round);
+		modelAndView.addObject("allCompletedBets", scoreService.correctBets(allCompletedBets));
 		
 		return modelAndView;
 	}
@@ -70,7 +72,8 @@ public class BetController extends SuperclassController{
 		
 		ModelAndView modelAndView = new ModelAndView("completedMatch");
 		
-		modelAndView.addObject("allCompletedBets", bettingService.getAllCompletedBets(userID));
+		List<Bet> allCompletedBets = bettingService.getAllCompletedBets(userID);
+		modelAndView.addObject("allCompletedBets", scoreService.correctBets(allCompletedBets));
 		
 		return modelAndView;
 	}

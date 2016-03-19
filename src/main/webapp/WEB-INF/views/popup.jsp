@@ -8,7 +8,7 @@
         <h4 class="modal-title">Modal Header</h4>
       </div>
       <div class="modal-body popup-content">
-        <p>Some text in the modal.</p>
+        <p>No data, maby something is wrong.</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

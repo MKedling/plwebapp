@@ -124,13 +124,13 @@ jQuery(document).ready(function($) {
 	      
 			content += '<div class="input-group">';
 			content += '<span class="input-group-btn">';
-			content += '<button type="button" class="btn btn-danger btn-number" data-type="minus" data-field="'+spinner.settings.name+'['+spinner.settings.id+']">';
+			content += '<button type="button" class="btn btn-info btn-number" data-type="minus" data-field="'+spinner.settings.name+'['+spinner.settings.id+']">';
 			content += '<span class="'+spinner.settings.minus_icon+'"></span>';
 			content += '</button>';
 			content += '</span>';
 			content += '<input type="text" name="'+spinner.settings.name+'['+spinner.settings.id+']" class="form-control input-number" value="'+value+'" min="'+spinner.settings.min_value+'" max="'+spinner.settings.max_value+'">';
 			content += '<span class="input-group-btn">';
-			content += '<button type="button" class="btn btn-success btn-number" data-type="plus" data-field="'+spinner.settings.name+'['+spinner.settings.id+']">';
+			content += '<button type="button" class="btn btn-primary btn-number" data-type="plus" data-field="'+spinner.settings.name+'['+spinner.settings.id+']">';
 			content += '<span class="'+spinner.settings.plus_icon+'"></span>';
 			content += '</button>';
 			content += '</span>';

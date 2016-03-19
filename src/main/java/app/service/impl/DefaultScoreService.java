@@ -81,11 +81,17 @@ public class DefaultScoreService implements ScoreService{
 	
 	private int calculateScore(Bet bet){
 		
+		if(bet.getMatchHomeScore() == null || bet.getMatchAwayScore() == null){
+			return 0;
+		}
+		
 		if(bet.getMatchHomeScore() == bet.getBetHomeScore() && 
 			bet.getMatchAwayScore() == bet.getBetAwayScore()){
+			bet.setBetScore(2);
 			return 2;
 		}else if(getResult(bet.getBetHomeScore(), bet.getBetAwayScore()) ==  
 			getResult(bet.getMatchHomeScore(), bet.getMatchAwayScore())){
+			bet.setBetScore(1);
 			return 1;
 		}else{
 			return 0;
@@ -123,6 +129,15 @@ public class DefaultScoreService implements ScoreService{
 		}
 		Collections.sort(highscore);
 		return highscore;
+	}
+
+	@Override
+	public List<Bet> correctBets(List<Bet> bets) {
+		
+		for(Bet bet : bets){
+			calculateScore(bet);
+		}
+		return bets;
 	}
 
 	

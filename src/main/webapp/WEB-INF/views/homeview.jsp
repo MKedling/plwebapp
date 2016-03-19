@@ -27,10 +27,15 @@
 </head>
 <body>
 
+<div>
+	<jsp:include page="navbar.jsp"/>
+</div>
+
 <div class="page">
 <div class="container-fluid">
 <div class="row">
 <div class="main-content col-centered col-lg-12">
+
 
 
 <jsp:include page="popup.jsp"/>
@@ -42,9 +47,6 @@
 	</div>
 
 	<div class="list-group-item">
-		<p class="username">
-			${userSession.user.username}
-		</p>
 		<p>
 			Current round: ${currentRound}
 		</p>
@@ -69,12 +71,6 @@
 
 
 <div class="list-group">
-	
-	<div class="pagination round">
-		<form id="pagination_form" method="POST" action="/plapp/plapp/login/update">
-			<span id="roundToView" class="plus_minus" data-name="quantity" data-value="${roundToView}" data-id="101"></span>
-		</form>
-	</div>
 	
 	<c:forEach items="${matchesToBet}" var="match">
 		<c:set var="match" value="${match}" scope="request" />

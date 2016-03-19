@@ -9,7 +9,7 @@
 	
 	
 	<div class="wrapper col-lg-6">
-		<div class="total-score score-section">
+		<div class="total-score highscore-section">
 			<h4>
 				Total:
 			</h4>
@@ -17,7 +17,7 @@
 			<table>
 				<c:forEach items="${totalHighscore}" var="entry">
 					<tr class="highscore-entry matches-all">
-						<td><span>${entry.user.username}</span> </td> 
+						<td class="highscore-username"><span>${entry.user.username}</span> </td> 
 						<td><span class="value">${entry.score}</span></td>
 						<input class="hidden-id" type="hidden" value="${entry.user.ID}">
 						<input class="hidden-username" type="hidden" value="${entry.user.username}">
@@ -29,14 +29,14 @@
 
 
 	<div class="wrapper col-lg-6">
-		<div class="round-score score-section">
+		<div class="round-score highscore-section">
 			<h4>
 				Round:
 			</h4>
 			<table>
 				<c:forEach items="${roundHighscore}" var="entry">
 					<tr class="highscore-entry matches-round">
-						<td><span>${entry.user.username}</span> </td> 
+						<td class="highscore-username"><span>${entry.user.username}</span> </td> 
 						<td><span class="value">${entry.score}</span></td>
 						<input class="hidden-id" type="hidden" value="${entry.user.ID}">
 						<input class="hidden-username" type="hidden" value="${entry.user.username}">

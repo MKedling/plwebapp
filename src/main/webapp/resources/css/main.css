@@ -1,5 +1,6 @@
 body{
 	box-sizing: border-box;
+	padding-top: 70px;
 }
 
 .main-content{
@@ -12,14 +13,30 @@ body{
     margin: 0 auto;
 }
 
-.login{
-	float: left;
-	align: center;
+
+.pagination{
+	display: inline-block;
+	font-size: 10px;
+	padding: 3px 6px;
 }
 
+.right{
+	position: absolute;
+	right:0px;
+}
 
-div.input-group{
-	width: 80px;
+.navbar-brand{
+	font-size: 2em;
+	margin-top: auto;
+}
+
+.form-control.input-number{
+	display: inline-block;
+	height: 22px;
+	padding: 4px 0px;
+	text-align: center;
+	font-size: 15px;
+	font-weight: bold;
 }
 
 span.plus_minus{
@@ -34,10 +51,15 @@ span.plus_minus .btn{
 	padding: 3px 6px;
 }
 
+.bet{
+	margin-top: 10px;
+}
+
 .team_name{
 	font-size: 2em;
 	width: 75%;
 	display: inline-block;
+	white-space: nowrap;
 }
 
 table .team_name{
@@ -49,41 +71,47 @@ table .team_name{
 	margin: 30px;
 }
 
-.form-control.input-number{
+.summary tr{
+	padding: 0px;
+	margin: 0px;
+}
+
+.summary .key{
+	width: 100px;
 	display: inline-block;
-	height: 22px;
-	padding: 4px 0px;
-	text-align: center;
-	font-size: 15px;
-	font-weight: bold;
+}
+.summary span{
+	font-size: 0.8em;
 }
 
 .list-group, .list-group-item{
-    padding: 15px;
+    padding: 0px;
     overflow: auto;
 }
 
-
-.pagination{
-	display: inline-block;
-	font-size: 10px;
-	padding: 3px 6px;
-	width: 80px;
+.wrapper{
+	margin: 0px;
+	padding: 0px;
 }
+
 
 p.username{
 	font-size: 2em;
 }
 
 .matches{
-	padding: 25px;
+	padding: 20px 10px;
 }
 
 .highscore h3{
 	text-align: center;
 }
 
-.score-section{
+td.highscore-username{
+	width: 110px;
+}
+
+.highscore-section{
 	padding: 10px 25px;
 }
 
@@ -95,12 +123,9 @@ p.username{
 	float: right;
 }
 
-.score-section span:first-of-type span{
-	color: red;
-}
-
 #popup{
 	max-height: 90vh;
+	width: auto;
 }
 
 .modal-dialog{
@@ -110,6 +135,80 @@ p.username{
 .modal-body{
 	max-height:60vh;
 	overflow: auto;
+}
+
+tr.two-points .completed-bet-score{
+	color: green;
+	font-weight: bold;
+	font-size: 1.1em;
+}
+
+tr.one-points .completed-bet-score{
+	color: blue;
+	font-weight: bold;
+	font-size: 1.1em;
+}
+
+tr.zero-points .completed-bet-score{
+	color: #870707;
+}
+
+/*
+#popup table{
+	table-layout:auto;
+	width:1%;
+    white-space:nowrap;
+}
+*/
+
+#popup td, #popup th{
+	padding: 2px 10px;
+	margin: 0px 10px;
+}
+
+
+
+@media (max-width: 400px) {
+	
+.team_name{
+	font-size: 1.2em;
+	width: 70%;
+	overflow: hidden;
+}
+
+.list-group-item{
+	padding: 10px;
+}
+
+.score{
+	font-size: 1.2em;
+	margin: 30px;
+}
+
+span.plus_minus{
+	display: inline-block;
+	margin: 0px;
+	width: 50px;
+}
+
+.team-bet-row{
+	padding-bottom: 2px;
+}
+
+.main-content{
+	padding: 5px;
+}
+
+.highscore-section{
+	padding: 10px 0px;
+}
+
+.summary .key{
+	width: 72px;
+}
+
+
+  
 }
 
 

@@ -62,8 +62,10 @@ public class DefaultUserDAO implements UserDAO{
 		
 	
 		String insertQuery = "INSERT INTO users (username, password, email) VALUES (?, ?, ?)";
-	
 		jdbcTemplate.update(insertQuery, new Object[] {username, password, email});
+		
+		String insertUserRolesQuery = "INSERT INTO user_roles (username) VALUES (?)";
+		jdbcTemplate.update(insertUserRolesQuery, new Object[] {username});
 		
 		User user = getUserFromDB(username, password);
 		

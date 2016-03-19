@@ -140,6 +140,10 @@ public class Match implements Comparable<Match>{
 		return round + "  " + starttime + " : " + status + " :  " + homeTeam + " vs " + awayTeam + "  " + result.getHomeScore()  + " - " +result.getAwayScore();
 	}
 	
+	public String getStarttimeFormatted(){
+		return new SimpleDateFormat("dd/MM-yy HH:mm").format(starttime);
+	}
+	
 	@Override
 	public int compareTo(Match match){
 		return this.starttime.compareTo(match.starttime);

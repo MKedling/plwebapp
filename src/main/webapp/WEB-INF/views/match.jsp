@@ -3,14 +3,14 @@
 <div class="list-group-item matches">
 			
 	<div>
-		<span>${match.starttime}</span>
+		<span>${match.starttimeFormatted}</span>
 		<br>
 		<span>Round: ${match.round}</span>
 	</div>
 	
 	<c:if test="${matchType eq 'matchToBet'}" >
 		<form method="POST" action="/plapp/plapp/home/bet">
-			<div>
+			<div class="team-bet-row">
 		   		<span class="team_name"> ${match.homeTeam}</span>
 		   		<span class="plus_minus home_team" data-name="score_home" data-value="0" data-id="1"></span>
 		   	</div>

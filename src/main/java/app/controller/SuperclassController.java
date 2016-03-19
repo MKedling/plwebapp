@@ -53,8 +53,6 @@ public abstract class SuperclassController {
 		
 		List<Match> matchesToBet = matchService.getAllMatchesToBet(roundToView);
 		
-		Collections.sort(matchesToBet);
-		
 		modelAndView.addObject("bets" , allBets);
 		modelAndView.addObject("allBetsRound" , allBetsRound);
 		modelAndView.addObject("allCompletedBets" , allCompletedBets);

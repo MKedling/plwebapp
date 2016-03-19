@@ -1,6 +1,9 @@
 package app.dto;
 
 import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.TimeZone;
 
 public class Bet implements Comparable<Bet>{
 	
@@ -18,6 +21,15 @@ public class Bet implements Comparable<Bet>{
 	
 	private Integer round;
 	private Timestamp starttime;
+	private int betScore; 
+	
+	public int getBetScore() {
+		return betScore;
+	}
+	public void setBetScore(int betScore) {
+		this.betScore = betScore;
+	}
+
 	private Timestamp timeOfBet;
 	public int getMatchID() {
 		return matchID;
@@ -94,6 +106,10 @@ public class Bet implements Comparable<Bet>{
 	
 	public String toString(){
 		return "Round:"+ round + "  matchid: "+ matchID + " uid" + userID + "  "  + getHomeTeam() + " - " + getAwayTeam() + "  predicted:" + getBetHomeScore() + "-" + getBetAwayScore() + "  actual: " + getMatchHomeScore()+ "-" + getMatchAwayScore() + "  betid" + betID;
+	}
+	
+	public String getStarttimeFormatted(){
+		return new SimpleDateFormat("dd/MM-yy HH:mm").format(starttime);
 	}
 	
 	@Override
