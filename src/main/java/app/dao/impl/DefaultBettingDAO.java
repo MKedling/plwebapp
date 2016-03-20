@@ -34,7 +34,7 @@ public class DefaultBettingDAO implements BettingDAO{
 	public boolean placeBet(Bet bet) {
 		
 		if(betExist(bet)){
-			System.out.println("Bet exist: with match id already exists");
+			System.out.println("LOG: Bet exist " + bet);
 			return false;
 		}
 		
@@ -45,8 +45,10 @@ public class DefaultBettingDAO implements BettingDAO{
 		}
 		
 		
-		jdbcTemplate.update("INSERT INTO bet(match_ID, user_ID, home_score, away_score) VALUES (?, ?, ?, ?)",
+		int affected = jdbcTemplate.update("INSERT INTO bet(match_ID, user_ID, home_score, away_score) VALUES (?, ?, ?, ?)",
 			     new Object[] { bet.getMatchID(), bet.getUserID(), bet.getBetHomeScore(), bet.getBetAwayScore()  });
+		
+		System.out.println("LOG: placed bet query was runned, BET= " + bet + "  affected rows= " + affected);
 		
 		return true;
 	}
@@ -86,7 +88,7 @@ public class DefaultBettingDAO implements BettingDAO{
 		try{
 			allBets = jdbcTemplate.query(query, new BetRowMapper(), id);
 		}catch(org.springframework.dao.EmptyResultDataAccessException e){
-			System.out.println("Bet did not exist");
+			System.out.println("LOG: Bet did not exist");
 			return null;
 		}
 		
@@ -101,7 +103,7 @@ public class DefaultBettingDAO implements BettingDAO{
 		try{
 			allBets = jdbcTemplate.query(query, new BetRowMapper(), id, round);
 		}catch(org.springframework.dao.EmptyResultDataAccessException e){
-			System.out.println("Bet did not exist");
+			System.out.println("LOG: Bet did not exist");
 			return null;
 		}
 		

@@ -36,8 +36,6 @@ public class BetController extends SuperclassController{
 	{
 		int userID = userSession.getUser().getID();
 		
-		System.out.println(matchID + " : " + homeScore + " - " + awayScore + " Userid: " + userID);
-		
 		Bet bet = new Bet();
 		bet.setBetHomeScore(homeScore);
 		bet.setBetAwayScore(awayScore);
@@ -73,6 +71,20 @@ public class BetController extends SuperclassController{
 		ModelAndView modelAndView = new ModelAndView("completedMatch");
 		
 		List<Bet> allCompletedBets = bettingService.getAllCompletedBets(userID);
+		modelAndView.addObject("allCompletedBets", scoreService.correctBets(allCompletedBets));
+		
+		return modelAndView;
+	}
+	
+	
+	@RequestMapping(value = "/getBetsRound", method = RequestMethod.GET)
+	public ModelAndView betsRound(@RequestParam("round") int round)
+	{
+
+		ModelAndView modelAndView = new ModelAndView("completedMatch");
+		//Change name of model attribute
+		
+		List<Bet> allCompletedBets = bettingService.getAllBetsRound(userSession.getUser().getID(), round);
 		modelAndView.addObject("allCompletedBets", scoreService.correctBets(allCompletedBets));
 		
 		return modelAndView;

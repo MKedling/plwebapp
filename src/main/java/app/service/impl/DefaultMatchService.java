@@ -1,5 +1,6 @@
 package app.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 
 import app.dao.MatchDAO;
@@ -64,6 +65,20 @@ public class DefaultMatchService implements MatchService{
 	public Match getMatch(int id) {
 		return matchDAO.getMatch(id);
 	}
+
+	@Override
+	public String getTeamShortName(String teamName) {
+		
+		HashMap<String, String> teamNamesMapping = new HashMap<String, String>();
+		teamNamesMapping.put("Tottenham Hotspur FC", "Tottenham");
+		
+		if(teamNamesMapping.containsKey(teamNamesMapping)){
+			return teamNamesMapping.get(teamName);
+		}
+		System.out.println("LOG: Dont have short name for team " + teamName);
+		return teamName;
+	}
+
 
 	
 

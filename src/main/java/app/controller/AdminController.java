@@ -87,8 +87,6 @@ public class AdminController extends SuperclassController{
 		for(Match match : matchDayService.getAllMatchesFromMatchDay(matchDay)){
 			matchService.addResult(match);
 		}
-		
-		System.out.println(matchDayService.getMatchDaysToAddResult());
 			
 		ModelAndView modelAndView = new ModelAndView("adminview");
 		return modelAndView;

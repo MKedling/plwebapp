@@ -36,7 +36,7 @@
 		</c:choose>
 	
    			<td class="round"> ${bet.round}</td>
-   			<td class="completed-team_name"> ${bet.homeTeam} - ${bet.awayTeam}</td>
+   			<td class="completed-team_name"> ${bet.homeTeamShortName} - ${bet.awayTeamShortName}</td>
    			<td class="completed-bet-score"> ${bet.betHomeScore} - ${bet.betAwayScore}</td>
    			<td class="completed-correct-score"> ${bet.matchHomeScore} - ${bet.matchAwayScore}</td>
    			<!--  <td class="completed-point"> ${bet.betScore}</td> -->

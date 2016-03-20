@@ -71,8 +71,6 @@ public class DefaultScoreService implements ScoreService{
 		
 		for(Bet bet : allBets){
 			int score = calculateScore(bet);
-			System.out.println(bet + " : " + score);
-			
 			totalScore += score;
 		}
 		
@@ -140,10 +138,5 @@ public class DefaultScoreService implements ScoreService{
 		return bets;
 	}
 
-	
-
-	
-	
-	
 
 }

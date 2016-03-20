@@ -84,7 +84,7 @@ public class DefaultUserDAO implements UserDAO{
 		user = (User) jdbcTemplate.queryForObject(
 							query, new Object[] { username } , new UserRowMapper());
 		}catch(org.springframework.dao.EmptyResultDataAccessException e){
-			System.out.println("User did not exist");
+			System.out.println("LOG: User did not exist");
 			return null;
 		}
 		
@@ -124,7 +124,7 @@ public class DefaultUserDAO implements UserDAO{
 		user = (User) jdbcTemplate.queryForObject(
 							query, new Object[] { username } , new UserRowMapper());
 		}catch(org.springframework.dao.EmptyResultDataAccessException e){
-			System.out.println("User did not exist");
+			System.out.println("LOG: User did not exist");
 			return null;
 		}
 		
@@ -142,7 +142,7 @@ public class DefaultUserDAO implements UserDAO{
 		user = (User) jdbcTemplate.queryForObject(
 							query, new Object[] { userId } , new UserRowMapper());
 		}catch(org.springframework.dao.EmptyResultDataAccessException e){
-			System.out.println("User did not exist");
+			System.out.println("LOG: User did not exist");
 			return null;
 		}
 		

@@ -31,11 +31,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.authorizeRequests()                                                                                
 			.antMatchers("/admin").hasRole("ADMIN") 
 			.antMatchers("/resources/**").permitAll()
-			.antMatchers("/plapp/register").permitAll()
+			.antMatchers("/register").permitAll()
 			.anyRequest().authenticated()
 			.and()
-		.formLogin().loginPage("/plapp/login").permitAll()
-		.and().formLogin().loginProcessingUrl("/login").defaultSuccessUrl("/plapp/home", true);
+		.formLogin().loginPage("/login").permitAll()
+		.and().formLogin().loginProcessingUrl("/login").defaultSuccessUrl("/home", true);
 	}
 	
 	

@@ -98,7 +98,7 @@ public class LoginController extends SuperclassController{
 		
 	}
 	
-	@RequestMapping(value = "/login/update", method = RequestMethod.POST)
+	@RequestMapping(value = "/home", method = RequestMethod.POST)
 	public ModelAndView updateRound(@RequestParam("quantity[101]") int q)
 	{
 		

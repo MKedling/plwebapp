@@ -24,7 +24,7 @@ public class CronJob {
 	
 	private static int roundWhenLastExecuted = -1;
 	
-	//@Scheduled(cron="0 0 11 * * *")
+	@Scheduled(cron="0 0 11 * * *")
 	//@Scheduled(cron="*/30 * * * * ?")
     public void demoServiceMethod()
     {
@@ -33,19 +33,13 @@ public class CronJob {
 		}
     	
 		
-		/*
-		if(checkIfRoundIsEnded()){
-			checkIfResultIsAddedAndSendSummary();
-		}
-		*/
-		
 	}
 	
 	public List<Integer> addNewResults(){
 		
 		List<Integer> matchesToAdd = matchDayService.getMatchDaysToAddResult();
 		for(Integer i : matchesToAdd){
-			System.out.print(i + ", ");
+			System.out.println("LOG: Matchday " + i + " not complete yet ");
 			for(Match match : matchDayService.getMatchDay(i).getMatches()){
 				matchService.addResult(match);
 			}
@@ -55,22 +49,6 @@ public class CronJob {
 		
 	}
 	
-	/*
-	public void checkIfResultIsAddedAndSendSummary(){
-		if(checkIfRoundIsEnded()){
-			emailService.sendRoundSummary(round);
-		}
-		
-	}
-	
-	public boolean checkIfRoundIsEnded(){
-		if(matchService.getCurrentRound() > roundWhenLastExecuted){
-			roundWhenLastExecuted = matchService.getCurrentRound();
-			return true;
-		}
-		return false;	
-	}
-	*/
 	public MatchService getMatchService() {
 		return matchService;
 	}

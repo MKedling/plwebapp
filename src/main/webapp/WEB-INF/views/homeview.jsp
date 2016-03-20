@@ -28,7 +28,7 @@
 <body>
 
 <div>
-	<jsp:include page="navbar.jsp"/>
+	<jsp:include page="views/navbar.jsp"/>
 </div>
 
 <div class="page">
@@ -36,14 +36,14 @@
 <div class="row">
 <div class="main-content col-centered col-lg-12">
 
-<jsp:include page="popup.jsp"/>
+<jsp:include page="views/popup.jsp"/>
 
 
 <div class="list-group highscore">
 	
 	<c:set var="totalHighscore" value="${totalHighscore}" scope="request" />
 	<c:set var="roundHighscore" value="${roundHighscore}" scope="request" />
-	<jsp:include page="highscore.jsp"/>
+	<jsp:include page="views/highscore.jsp"/>
 	
 </div>
 
@@ -53,20 +53,26 @@
 	<c:forEach items="${matchesToBet}" var="match">
 		<c:set var="match" value="${match}" scope="request" />
 		<c:set var="matchType" value="matchToBet" scope="request" />
-	    <jsp:include page="match.jsp"/>   
+	    <jsp:include page="views/match.jsp"/>   
 	</c:forEach>
 	
-	<c:forEach items="${allBetsRound}" var="bet">
-		
-		<c:set var="match" value="${bet}" scope="request" />
-		<c:set var="matchType" value="matchBetExist" scope="request" />
-	    <jsp:include page="match.jsp"/>   
-	 
-   </c:forEach>
 </div>
+
+
+<div class="list-group">
+	<input type="hidden" class="logged-in-userID" value ="${userID}">
+	<input type="hidden" class="round-to-view" value ="${roundToView}">
+	
+	<div class="list-group-item betted-matches">
+	
+	</div>
+	 
+</div>
+
+
+
    
-
-
+   
 </div><!-- main content-->
 </div>	<!-- row -->
 </div> <!-- container fluid -->

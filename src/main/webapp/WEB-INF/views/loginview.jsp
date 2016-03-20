@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <head>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -10,7 +11,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
-<link href="<c:url value="/resources/css/signin.css" />" rel="stylesheet">
+
+<link type="text/css" rel="stylesheet" href="<spring:url value='resources/css/main.css' />" />
+<link type="text/css" rel="stylesheet" href="<spring:url value='resources/css/signin.css' />" />
 
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
@@ -39,7 +42,7 @@
 		<input id="password" name="password" type="password" value="pw" class="form-control" placeholder="Password" required>
   		
 		<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-		<a href="/plapp/plapp/register" class="btn btn-lg btn-primary btn-block" type="submit">Register</a>
+		<a href="/plapp/register" class="btn btn-lg btn-primary btn-block" type="submit">Register</a>
 	</form>
 	
 	

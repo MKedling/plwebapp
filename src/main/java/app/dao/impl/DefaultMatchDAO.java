@@ -42,7 +42,7 @@ public class DefaultMatchDAO implements MatchDAO{
 		try{
 			allMatches = jdbcTemplate.query(query, new MatchRowMapper());
 		}catch(org.springframework.dao.EmptyResultDataAccessException e){
-			System.out.println("User did not exist");
+			System.out.println("LOG: User did not exist");
 			return null;
 		}
 		Collections.sort(allMatches);
@@ -57,7 +57,7 @@ public class DefaultMatchDAO implements MatchDAO{
 		try{
 			allMatchesToBet = jdbcTemplate.query(query, new MatchRowMapper(), userSession.getUser().getID(), round);
 		}catch(org.springframework.dao.EmptyResultDataAccessException e){
-			System.out.println("No Matches");
+			System.out.println("LOG: No Matches");
 			return null;
 		}
 		
@@ -75,7 +75,7 @@ public class DefaultMatchDAO implements MatchDAO{
 				jdbcTemplate.update("INSERT INTO matches(start_time, round, home_team, away_team) VALUES (?, ?, ?, ?)",
 					     new Object[] { match.getStarttime(), match.getRound(), match.getHomeTeam(), match.getAwayTeam()  });
 			}else{
-				System.out.println("Match already exists: " + match);
+				System.out.println("LOG: Match already exists: " + match);
 			}
 		}
 		
@@ -111,7 +111,7 @@ public class DefaultMatchDAO implements MatchDAO{
 		try{
 			allMatchesToAddResult = jdbcTemplate.query(query, new MatchRowMapper());
 		}catch(org.springframework.dao.EmptyResultDataAccessException e){
-			System.out.println("No Matches");
+			System.out.println("LOG: No Matches");
 			return null;
 		}
 		
@@ -123,10 +123,10 @@ public class DefaultMatchDAO implements MatchDAO{
 		
 		if(matchWithoutResultExist(matchID)){
 			jdbcTemplate.update("UPDATE matches SET home_score = ?, away_score = ? WHERE id = ?", homeScore, awayScore, matchID);
-			System.out.println("LOG: result matchid: " + matchID);
+			System.out.println("LOG: Added result matchid: " + matchID);
 			return true;
 		}
-		System.out.println("LOG: Match resultat ej uppdaterat, kanske redan finns?");
+		System.out.println("LOG: Match resultat ej uppdaterat, kanske redan finns? match id:" + matchID);
 		return false;
 	}
 	
@@ -212,7 +212,7 @@ public class DefaultMatchDAO implements MatchDAO{
 		try{
 			return (Match) jdbcTemplate.queryForObject(query, new MatchRowMapper(), homeTeam, awayTeam);
 		}catch(org.springframework.dao.EmptyResultDataAccessException e){
-			System.out.println("No Match");
+			System.out.println("LOG: No Match");
 			return null;
 		}
 	}
@@ -223,7 +223,7 @@ public class DefaultMatchDAO implements MatchDAO{
 		try{
 			return (Match) jdbcTemplate.queryForObject(query, new MatchRowMapper(), id);
 		}catch(org.springframework.dao.EmptyResultDataAccessException e){
-			System.out.println("No Match");
+			System.out.println("LOG: No Match");
 			return null;
 		}
 	}

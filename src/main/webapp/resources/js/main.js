@@ -1,6 +1,7 @@
-var webContext = '/plapp/plapp/';
+var webContext = '/plapp/';
 var getAllBetsUrl =  webContext + 'home/getCorrectedBetsAll';
 var getRoundBetsUrl = webContext + 'home/getStartedBetsRound';
+var getBetsRoundUrl = webContext + 'home/getBetsRound';
 var popupLocator = '#popup';
 
 jQuery(document).ready(function($) {
@@ -33,7 +34,7 @@ jQuery(document).ready(function($) {
 	
 	});
 	
-	function getBetsAndShow(url, element, title) {
+	function getBetsAndShow(url, element) {
 		var id = $(element).children("input.hidden-id").val();
 		var username = $(element).children("input.hidden-username").val();
 		var roundToView = $("#roundToView").attr("data-value");
@@ -44,6 +45,13 @@ jQuery(document).ready(function($) {
 		
 		$(".modal-title").html(username);
 	}
+	
+	var loggedInUserID = $(".logged-in-userID").val();
+	var roundToView = $(".round-to-view").val();
+	
+	$.get( getBetsRoundUrl , {round : roundToView}).done(function( data ) {
+		  $( ".betted-matches" ).html( data );
+	});  
 	
 	
 

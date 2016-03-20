@@ -19,5 +19,7 @@ public interface MatchService {
 	public boolean addResult(Match match);
 	public Match getMatch(String homeTeam, String awayTeam);
 	public Match getMatch(int id);
+	
+	public String getTeamShortName(String teamName);
 
 }

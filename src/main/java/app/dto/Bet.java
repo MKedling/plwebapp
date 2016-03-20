@@ -5,6 +5,11 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.TimeZone;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import app.misc.MiscHelper;
+import app.service.MatchService;
+
 public class Bet implements Comparable<Bet>{
 	
 	private int matchID;
@@ -105,11 +110,19 @@ public class Bet implements Comparable<Bet>{
 	}
 	
 	public String toString(){
-		return "Round:"+ round + "  matchid: "+ matchID + " uid" + userID + "  "  + getHomeTeam() + " - " + getAwayTeam() + "  predicted:" + getBetHomeScore() + "-" + getBetAwayScore() + "  actual: " + getMatchHomeScore()+ "-" + getMatchAwayScore() + "  betid" + betID;
+		return "Round:" + round + "  matchid: "+ matchID + " uid: " + userID + "  "  + getHomeTeam() + " - " + getAwayTeam() + "  predicted:" + getBetHomeScore() + "-" + getBetAwayScore() + "  actual: " + getMatchHomeScore()+ "-" + getMatchAwayScore() + "  betid" + betID;
 	}
 	
 	public String getStarttimeFormatted(){
 		return new SimpleDateFormat("dd/MM-yy HH:mm").format(starttime);
+	}
+	
+	public String getHomeTeamShortName(){
+		return MiscHelper.getTeamShortName(homeTeam);
+	}
+	
+	public String getAwayTeamShortName(){
+		return MiscHelper.getTeamShortName(awayTeam);
 	}
 	
 	@Override
