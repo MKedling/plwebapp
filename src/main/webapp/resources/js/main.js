@@ -13,7 +13,7 @@ jQuery(document).ready(function($) {
 	
 	});
 	
-	$( ".round button" ).click(function(event) {
+	$( "#pagination_form button" ).click(function(event) {
 		
 		$("#pagination_form").submit();
 		

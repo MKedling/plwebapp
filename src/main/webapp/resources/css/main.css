@@ -13,11 +13,15 @@ body{
     margin: 0 auto;
 }
 
+.pagination{
+	
+}
 
 .pagination{
 	display: inline-block;
 	font-size: 10px;
 	padding: 3px 6px;
+	margin: 10px 0px;
 }
 
 .right{
@@ -29,6 +33,10 @@ body{
 	font-size: 2em;
 	margin-top: auto;
 }
+.navbar-brand:first-letter{
+	text-transform: uppercase;
+}
+
 
 .form-control.input-number{
 	display: inline-block;
@@ -51,6 +59,7 @@ span.plus_minus .btn{
 	padding: 3px 6px;
 }
 
+
 .bet{
 	margin-top: 10px;
 }
@@ -69,6 +78,10 @@ table .team_name{
 .score{
 	font-size: 2em;
 	margin: 30px;
+}
+
+.summary{
+	float: right;
 }
 
 .summary tr{
@@ -107,12 +120,29 @@ p.username{
 	text-align: center;
 }
 
+.highscore-list-item h3,
+.highscore-list-item h4{
+	text-transform: uppercase;
+}
+
+tr.highscore-entry{
+	cursor:pointer;
+}
+
 td.highscore-username{
 	width: 110px;
 }
 
+td.highscore-username:first-letter {
+    text-transform: uppercase;
+}
+
 .highscore-section{
 	padding: 10px 25px;
+}
+.highscore-section tr:first-of-type .value{
+	color: red;
+	font-weight: bold;
 }
 
 .highscore .total-score{
@@ -168,7 +198,7 @@ tr.zero-points .completed-bet-score{
 
 
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
 	
 .team_name{
 	font-size: 1.2em;
@@ -207,8 +237,15 @@ span.plus_minus{
 	width: 72px;
 }
 
+.summary{
+	display:none;
+}
 
-  
+.show-round{
+	float: right;
+}
+
+
 }
 
 

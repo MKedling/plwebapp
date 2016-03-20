@@ -36,29 +36,7 @@
 <div class="row">
 <div class="main-content col-centered col-lg-12">
 
-
-
 <jsp:include page="popup.jsp"/>
-
-
-<div class="list-group">
-	<div>
-		<a href="/plapp/plapp/admin">Admin</a>
-	</div>
-
-	<div class="list-group-item">
-		<p>
-			Current round: ${currentRound}
-		</p>
-		<p>
-			Round Score: ${scoreRound}
-		</p> 
-		<p>
-			Total Score: ${scoreTotal}
-		</p>
-		
-	</div>
-</div>
 
 
 <div class="list-group highscore">

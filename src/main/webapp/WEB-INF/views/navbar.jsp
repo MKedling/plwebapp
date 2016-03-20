@@ -8,11 +8,11 @@
 		
 		<div class="navbar-header col-xs-12">
 		
-				<div class="wrapper col-xs-5">
+				<div class="wrapper col-xs-4">
 					<a class="navbar-brand" href="/plapp/plapp/home/">${userSession.user.username}</a>
 				</div>
 				
-				<div class="wrapper col-xs-2">
+				<div class="wrapper col-xs-4 show-round">
 					<div class="pagination">
 						<form id="pagination_form" method="POST"
 							action="/plapp/plapp/login/update">
@@ -22,9 +22,9 @@
 					</div>
 				</div>
 				
-				<div class="wrapper col-xs-5">
-					<div class="right">
-						<table class="summary">
+				<div class="wrapper col-xs-4 col-xs-offset-5">
+					<div class="summary">
+						<table>
 							<tr>
 								<td>
 									<span class="key">Current round:</span>
@@ -44,14 +44,8 @@
 								</td>
 							</tr>
 						</table>
-						
-						
-						
-						
 					</div>
 				</div>
-				
-				
 				
 			</div>
 			

@@ -1,7 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 
 
-<div class="list-group-item">
+<div class="list-group-item highscore-list-item">
 	
 	<h3 class="heading">
 		Highscore
@@ -10,9 +10,8 @@
 	
 	<div class="wrapper col-lg-6">
 		<div class="total-score highscore-section">
-			<h4>
-				Total:
-			</h4>
+			
+			<h4>Total</h4>
 		
 			<table>
 				<c:forEach items="${totalHighscore}" var="entry">
@@ -30,9 +29,9 @@
 
 	<div class="wrapper col-lg-6">
 		<div class="round-score highscore-section">
-			<h4>
-				Round:
-			</h4>
+			
+			<h4>Round</h4>
+			
 			<table>
 				<c:forEach items="${roundHighscore}" var="entry">
 					<tr class="highscore-entry matches-round">

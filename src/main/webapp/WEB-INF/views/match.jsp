@@ -2,10 +2,9 @@
 
 <div class="list-group-item matches">
 			
-	<div>
+	<div class="match-info">
 		<span>${match.starttimeFormatted}</span>
-		<br>
-		<span>Round: ${match.round}</span>
+		<input type="hidden" name="round" value="${match.round}">
 	</div>
 	
 	<c:if test="${matchType eq 'matchToBet'}" >
