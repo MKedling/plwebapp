@@ -64,10 +64,10 @@ public class DefaultEmailService implements EmailService{
 	private void sendMail(String server, final String username, final String password, String from, String to, String subject, String msg){
 		
 		Properties props = new Properties();
-		props.put("mail.smtp.host", server); // Sätter servern
-		props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory"); // Bestämmer vilken klass som skall användas vid skapandet av smtp socket
-		props.put("mail.smtp.socketFactory.port", "465"); // Bestämmer porten då man angett en specifik klass
-		props.put("mail.smtp.auth", "true"); // Kör AUTH command
+		props.put("mail.smtp.host", server); // Satter servern
+		props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory"); // Bestammer vilken klass som skall anvandas vid skapandet av smtp socket
+		props.put("mail.smtp.socketFactory.port", "465"); // Bestammer porten da man angett en specifik klass
+		props.put("mail.smtp.auth", "true"); // Kor AUTH command
 		
 		//Skapar ett session och "Authenticates it"
 		Session session = Session.getDefaultInstance(props,
@@ -78,14 +78,14 @@ public class DefaultEmailService implements EmailService{
 			});
  
 		try {
-			// Skapar ett meddelande och sätter från, mottagare, ämne, meddelande
+			// Skapar ett meddelande och satter fran, mottagare, amne, meddelande
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(username));
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
 			message.setSubject(subject);
 			message.setText(msg);
  
-			//Sänder
+			//Sander
 			Transport.send(message);
  
 		} catch (MessagingException e) {

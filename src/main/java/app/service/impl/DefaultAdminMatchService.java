@@ -33,8 +33,8 @@ public class DefaultAdminMatchService implements AdminMatchService{
 		
 		ArrayList<Match> matches = new ArrayList<Match>();
 	
-		Pattern patternRound = Pattern.compile("^([A-Öa-ö]+) ([0-9]+)");
-		Pattern patternMatch = Pattern.compile("^([:\\s-0-9]+)\\s([ A-Öa-ö]+)\\s-\\s([ A-Öa-ö]+)");
+		Pattern patternRound = Pattern.compile("^([A-Za-Z]+) ([0-9]+)");
+		Pattern patternMatch = Pattern.compile("^([:\\s-0-9]+)\\s([ A-Za-z]+)\\s-\\s([ A-Za-z]+)");
 
 		Matcher matcherMatch;
 		Matcher matcherRound;

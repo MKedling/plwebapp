@@ -85,11 +85,21 @@
 	</bean>
 	
 	
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	  <property name="locations">
+	    <list>
+	      <!-- Default location inside war file -->
+	      <value>classpath:app.properties</value>
+	    </list>
+	  </property>
+	  <property name="ignoreResourceNotFound" value="true"/>
+	</bean>
+	
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
       <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-      <property name="url" value="jdbc:mysql://localhost:3306/TEST"/>
-      <property name="username" value="root"/>
-      <property name="password" value="password"/>
+      <property name="url" value="${jdbc.url}"/>
+      <property name="username" value="${jdbc.username}"/>
+      <property name="password" value="${jdbc.password}"/>
    </bean>
    
 </beans>

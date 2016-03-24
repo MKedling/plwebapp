@@ -38,13 +38,11 @@ public class DefaultBettingDAO implements BettingDAO{
 			return false;
 		}
 		
-		
 		if(matchService.getMatch(bet.getMatchID()).getStarttime().before(new Date())){
 			System.out.println("LOG: bet cant be placed, match starttime has already been");
 			return false;
 		}
-		
-		
+	
 		int affected = jdbcTemplate.update("INSERT INTO bet(match_ID, user_ID, home_score, away_score) VALUES (?, ?, ?, ?)",
 			     new Object[] { bet.getMatchID(), bet.getUserID(), bet.getBetHomeScore(), bet.getBetAwayScore()  });
 		
@@ -54,30 +52,30 @@ public class DefaultBettingDAO implements BettingDAO{
 	}
 
 	public List<Bet> getAllBetsRound(int id, int round) {
-		String query = "SELECT Matches.id as match_id, Matches.home_team as home_team, Matches.away_team as away_team,Matches.home_score as match_home_score,Matches.away_score as match_away_score,Matches.start_time as start_time, Matches.round as round ,Bet.id as bet_id,Bet.home_score as bet_home_score,Bet.away_score as bet_away_score, Bet.user_ID as user_id, Bet.creation_time as creation_time FROM Matches INNER JOIN Bet ON Matches.ID=Bet.match_ID WHERE (user_id = ? AND round = ?);";
+		String query = "SELECT matches.id as match_id, matches.home_team as home_team, matches.away_team as away_team,matches.home_score as match_home_score,matches.away_score as match_away_score,matches.start_time as start_time, matches.round as round ,bet.id as bet_id,bet.home_score as bet_home_score,bet.away_score as bet_away_score, bet.user_ID as user_id, bet.creation_time as creation_time FROM matches INNER JOIN bet ON matches.ID=bet.match_ID WHERE (user_id = ? AND round = ?);";
 		return getBetsRound(query, id, round);
 	}
 	
 	public List<Bet> getAllBets(int id) {
-		String query = "SELECT Matches.id as match_id, Matches.home_team as home_team, Matches.away_team as away_team,Matches.home_score as match_home_score,Matches.away_score as match_away_score,Matches.start_time as start_time, Matches.round as round ,Bet.id as bet_id,Bet.home_score as bet_home_score,Bet.away_score as bet_away_score, Bet.user_ID as user_id, Bet.creation_time as creation_time FROM Matches INNER JOIN Bet ON Matches.ID=Bet.match_ID WHERE user_id = ?;";
+		String query = "SELECT matches.id as match_id, matches.home_team as home_team, matches.away_team as away_team,matches.home_score as match_home_score,matches.away_score as match_away_score,matches.start_time as start_time, matches.round as round ,bet.id as bet_id,bet.home_score as bet_home_score,bet.away_score as bet_away_score, bet.user_ID as user_id, bet.creation_time as creation_time FROM matches INNER JOIN bet ON matches.ID=bet.match_ID WHERE user_id = ?;";
 		return getBets(query, id);
 	}
 	
 	@Override
 	public List<Bet> getAllCompletedBetsRound(int id, int round) {
-		String query = "SELECT Matches.id as match_id, Matches.home_team as home_team, Matches.away_team as away_team,Matches.home_score as match_home_score,Matches.away_score as match_away_score,Matches.start_time as start_time, Matches.round as round ,Bet.id as bet_id,Bet.home_score as bet_home_score,Bet.away_score as bet_away_score, Bet.user_ID as user_id, Bet.creation_time as creation_time FROM Matches INNER JOIN Bet ON Matches.ID=Bet.match_ID WHERE user_id = ? AND round = ? AND (Matches.home_score is not null OR Matches.away_score is not null)";
+		String query = "SELECT matches.id as match_id, matches.home_team as home_team, matches.away_team as away_team,matches.home_score as match_home_score,matches.away_score as match_away_score,matches.start_time as start_time, matches.round as round ,bet.id as bet_id,bet.home_score as bet_home_score,bet.away_score as bet_away_score, bet.user_ID as user_id, bet.creation_time as creation_time FROM matches INNER JOIN bet ON matches.ID=bet.match_ID WHERE user_id = ? AND round = ? AND (matches.home_score is not null OR matches.away_score is not null)";
 		return getBetsRound(query, id, round);
 	}
 
 	@Override
 	public List<Bet> getAllCompletedBets(int id) {
-		String query = "SELECT Matches.id as match_id, Matches.home_team as home_team, Matches.away_team as away_team,Matches.home_score as match_home_score,Matches.away_score as match_away_score,Matches.start_time as start_time, Matches.round as round ,Bet.id as bet_id,Bet.home_score as bet_home_score,Bet.away_score as bet_away_score, Bet.user_ID as user_id, Bet.creation_time as creation_time FROM Matches INNER JOIN Bet ON Matches.ID=Bet.match_ID WHERE user_id = ? AND (Matches.home_score is not null OR Matches.away_score is not null)";
+		String query = "SELECT matches.id as match_id, matches.home_team as home_team, matches.away_team as away_team,matches.home_score as match_home_score,matches.away_score as match_away_score,matches.start_time as start_time, matches.round as round ,bet.id as bet_id,bet.home_score as bet_home_score,bet.away_score as bet_away_score, bet.user_ID as user_id, bet.creation_time as creation_time FROM matches INNER JOIN bet ON matches.ID=bet.match_ID WHERE user_id = ? AND (matches.home_score is not null OR matches.away_score is not null)";
 		return getBets(query, id);
 	}
 	
 	@Override
 	public List<Bet> getAllStartedBetsRound(int id, int round) {
-		String query = "SELECT Matches.id as match_id, Matches.home_team as home_team, Matches.away_team as away_team,Matches.home_score as match_home_score,Matches.away_score as match_away_score,Matches.start_time as start_time, Matches.round as round ,Bet.id as bet_id,Bet.home_score as bet_home_score,Bet.away_score as bet_away_score, Bet.user_ID as user_id, Bet.creation_time as creation_time FROM Matches INNER JOIN Bet ON Matches.ID=Bet.match_ID WHERE user_id = ? AND round = ? AND Matches.start_time < NOW()";
+		String query = "SELECT matches.id as match_id, matches.home_team as home_team, matches.away_team as away_team,matches.home_score as match_home_score,matches.away_score as match_away_score,matches.start_time as start_time, matches.round as round ,bet.id as bet_id,bet.home_score as bet_home_score,bet.away_score as bet_away_score, bet.user_ID as user_id, bet.creation_time as creation_time FROM matches INNER JOIN bet ON matches.ID=bet.match_ID WHERE user_id = ? AND round = ? AND matches.start_time < NOW()";
 		return getBetsRound(query, id, round);
 	}
 	

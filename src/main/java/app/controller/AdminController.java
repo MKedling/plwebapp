@@ -118,7 +118,7 @@ public class AdminController extends SuperclassController{
 		teamName.put("Watford", "Watford FC");
 		teamName.put("WBA", "West Bromwich Albion FC");
 		
-		try (BufferedReader br = new BufferedReader(new FileReader("./resources/input/Mattias.csv"))) {
+		try (BufferedReader br = new BufferedReader(new FileReader("./resources/input/Robin.csv"))) {
 		    String line;
 		    
 		    int userId = userService.getUserId(br.readLine());
@@ -143,7 +143,7 @@ public class AdminController extends SuperclassController{
 					
 					bettingService.placeBet(bet);
 		    	}catch(Exception e){
-		    		System.out.println("LOG: något crashade");
+		    		System.out.println("LOG: nagot crashade");
 		    	}
 		       
 		    }

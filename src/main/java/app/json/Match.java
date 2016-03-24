@@ -69,7 +69,7 @@ public class Match implements Comparable<Match>{
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd H:mm");
 		Date date;
 		try {
-			date = dateFormat.parse(starttime.replaceAll("[A-Öa-Ö]", " "));
+			date = dateFormat.parse(starttime.replaceAll("[A-oa-o]", " "));
 			this.starttime = new Timestamp(date.getTime());
 		} catch (ParseException e) {
 			e.printStackTrace();

@@ -51,13 +51,13 @@ public class DefaultMatchDAO implements MatchDAO{
 
 	public List<Match> getAllMatchesToBet(int round) {
 		
-		String query = "SELECT * FROM Matches WHERE id NOT IN (SELECT match_id FROM bet where user_ID = ?) AND round = ? AND start_time >= now()";
+		String query = "SELECT * FROM matches WHERE id NOT IN (SELECT match_id FROM bet where user_ID = ?) AND round = ? AND start_time >= now()";
 		List<Match> allMatchesToBet;
 		
 		try{
 			allMatchesToBet = jdbcTemplate.query(query, new MatchRowMapper(), userSession.getUser().getID(), round);
 		}catch(org.springframework.dao.EmptyResultDataAccessException e){
-			System.out.println("LOG: No Matches");
+			System.out.println("LOG: No matches");
 			return null;
 		}
 		
@@ -105,13 +105,13 @@ public class DefaultMatchDAO implements MatchDAO{
 	@Override
 	public List<Match> getAllMatchesToAddResult() {
 		
-		String query = "SELECT * FROM Matches WHERE start_time < now() AND (home_score IS NULL OR away_score IS NULL)";
+		String query = "SELECT * FROM matches WHERE start_time < now() AND (home_score IS NULL OR away_score IS NULL)";
 		List<Match> allMatchesToAddResult;
 		
 		try{
 			allMatchesToAddResult = jdbcTemplate.query(query, new MatchRowMapper());
 		}catch(org.springframework.dao.EmptyResultDataAccessException e){
-			System.out.println("LOG: No Matches");
+			System.out.println("LOG: No matches");
 			return null;
 		}
 		
@@ -155,7 +155,7 @@ public class DefaultMatchDAO implements MatchDAO{
 			// optional default is GET
 			con.setRequestMethod("GET");
 
-			//Inte säker på att denna funger aeller inte
+			//Inte saker pa att denna funger aeller inte
 			con.setRequestProperty("header", "X-Auth-Token: 60cdd65ef44b4e04ab16b18b29308a5a");
 			
 			MatchDay matchDay =  mapper.readValue(new URL(url), MatchDay.class);
@@ -181,11 +181,11 @@ public class DefaultMatchDAO implements MatchDAO{
 		if(id != -1){
 			match.setID(getMatchID(match));
 		}else{
-			System.out.println("LOG: id för match: " + match + "  finns inte i databasen");
+			System.out.println("LOG: id for match: " + match + "  finns inte i databasen");
 		}
 	}
 	
-	// vad händer om ingen match finns?
+	// vad hander om ingen match finns?
 	public int getMatchID(Match match){
 		if(matchExist(match)){
 			return jdbcTemplate.queryForObject(

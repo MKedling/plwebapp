@@ -39,19 +39,19 @@ public class LoginController extends SuperclassController{
 		ModelAndView modelAndView;
 
 		modelAndView = new ModelAndView("loginview");
-		modelAndView.addObject("message", "Användaren med angivet lösenord fanns inte");
+		modelAndView.addObject("message", "Anvandaren med angivet losenord fanns inte");
 		
 	
 		return modelAndView;
 	}
 	
-	//den körs vid login
+	//den kors vid login
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView login(
 		@RequestParam(value = "error", required = false) String error,
 		@RequestParam(value = "logout", required = false) String logout) {
 
-		System.out.println("LOG: Kör /Login controller");
+		System.out.println("LOG: Kor /Login controller");
 		
 		ModelAndView model = new ModelAndView();
 		if (error != null) {
@@ -92,7 +92,7 @@ public class LoginController extends SuperclassController{
 		}
 		
 		modelAndView = new ModelAndView("registerview");
-		modelAndView.addObject("message", "Användaren kunde inte skapas");
+		modelAndView.addObject("message", "Anvandaren kunde inte skapas");
 		
 		return modelAndView;
 		
