@@ -54,13 +54,7 @@ public class LoginController extends SuperclassController{
 		System.out.println("LOG: Kor /Login controller");
 		
 		ModelAndView model = new ModelAndView();
-		if (error != null) {
-			model.addObject("error", "Invalid username and password!");
-		}
-
-		if (logout != null) {
-			model.addObject("msg", "You've been logged out successfully.");
-		}
+		
 		model.setViewName("loginview");
 
 		return model;

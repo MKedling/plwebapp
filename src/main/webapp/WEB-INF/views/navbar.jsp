@@ -9,7 +9,7 @@
 		<div class="navbar-header col-xs-12">
 		
 				<div class="wrapper col-xs-4">
-					<a class="navbar-brand" href="/plapp/home/">${userSession.user.username}</a>
+					<a class="navbar-brand" href="/plapp/home">${userSession.user.username}</a>
 				</div>
 				
 				<div class="wrapper col-xs-4 show-round">

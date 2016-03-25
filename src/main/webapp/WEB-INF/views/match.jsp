@@ -13,7 +13,7 @@
 		   		<span class="team_name"> ${match.homeTeam}</span>
 		   		<span class="plus_minus home_team" data-name="score_home" data-value="0" data-id="1"></span>
 		   	</div>
-		   	<div>
+		   	<div class="team-bet-row">
 		   		<span class="team_name">${match.awayTeam}</span>
 		   		<span class="plus_minus away_team" data-name="score_away" data-value="0" data-id="1"></span>
 		   	</div>
@@ -22,7 +22,9 @@
 		   	<input type="hidden" name="round" value="${match.round}" />  
 	   	</form>
 	   	
-	   	<button type="button" class="btn btn-primary bet" value="">PLACERA BET</button> 
+	   	<input type="hidden" name="match_id" value="${match.ID}" />
+		<input type="hidden" name="round"  value="${match.round}" /> 
+	   	<button type="button" class="btn btn-primary bet test-ajax" value="">PLACERA BET</button> 
    	</c:if>	
    	
    	<c:if test="${matchType eq 'matchBetExist'}" >

@@ -4,6 +4,8 @@ package app.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,28 +30,6 @@ public class BetController extends SuperclassController{
 	private BettingService bettingService;
 	
 
-	@RequestMapping(value = "/bet", method = RequestMethod.POST)
-	public ModelAndView bet(@RequestParam("match_id") int matchID,
-							@RequestParam("score_home[1]") int homeScore,
-							@RequestParam("score_away[1]") int awayScore,
-							@RequestParam("round") int round)
-	{
-		int userID = userSession.getUser().getID();
-		
-		Bet bet = new Bet();
-		bet.setBetHomeScore(homeScore);
-		bet.setBetAwayScore(awayScore);
-		bet.setMatchID(matchID);
-		bet.setUserID(userID);
-		
-		bettingService.placeBet(bet);
-		ModelAndView modelAndView = new ModelAndView("homeview");
-		addBetsAndMatchesToModel(modelAndView, round);
-		
-		return modelAndView;
-	}
-	
-	
 	@RequestMapping(value = "/getStartedBetsRound", method = RequestMethod.GET)
 	public ModelAndView correctedBetsRound(@RequestParam("userID") int userID,
 											@RequestParam("round") int round)
@@ -88,6 +68,32 @@ public class BetController extends SuperclassController{
 		modelAndView.addObject("allCompletedBets", scoreService.correctBets(allCompletedBets));
 		
 		return modelAndView;
+	}
+	
+	
+	
+	@RequestMapping(value = "/ajaxBet", method = RequestMethod.POST)
+	public ResponseEntity<String> ajaxBet(@RequestParam("match_id") int matchID,
+							@RequestParam("score_home") int homeScore,
+							@RequestParam("score_away") int awayScore,
+							@RequestParam("round") int round)
+	{
+		int userID = userSession.getUser().getID();
+		
+		Bet bet = new Bet();
+		bet.setBetHomeScore(homeScore);
+		bet.setBetAwayScore(awayScore);
+		bet.setMatchID(matchID);
+		bet.setUserID(userID);
+		
+		
+		if (bettingService.placeBet(bet)){
+			return new ResponseEntity<String>(HttpStatus.OK);
+	    }
+	    else{
+	    	return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
+	    }
+	
 	}
 	
 	
