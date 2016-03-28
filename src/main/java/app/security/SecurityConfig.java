@@ -46,11 +46,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Bean(name = "dataSource")
 	public DriverManagerDataSource dataSource() {
+		String url, username, password;
+		
+		//Check if runned in openshift
+		if(System.getenv("OPENSHIFT_MYSQL_DB_HOST") != null ){;
+			url = "jdbc:mysql://" + System.getenv("OPENSHIFT_MYSQL_DB_HOST") + "/plapp";
+			username = System.getenv("OPENSHIFT_MYSQL_DB_USERNAME");
+			password = System.getenv("OPENSHIFT_MYSQL_DB_PASSWORD");
+		}else{
+			url = "jdbc:mysql://localhost:3306/TEST";
+			username = "root";
+			password = "password";
+		}
+		
 		DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
 		driverManagerDataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		driverManagerDataSource.setUrl("jdbc:mysql://localhost:3306/TEST");
-		driverManagerDataSource.setUsername("root");
-		driverManagerDataSource.setPassword("password");
+		driverManagerDataSource.setUrl(url);
+		driverManagerDataSource.setUsername(username);
+		driverManagerDataSource.setPassword(password);
 		return driverManagerDataSource;
 	}
 	
