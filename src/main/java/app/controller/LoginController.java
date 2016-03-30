@@ -1,5 +1,7 @@
 package app.controller;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -13,6 +15,8 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping(value = "/")
 public class LoginController extends SuperclassController{
 	
+	static final Logger LOG = LogManager.getLogger(LoginController.class.getName());
+
 	
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public ModelAndView home()
@@ -36,6 +40,8 @@ public class LoginController extends SuperclassController{
 	public ModelAndView loginas()
 	{
 		System.out.println("LOG: Login controller invoked");
+		
+
 		ModelAndView modelAndView;
 
 		modelAndView = new ModelAndView("loginview");
@@ -52,6 +58,14 @@ public class LoginController extends SuperclassController{
 		@RequestParam(value = "logout", required = false) String logout) {
 
 		System.out.println("LOG: Kor /Login controller");
+		
+		LOG.debug("This will be printed on debug");
+        LOG.info("This will be printed on info");
+        LOG.warn("This will be printed on warn");
+        LOG.error("This will be printed on error");
+        LOG.fatal("This will be printed on fatal");
+
+        LOG.info("Appending string: {}.", "Hello, World");
 		
 		ModelAndView model = new ModelAndView();
 		

@@ -1,0 +1,20 @@
+INFO  | 2016-03-30 19:51:46 | [http-bio-8080-exec-1] controller.LoginController (LoginController.java:63) - This will be printed on info
+WARN  | 2016-03-30 19:51:46 | [http-bio-8080-exec-1] controller.LoginController (LoginController.java:64) - This will be printed on warn
+ERROR | 2016-03-30 19:51:46 | [http-bio-8080-exec-1] controller.LoginController (LoginController.java:65) - This will be printed on error
+FATAL | 2016-03-30 19:51:46 | [http-bio-8080-exec-1] controller.LoginController (LoginController.java:66) - This will be printed on fatal
+INFO  | 2016-03-30 19:51:46 | [http-bio-8080-exec-1] controller.LoginController (LoginController.java:68) - Appending string: Hello, World.
+INFO  | 2016-03-30 19:51:47 | [http-bio-8080-exec-8] controller.LoginController (LoginController.java:63) - This will be printed on info
+WARN  | 2016-03-30 19:51:47 | [http-bio-8080-exec-8] controller.LoginController (LoginController.java:64) - This will be printed on warn
+ERROR | 2016-03-30 19:51:47 | [http-bio-8080-exec-8] controller.LoginController (LoginController.java:65) - This will be printed on error
+FATAL | 2016-03-30 19:51:47 | [http-bio-8080-exec-8] controller.LoginController (LoginController.java:66) - This will be printed on fatal
+INFO  | 2016-03-30 19:51:47 | [http-bio-8080-exec-8] controller.LoginController (LoginController.java:68) - Appending string: Hello, World.
+INFO  | 2016-03-30 20:09:00 | [http-bio-8080-exec-1] controller.LoginController (LoginController.java:63) - This will be printed on info
+WARN  | 2016-03-30 20:09:00 | [http-bio-8080-exec-1] controller.LoginController (LoginController.java:64) - This will be printed on warn
+ERROR | 2016-03-30 20:09:00 | [http-bio-8080-exec-1] controller.LoginController (LoginController.java:65) - This will be printed on error
+FATAL | 2016-03-30 20:09:00 | [http-bio-8080-exec-1] controller.LoginController (LoginController.java:66) - This will be printed on fatal
+INFO  | 2016-03-30 20:09:00 | [http-bio-8080-exec-1] controller.LoginController (LoginController.java:68) - Appending string: Hello, World.
+INFO  | 2016-03-30 20:20:44 | [http-bio-8080-exec-1] controller.LoginController (LoginController.java:63) - This will be printed on info
+WARN  | 2016-03-30 20:20:44 | [http-bio-8080-exec-1] controller.LoginController (LoginController.java:64) - This will be printed on warn
+ERROR | 2016-03-30 20:20:44 | [http-bio-8080-exec-1] controller.LoginController (LoginController.java:65) - This will be printed on error
+FATAL | 2016-03-30 20:20:44 | [http-bio-8080-exec-1] controller.LoginController (LoginController.java:66) - This will be printed on fatal
+INFO  | 2016-03-30 20:20:44 | [http-bio-8080-exec-1] controller.LoginController (LoginController.java:68) - Appending string: Hello, World.
