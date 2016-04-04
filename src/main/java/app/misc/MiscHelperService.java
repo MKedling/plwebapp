@@ -1,8 +1,11 @@
 package app.misc;
 
+import java.sql.Timestamp;
 import java.util.HashMap;
 
-public class MiscHelper {
+public class MiscHelperService {
+	
+	public static final long HOUR = 3600*1000; //Used for starttime convention  
 	
 	public static String getTeamShortName(String teamName) {
 		
@@ -34,6 +37,14 @@ public class MiscHelper {
 		}
 		System.out.println("LOG: Dont have short name for team " + teamName);
 		return teamName;
+		
+	}
+	
+	public static Timestamp convertTime(Timestamp timeStamp){
+		
+		timeStamp.setTime(timeStamp.getTime() + 2 * HOUR);
+		return timeStamp;
+				
 	}
 
 }

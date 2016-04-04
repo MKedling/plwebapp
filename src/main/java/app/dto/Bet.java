@@ -1,16 +1,17 @@
 package app.dto;
 
 import java.sql.Timestamp;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.TimeZone;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import app.misc.MiscHelper;
+import app.misc.MiscHelperService;
 import app.service.MatchService;
 
 public class Bet implements Comparable<Bet>{
+	
+	@Autowired
+	private MatchService matchService;
 	
 	private int matchID;
 	private int betID;
@@ -118,11 +119,11 @@ public class Bet implements Comparable<Bet>{
 	}
 	
 	public String getHomeTeamShortName(){
-		return MiscHelper.getTeamShortName(homeTeam);
+		return MiscHelperService.getTeamShortName(homeTeam);
 	}
 	
 	public String getAwayTeamShortName(){
-		return MiscHelper.getTeamShortName(awayTeam);
+		return MiscHelperService.getTeamShortName(awayTeam);
 	}
 	
 	@Override

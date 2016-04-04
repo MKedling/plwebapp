@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import org.springframework.jdbc.core.RowMapper;
 
 import app.dto.Bet;
+import app.misc.MiscHelperService;
 
 public class BetRowMapper implements RowMapper{
 	
@@ -27,8 +28,13 @@ public class BetRowMapper implements RowMapper{
 		bet.setBetHomeScore(rs.getInt("bet_home_score"));
 		bet.setBetAwayScore(rs.getInt("bet_away_score"));
 		
-		bet.setStarttime(rs.getTimestamp("start_time"));
-		bet.setTimeOfBet(rs.getTimestamp("creation_time"));
+		//bet.setStarttime(rs.getTimestamp("start_time"));
+		//bet.setTimeOfBet(rs.getTimestamp("creation_time"));
+		
+		bet.setStarttime(MiscHelperService.convertTime(rs.getTimestamp("start_time")));
+		bet.setStarttime(MiscHelperService.convertTime(rs.getTimestamp("creation_time")));
+		
+		
 		bet.setRound(rs.getInt("round"));
 		
 		return bet;

@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TimeZone;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -66,10 +67,10 @@ public class Match implements Comparable<Match>{
 	@JsonProperty("date")
 	public void setStarttime(String starttime) {
 		
-		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd H:mm");
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
 		Date date;
 		try {
-			date = dateFormat.parse(starttime.replaceAll("[A-oa-o]", " "));
+			date = dateFormat.parse(starttime);
 			this.starttime = new Timestamp(date.getTime());
 		} catch (ParseException e) {
 			e.printStackTrace();

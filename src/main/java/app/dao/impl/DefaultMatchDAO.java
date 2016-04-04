@@ -11,6 +11,7 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -26,6 +27,13 @@ public class DefaultMatchDAO implements MatchDAO{
 
 	@Autowired
 	protected UserSession userSession;
+	
+	@Value("${dataset.matchday.url}")
+	private String datasetMatchdayUrl;
+	
+	@Value("${dataset.authToken}")
+	private String authToken;
+	
 	
 	private JdbcTemplate jdbcTemplate;
 	
@@ -142,10 +150,12 @@ public class DefaultMatchDAO implements MatchDAO{
 		return false;
 	}
 
+	
+	// TODO: Should be service instead 
 	@Override
 	public MatchDay getMatchDay(int round) {
 		ObjectMapper mapper = new ObjectMapper();
-		String url = "http://api.football-data.org/v1/soccerseasons/398/fixtures?matchday=" + round;
+		String url = datasetMatchdayUrl + round;
 		
 		try {
 			
@@ -156,7 +166,7 @@ public class DefaultMatchDAO implements MatchDAO{
 			con.setRequestMethod("GET");
 
 			//Inte saker pa att denna funger aeller inte
-			con.setRequestProperty("header", "X-Auth-Token: 60cdd65ef44b4e04ab16b18b29308a5a");
+			con.setRequestProperty("header", authToken);
 			
 			MatchDay matchDay =  mapper.readValue(new URL(url), MatchDay.class);
 			
