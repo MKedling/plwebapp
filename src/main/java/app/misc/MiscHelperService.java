@@ -5,7 +5,8 @@ import java.util.HashMap;
 
 public class MiscHelperService {
 	
-	public static final long HOUR = 3600*1000; //Used for starttime convention  
+	private static final long HOUR = 3600*1000; //Used for starttime convention  
+	private static int TIME_DIFFERENCE = 2;
 	
 	public static String getTeamShortName(String teamName) {
 		
@@ -42,7 +43,7 @@ public class MiscHelperService {
 	
 	public static Timestamp convertTime(Timestamp timeStamp){
 		
-		timeStamp.setTime(timeStamp.getTime() + 2 * HOUR);
+		timeStamp.setTime(timeStamp.getTime() + TIME_DIFFERENCE * HOUR);
 		return timeStamp;
 				
 	}

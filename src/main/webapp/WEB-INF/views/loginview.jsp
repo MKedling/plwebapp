@@ -15,14 +15,6 @@
 <link type="text/css" rel="stylesheet" href="<spring:url value='resources/css/main.css' />" />
 <link type="text/css" rel="stylesheet" href="<spring:url value='resources/css/signin.css' />" />
 
-<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
-<script src="<c:url value="/resources/js/login.js" />"></script>
-
 </head>
 <body>
 
@@ -52,6 +44,19 @@
 
 </div><!-- /container -->
 
+
+<footer>
+
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<script src="<c:url value="/resources/js/login.js" />"></script>
+<script src="<c:url value="/resources/js/notie.js" />"></script>
+
+</footer>
 
 </body>
 </html>

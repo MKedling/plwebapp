@@ -77,9 +77,4 @@ jQuery(document).ready(function($) {
 	
 	getBetsAndShowInAsRoundBets();
 	
-	$.getScript("resources/js/notie.js");
-	
-	
-	
-	
 });

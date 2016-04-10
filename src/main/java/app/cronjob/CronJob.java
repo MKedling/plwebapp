@@ -1,6 +1,5 @@
 package app.cronjob;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +20,6 @@ public class CronJob {
 	
 	@Autowired
 	protected EmailService emailService;
-	
-	private static int roundWhenLastExecuted = -1;
 	
 	@Scheduled(cron="0 0 11 * * *")
 	//@Scheduled(cron="*/30 * * * * ?")

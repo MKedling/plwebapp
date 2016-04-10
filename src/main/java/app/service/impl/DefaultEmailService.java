@@ -11,6 +11,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 
 import app.dto.HighscoreEntry;
 import app.dto.User;
@@ -26,6 +27,15 @@ public class DefaultEmailService implements EmailService{
 	@Autowired
 	protected UserService userService;
 	
+	@Value("${email.server}")
+	private String server;
+	
+	@Value("${email.username}")
+	private String username;
+
+	@Value("${email.password}")
+	private String password;
+	
 	@Override
 	public void sendRoundSummary(int round) {
 		StringBuilder emailContent = createEmailContent(round);
@@ -36,6 +46,12 @@ public class DefaultEmailService implements EmailService{
 
 		for(User user : userService.getAllUsers()){
 			sendMail(server,username, password, "chefen",  user.getEmail(), "Summering runda: " + round, emailContent.toString());
+			//Sleep 0.5 seconds so that maybe all mails get sent ?
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	
