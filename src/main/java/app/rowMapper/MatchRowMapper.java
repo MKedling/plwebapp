@@ -18,7 +18,7 @@ public class MatchRowMapper implements RowMapper {
 		match.setHomeTeam(rs.getString("home_team"));
 		match.setAwayTeam(rs.getString("away_team"));
 		match.setRound(rs.getInt("round"));
-		//Convert för att kunna visa Stockholm tid i frontend
+		//Convert foer att kunna visa Stockholm tid i frontend
 		match.setStarttime(MiscHelperService.convertTime(rs.getTimestamp("start_time")));
 		match.setResult(result);
 		result.setHomeScore(rs.getInt("home_score"));

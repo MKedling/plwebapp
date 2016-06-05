@@ -15,7 +15,8 @@ public interface UserDAO {
 
 	public User getUser(String username);
 	public User getUser(int userId);
-
+	
+	public void setSqlTimeZone(String timeZone);
 
 	
 }

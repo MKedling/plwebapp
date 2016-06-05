@@ -73,7 +73,7 @@ public class AdminController extends SuperclassController{
 	@RequestMapping(value = "/admin/addNewMatches", method = RequestMethod.POST)
 	public ModelAndView addNewMatches(@RequestParam("round") int round)
 	{
-		for(int i = 1 ; i < 39 ; i ++){
+		for(int i = 1 ; i < 3 ; i ++){
 			adminMatchService.addNewMatchesToDatabase(new ArrayList<Match>(matchDayService.getAllMatchesFromMatchDay(i)));
 		}
 		ModelAndView modelAndView = new ModelAndView("adminview");

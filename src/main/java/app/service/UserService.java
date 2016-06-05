@@ -15,6 +15,8 @@ public interface UserService {
 	public User getUser(int userId);
 	public int getUserId(String username);
 	
+	public void setSqlTimeZone(String timeZone);
+	
 
 	
 }

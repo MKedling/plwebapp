@@ -8,7 +8,7 @@
 	</div>
 	
 	<c:if test="${matchType eq 'matchToBet'}" >
-		<form method="POST" action="/plapp/home/bet">
+		<form method="POST" action="/em/home/bet">
 			<div class="team-bet-row">
 		   		<span class="team_name"> ${match.homeTeam}</span>
 		   		<span class="plus_minus home_team" data-name="score_home" data-value="0" data-id="1"></span>
@@ -39,7 +39,7 @@
    	</c:if>	
    	
    	<c:if test="${matchType eq 'matchToAddResult'}" >
-	   	<form method="POST" action="/plapp/login/admin/addResult">
+	   	<form method="POST" action="/em/login/admin/addResult">
 			<div>
 		   		<span class="team_name"> ${match.homeTeam}</span>
 		   		<span class="plus_minus home_team" data-name="score_home" data-value="0" data-id="1"></span>

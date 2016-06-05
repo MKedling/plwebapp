@@ -154,7 +154,7 @@ public class DefaultMatchDAO implements MatchDAO{
 	@Override
 	public MatchDay getMatchDay(int round) {
 		ObjectMapper mapper = new ObjectMapper();
-		String url = datasetMatchdayUrl + round;
+		String url = datasetMatchdayUrl /*+ round*/;
 		
 		try {
 			

@@ -9,13 +9,13 @@
 		<div class="navbar-header col-xs-12">
 		
 				<div class="wrapper col-xs-4">
-					<a class="navbar-brand" href="/plapp/home">${userSession.user.username}</a>
+					<a class="navbar-brand" href="/em/home">${userSession.user.username}</a>
 				</div>
 				
 				<div class="wrapper col-xs-4 show-round">
 					<div class="pagination">
 						<form id="pagination_form" method="POST"
-							action="/plapp/home">
+							action="/em/home">
 							<span id="roundToView" class="plus_minus" data-name="quantity"
 								data-value="${roundToView}" data-id="101"></span>
 						</form>

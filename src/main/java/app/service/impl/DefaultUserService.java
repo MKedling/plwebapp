@@ -50,5 +50,10 @@ public class DefaultUserService implements UserService{
 		return userDAO.getUser(userId);
 	}
 
+	@Override
+	public void setSqlTimeZone(String timeZone) {
+		userDAO.setSqlTimeZone(timeZone);
+	}
+
 
 }

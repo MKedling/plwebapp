@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -43,8 +44,13 @@ public abstract class SuperclassController {
 	@Autowired
 	protected PasswordEncoder passwordEncoder;
 	
+	@Value("${sql.TimeZone}")
+	private String sqlTimeZone;
+	
 	
 	public void addBetsAndMatchesToModel(ModelAndView modelAndView, int roundToView){
+		
+		userService.setSqlTimeZone(sqlTimeZone);
 		
 		List<Bet> allBets = bettingService.getAllBets(userSession.getUser().getID());
 		List<Bet> allBetsRound = bettingService.getAllBetsRound(userSession.getUser().getID(), roundToView);
@@ -71,7 +77,6 @@ public abstract class SuperclassController {
 		modelAndView.addObject("roundHighscore" , scoreService.getRoundHighscore(roundToView));
 
 		modelAndView.addObject("roundHighscore" , scoreService.getRoundHighscore(roundToView));
-		
 		
 		
 	}

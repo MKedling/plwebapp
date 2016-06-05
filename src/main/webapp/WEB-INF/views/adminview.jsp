@@ -30,17 +30,17 @@
 	</div>	
 	<div>
 		
-		<form method="post" action="/plapp/admin/addNewMatches">
+		<form method="post" action="/em/admin/addNewMatches">
 			<input type="number" name="round">
 			<input type="submit" value="lägg till">
 		</form>
 		
-		<form method="post" action="/plapp/admin/addResultMatchDay">
+		<form method="post" action="/em/admin/addResultMatchDay">
 			<input type="number" name="matchDay">
 			<input type="submit" value="add results">
 		</form>
 		
-		<form method="post" action="/plapp/admin/addBets">
+		<form method="post" action="/em/admin/addBets">
 			<input type="submit" value="add bets">
 		</form>
 	

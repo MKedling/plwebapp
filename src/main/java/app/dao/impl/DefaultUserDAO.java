@@ -149,7 +149,11 @@ public class DefaultUserDAO implements UserDAO{
 		return user;
 	}
 
-	
+	@Override
+	public void setSqlTimeZone(String timeZone) {
+		String query = "SET GLOBAL time_zone = '" + timeZone +"'";
+		jdbcTemplate.execute(query);
+	}
 
 
 }

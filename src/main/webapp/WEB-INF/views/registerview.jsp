@@ -22,7 +22,7 @@
 
 <div class="container">
 
-	<form method="post" action="/plapp/register" class="form-register">
+	<form method="post" action="/em/register" class="form-register">
   		<h2 class="form-signin-heading">Register</h2>
   		
   		<label for="username" class="sr-only">Username</label>

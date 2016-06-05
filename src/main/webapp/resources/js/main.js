@@ -1,4 +1,4 @@
-var webContext = '/plapp/';
+var webContext = '/em/';
 var getAllBetsUrl =  webContext + 'home/getCorrectedBetsAll';
 var getRoundBetsUrl = webContext + 'home/getStartedBetsRound';
 var getBetsRoundUrl = webContext + 'home/getBetsRound';

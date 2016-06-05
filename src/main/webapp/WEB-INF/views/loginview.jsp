@@ -21,7 +21,7 @@
 
 <div class="container">
 
-	<form method="post" action="/plapp/login" class="form-signin">
+	<form method="post" action="/em/login" class="form-signin">
 		<h2 class="form-signin-heading">Please sign in</h2>
 
 		<label for="username" class="sr-only">Username</label> 
@@ -30,7 +30,7 @@
 		<input id="password" name="password" type="password" value="pw" class="form-control" placeholder="Password" required>
 
 		<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-		<a href="/plapp/register" class="btn btn-lg btn-primary btn-block" type="submit">Register</a>
+		<a href="/em/register" class="btn btn-lg btn-primary btn-block" type="submit">Register</a>
 	</form>
 
 
